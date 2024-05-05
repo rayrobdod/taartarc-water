@@ -12,6 +12,8 @@
 *.4bpp
 *.8bpp
 *.gbapal
+*.tilemap
+*.tileset.png
 *.lz
 *.rl
 *.latfont
