@@ -3,11 +3,17 @@
 
 #include <stdbool.h>
 
+struct Slice {
+    int width;
+    int height;
+};
+
 struct Options {
     char *imageFilePath;
     char *tilesetPngFilePath;
     char *tilesetBppFilePath;
     char *tilemapFilePath;
+    struct Slice slice;
     int bitDepth;
     int numTiles;
     bool isAffineMap;

@@ -2,6 +2,7 @@
 #define DEDUPLICATETILES_H
 
 #include "../gbagfx/gfx.h"
+#include "options.h"
 
 struct Tileset {
     unsigned char *data;
@@ -16,6 +17,7 @@ void DeduplicateTiles(
     , unsigned maxTilemapSize
     , bool isAffine
     , unsigned paletteBase
+    , struct Slice slice
     );
 
 #endif // DEDUPLICATETILES_H

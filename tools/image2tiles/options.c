@@ -1,5 +1,6 @@
 #include "options.h"
 
+#include <limits.h>
 #include <string.h>
 #include "../gbagfx/global.h"
 #include "../gbagfx/util.h"
@@ -8,7 +9,14 @@ void ParseOptions(struct Options *options, int argc, char **argv)
 {
     if (argc < 2)
         FATAL_ERROR("Usage: image2tiles INPUT_PATH "
-            "[-t tilemap] [[-d bitdepth] -o tilesetBpp] [-O tilesetPng]\n"
+            "[-tilemap tilemap] "
+            "[-tileset tileset.[48]bpp] "
+            "[-tileset_png tileset.png] "
+            "[-num_tiles maximum_tile_count] "
+            "[-affine] "
+            "[-slice_width slice_width_in_tiles] "
+            "[-slice_height slice_height_in_tiles] "
+            "\n"
             );
 
     options->imageFilePath = NULL;
@@ -17,6 +25,8 @@ void ParseOptions(struct Options *options, int argc, char **argv)
     options->tilemapFilePath = NULL;
     options->numTiles = 256;
     options->isAffineMap = false;
+    options->slice.width = USHRT_MAX;
+    options->slice.height = USHRT_MAX;
 
     for (int i = 1; i < argc; i++)
     {
@@ -57,6 +67,30 @@ void ParseOptions(struct Options *options, int argc, char **argv)
 
             if (options->numTiles < 1)
                 FATAL_ERROR("num_tiles width must be positive.\n");
+        }
+        else if (strcmp(option, "-slice_width") == 0)
+        {
+            if (i + 1 >= argc)
+                FATAL_ERROR("No value following \"-slice_width\".\n");
+            i++;
+
+            if (!ParseNumber(argv[i], NULL, 10, &(options->slice.width)))
+                FATAL_ERROR("Failed to parse data slice_width.\n");
+
+            if (options->slice.width < 1)
+                FATAL_ERROR("slice_width width must be positive.\n");
+        }
+        else if (strcmp(option, "-slice_height") == 0)
+        {
+            if (i + 1 >= argc)
+                FATAL_ERROR("No value following \"-slice_height\".\n");
+            i++;
+
+            if (!ParseNumber(argv[i], NULL, 10, &(options->slice.height)))
+                FATAL_ERROR("Failed to parse data slice_height.\n");
+
+            if (options->slice.height < 1)
+                FATAL_ERROR("slice_height height must be positive.\n");
         }
         else if (strcmp(option, "-affine") == 0)
         {

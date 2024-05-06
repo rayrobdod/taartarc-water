@@ -35,7 +35,7 @@ int main(int argc, char **argv)
     ReadPng(options.imageFilePath, &inImage);
     ReadPngPalette(options.imageFilePath, &(inImage.palette));
 
-    DeduplicateTiles(&inImage, &outImage, &outBpp, options.numTiles, options.isAffineMap, 0);
+    DeduplicateTiles(&inImage, &outImage, &outBpp, options.numTiles, options.isAffineMap, 0, options.slice);
 
     if (NULL != options.tilesetPngFilePath)
     {

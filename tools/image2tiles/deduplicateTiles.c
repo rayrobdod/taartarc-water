@@ -7,8 +7,9 @@
 #define TILE_DIM (8)
 #define TILESET_WIDTH (16)
 #define NSWAP(x) ({ (((x) >> 4) & 0xF) | (((x) << 4) & 0xF0); })
+#define MIN(a, b) (a < b ? a : b)
 
-void DeduplicateTiles(struct Image *inImage, struct Image *outImage, struct Tileset *outBpp, unsigned maxTilesetSize, bool isAffine, unsigned paletteBase)
+void DeduplicateTiles(struct Image *inImage, struct Image *outImage, struct Tileset *outBpp, unsigned maxTilesetSize, bool isAffine, unsigned paletteBase, struct Slice slice)
 {
     outImage->width = TILESET_WIDTH * TILE_DIM;
     outImage->height = ((maxTilesetSize % TILESET_WIDTH == 0 ? 0 : 1) + maxTilesetSize / TILESET_WIDTH) * TILE_DIM;
@@ -28,9 +29,9 @@ void DeduplicateTiles(struct Image *inImage, struct Image *outImage, struct Tile
         outImage->tilemap.data.non_affine = calloc(outImage->tilemap.size, sizeof(struct NonAffineTile));
     }
 
-    const int inputWidthInTiles = inImage->width / TILE_DIM;
+    const int inputWidthInTiles = MIN(slice.width, inImage->width / TILE_DIM);
     const int inputWidthInBytes = inImage->width * inImage->bitDepth / BITS_PER_BYTE;
-    const int inputHeightInTiles = inImage->height / TILE_DIM;
+    const int inputHeightInTiles = MIN(slice.height, inImage->height / TILE_DIM);
     const int tileWidthInBytes = inImage->bitDepth * TILE_DIM / BITS_PER_BYTE;
     const int outputWidthInBytes = outImage->width * inImage->bitDepth / BITS_PER_BYTE;
     const int tileSizeInBytes = TILE_DIM * tileWidthInBytes;
