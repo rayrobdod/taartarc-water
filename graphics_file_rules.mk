@@ -14,7 +14,7 @@ ROULETTEGFXDIR := graphics/roulette
 SLOTMACHINEGFXDIR := graphics/slot_machine
 PKNAVGFXDIR := graphics/pokenav
 PKNAVOPTIONSGFXDIR := graphics/pokenav/options
-PKNAVREGIONGFXDIR := graphics/pokenav/region_map
+REGIONGFXDIR := graphics/region_map
 WALLPAPERGFXDIR := graphics/pokemon_storage/wallpapers
 OBJEVENTGFXDIR := graphics/object_events
 MISCGFXDIR := graphics/misc
@@ -305,8 +305,17 @@ graphics/title_screen/pokemon_logo.gbapal: %.gbapal: %.pal
 graphics/pokemon_jump/bg.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 63 -Wnum_tiles
 
-$(PKNAVREGIONGFXDIR)/map.8bpp $(PKNAVREGIONGFXDIR)/map.tilemap $(PKNAVREGIONGFXDIR)/map.tileset.png: $(PKNAVREGIONGFXDIR)/map.png
-	$(IMGTILE) $< -tilemap $(PKNAVREGIONGFXDIR)/map.tilemap -tileset $(PKNAVREGIONGFXDIR)/map.8bpp -tileset_png $(PKNAVREGIONGFXDIR)/map.tileset.png -num_tiles 233 -affine
+$(REGIONGFXDIR)/hoenn_pokedex.8bpp $(REGIONGFXDIR)/hoenn_pokedex.tilemap: $(REGIONGFXDIR)/hoenn.png
+	$(IMGTILE) $< -tileset $(REGIONGFXDIR)/hoenn_pokedex.8bpp -tilemap $(REGIONGFXDIR)/hoenn_pokedex.tilemap -num_tiles 233 -slice_width 32 -slice_height 32
+
+$(REGIONGFXDIR)/hoenn_affine.8bpp $(REGIONGFXDIR)/hoenn_affine.tilemap $(REGIONGFXDIR)/hoenn_affine.tileset.png: $(REGIONGFXDIR)/hoenn.png
+	$(IMGTILE) $< -tilemap $(REGIONGFXDIR)/hoenn_affine.tilemap -tileset $(REGIONGFXDIR)/hoenn_affine.8bpp -tileset_png $(REGIONGFXDIR)/hoenn_affine.tileset.png -num_tiles 233 -affine
+
+$(REGIONGFXDIR)/*.gbapal: $(REGIONGFXDIR)/*.png
+	$(GFX) $< $@
+	mv $@ $@.tmp
+	cat $@.tmp | tail --bytes=+225 | head --bytes=64 > $@
+	rm $@.tmp
 
 $(MISCGFXDIR)/japanese_hof.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 29 -Wnum_tiles
