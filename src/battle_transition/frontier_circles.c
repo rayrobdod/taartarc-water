@@ -1,7 +1,7 @@
 #include "global.h"
 #include "sprite.h"
 #include "decompress.h"
-#include "battle_transition_frontier.h"
+#include "battle_transition_tasks/frontier_circles.h"
 #include "battle_transition.h"
 #include "task.h"
 #include "palette.h"
