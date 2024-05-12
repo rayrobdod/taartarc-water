@@ -1,6 +1,7 @@
 #include "global.h"
 #include "battle.h"
 #include "battle_transition.h"
+#include "battle_transition_shared.h"
 #include "battle_transition_tasks.h"
 #include "bg.h"
 #include "decompress.h"
@@ -29,9 +30,6 @@
 
 #define B_TRANS_DMA_FLAGS (1 | ((DMA_SRC_INC | DMA_DEST_FIXED | DMA_REPEAT | DMA_16BIT | DMA_START_HBLANK | DMA_ENABLE) << 16))
 
-// Used by each transition task to determine which of its functions to call
-#define tState          data[0]
-
 // Below are data defines for InitBlackWipe and UpdateBlackWipe, for the TransitionData data array.
 // These will be re-used by any transitions that use these functions.
 #define tWipeStartX data[0]
@@ -45,12 +43,6 @@
 #define tWipeXDist  data[8]
 #define tWipeYDist  data[9]
 #define tWipeTemp   data[10]
-
-#define SET_TILE(ptr, posY, posX, tile) \
-{                                       \
-    u32 index = (posY) * 32 + posX;     \
-    ptr[index] = tile | (0xF0 << 8);    \
-}
 
 struct TransitionData
 {
@@ -83,9 +75,6 @@ struct RectangularSpiralLine
     s16 reboundPosition;
     bool8 outward;
 };
-
-typedef bool8 (*TransitionStateFunc)(struct Task *task);
-typedef bool8 (*TransitionSpriteCallback)(struct Sprite *sprite);
 
 static bool8 Transition_StartIntro(struct Task *);
 static bool8 Transition_WaitForIntro(struct Task *);
@@ -264,8 +253,6 @@ static void Mugshots_CreateTrainerPics(struct Task *);
 static void VBlankCB_Mugshots(void);
 static void VBlankCB_MugshotsFadeOut(void);
 static void HBlankCB_Mugshots(void);
-static void InitTransitionData(void);
-static void FadeScreenBlack(void);
 static void CreateIntroTask(s16, s16, s16, s16, s16);
 static void SetCircularMask(u16 *, s16, s16, s16);
 static void SetSinWave(s16 *, s16, s16, s16, s16, s16);
@@ -4002,7 +3989,7 @@ static bool8 TransitionIntro_FadeFromGray(struct Task *task)
 // General transition functions
 //-----------------------------------
 
-static void InitTransitionData(void)
+void InitTransitionData(void)
 {
     memset(sTransitionData, 0, sizeof(*sTransitionData));
     GetCameraOffsetWithPan(&sTransitionData->cameraX, &sTransitionData->cameraY);
@@ -4034,7 +4021,7 @@ void GetBg0TilesDst(u16 **tilemap, u16 **tileset)
     *tileset = (u16 *)(BG_VRAM + charBase);
 }
 
-static void FadeScreenBlack(void)
+void FadeScreenBlack(void)
 {
     BlendPalettes(PALETTES_ALL, 16, RGB_BLACK);
 }
