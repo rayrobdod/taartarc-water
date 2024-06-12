@@ -2,7 +2,7 @@
 #include "battle.h"
 #include "battle_transition.h"
 #include "battle_transition_shared.h"
-#include "battle_transition_tasks.h"
+#include "battle_transition_tasks/_index.h"
 #include "bg.h"
 #include "decompress.h"
 #include "event_object_movement.h"
@@ -328,7 +328,7 @@ static const TaskFunc sTasks_Intro[B_TRANSITION_COUNT] =
 // This task will call the functions that do the transition effects.
 static const TaskFunc sTasks_Main[B_TRANSITION_COUNT] =
 {
-    #include "battle_transition_tasks.inc"
+    #include "battle_transition_tasks_main/_index.h"
 };
 
 static const TransitionStateFunc sTaskHandlers[] =
