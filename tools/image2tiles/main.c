@@ -39,6 +39,9 @@ int main(int argc, char **argv)
 
     if (NULL != options.tilesetPngFilePath)
     {
+        if (outImage.palette.numColors > (1 << outImage.bitDepth))
+            outImage.palette.numColors = (1 << outImage.bitDepth);
+
         WritePng(options.tilesetPngFilePath, &outImage);
     }
 
