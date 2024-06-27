@@ -12,9 +12,10 @@ struct Tileset {
 /// Creates a tileset and tilemap from an input image
 void DeduplicateTiles(
       struct Image *inImage
+    , struct Image *prefixImage
     , struct Image *outImage
     , struct Tileset *outBpp
-    , unsigned maxTilemapSize
+    , unsigned maxTilesetSize
     , bool isAffine
     , unsigned paletteBase
     , struct Slice slice

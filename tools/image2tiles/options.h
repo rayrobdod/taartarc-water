@@ -10,6 +10,7 @@ struct Slice {
 
 struct Options {
     char *imageFilePath;
+    char *prefixFilePath;
     char *tilesetPngFilePath;
     char *tilesetBppFilePath;
     char *tilemapFilePath;

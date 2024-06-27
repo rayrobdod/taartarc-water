@@ -12,6 +12,7 @@ void ParseOptions(struct Options *options, int argc, char **argv)
             "[-tilemap tilemap] "
             "[-tileset tileset.[48]bpp] "
             "[-tileset_png tileset.png] "
+            "[-prefix tileset.png] "
             "[-num_tiles maximum_tile_count] "
             "[-affine] "
             "[-slice_width slice_width_in_tiles] "
@@ -55,6 +56,13 @@ void ParseOptions(struct Options *options, int argc, char **argv)
                 FATAL_ERROR("No file following \"-tileset_png\".\n");
             i++;
             options->tilesetPngFilePath = argv[i];
+        }
+        else if (strcmp(option, "-prefix") == 0)
+        {
+            if (i + 1 >= argc)
+                FATAL_ERROR("No prefix file following \"-prefix\".\n");
+            i++;
+            options->prefixFilePath = argv[i];
         }
         else if (strcmp(option, "-num_tiles") == 0)
         {

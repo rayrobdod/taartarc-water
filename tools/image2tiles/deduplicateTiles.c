@@ -9,7 +9,16 @@
 #define NSWAP(x) ({ (((x) >> 4) & 0xF) | (((x) << 4) & 0xF0); })
 #define MIN(a, b) (a < b ? a : b)
 
-void DeduplicateTiles(struct Image *inImage, struct Image *outImage, struct Tileset *outBpp, unsigned maxTilesetSize, bool isAffine, unsigned paletteBase, struct Slice slice)
+void DeduplicateTiles(
+      struct Image *inImage
+    , struct Image *prefixImage
+    , struct Image *outImage
+    , struct Tileset *outBpp
+    , unsigned maxTilesetSize
+    , bool isAffine
+    , unsigned paletteBase
+    , struct Slice slice
+)
 {
     outImage->width = TILESET_WIDTH * TILE_DIM;
     outImage->height = ((maxTilesetSize % TILESET_WIDTH == 0 ? 0 : 1) + maxTilesetSize / TILESET_WIDTH) * TILE_DIM;
@@ -46,6 +55,52 @@ void DeduplicateTiles(struct Image *inImage, struct Image *outImage, struct Tile
     }
 
     int tilesetSize = 0;
+
+    if (NULL != prefixImage)
+    {
+        const int prefixWidthInTiles = prefixImage->width / TILE_DIM;
+        const int prefixWidthInBytes = prefixImage->width * prefixImage->bitDepth / BITS_PER_BYTE;
+        const int prefixHeightInTiles = prefixImage->height / TILE_DIM;
+
+        for (int tile_y = 0; tile_y < prefixHeightInTiles; tile_y++)
+        for (int tile_x = 0; tile_x < prefixWidthInTiles; tile_x++)
+        {
+            const int prefixByteStart = tile_x * tileWidthInBytes + tile_y * prefixWidthInTiles * TILE_DIM;
+
+            for (int pixel_y = 0; pixel_y < TILE_DIM; pixel_y++)
+            for (int pixel_x = 0; pixel_x < tileWidthInBytes; pixel_x++)
+            {
+                switch (inImage->bitDepth)
+                {
+                case 4:
+                    currentTile[pixel_x + tileWidthInBytes * pixel_y] = NSWAP(prefixImage->pixels[prefixByteStart + pixel_x + pixel_y * prefixWidthInBytes]);
+                    break;
+                case 8:
+                    currentTile[pixel_x + tileWidthInBytes * pixel_y] = prefixImage->pixels[prefixByteStart + pixel_x + pixel_y * prefixWidthInBytes];
+                    break;
+                default:
+                    FATAL_ERROR("Non-implemented bit depth\n");
+                    break;
+                }
+            }
+
+            if (tilesetSize >= maxTilesetSize)
+                FATAL_ERROR("Image contains more than %d tiles\n", maxTilesetSize);
+
+            for (int i = 0; i < tileSizeInBytes; i++)
+                tiles[tilesetSize][i] = currentTile[i];
+
+            const int outputByteStart = (tilesetSize % TILESET_WIDTH) * tileWidthInBytes + (tilesetSize / TILESET_WIDTH) * tileWidthInBytes * TILESET_WIDTH * TILE_DIM;
+
+            for (int pixel_y = 0; pixel_y < TILE_DIM; pixel_y++)
+            for (int pixel_x = 0; pixel_x < tileWidthInBytes; pixel_x++)
+            {
+                outImage->pixels[outputByteStart + pixel_x + pixel_y * outputWidthInBytes] = prefixImage->pixels[prefixByteStart + pixel_x + pixel_y * prefixWidthInBytes];
+            }
+            tilesetSize++;
+        }
+    }
+
     for (int tile_y = 0; tile_y < inputHeightInTiles; tile_y++)
     for (int tile_x = 0; tile_x < inputWidthInTiles; tile_x++)
     {

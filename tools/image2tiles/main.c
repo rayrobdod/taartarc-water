@@ -11,6 +11,8 @@ int main(int argc, char **argv)
     struct Options options;
     struct Image inImage = {0};
     struct Image outImage = {0};
+    struct Image prefixImage = {0};
+    struct Image *prefixImageP = NULL;
     struct Tileset outBpp;
 
     ParseOptions(&options, argc, argv);
@@ -32,10 +34,26 @@ int main(int argc, char **argv)
     inImage.tilemap.data.affine = NULL;
     outImage.bitDepth = inImage.bitDepth;
 
+    if (NULL != options.prefixFilePath)
+    {
+        prefixImageP = &prefixImage;
+        prefixImage.bitDepth = inImage.bitDepth;
+        ReadPng(options.prefixFilePath, &prefixImage);
+    }
+
     ReadPng(options.imageFilePath, &inImage);
     ReadPngPalette(options.imageFilePath, &(inImage.palette));
 
-    DeduplicateTiles(&inImage, &outImage, &outBpp, options.numTiles, options.isAffineMap, 0, options.slice);
+    DeduplicateTiles(
+          &inImage
+        , prefixImageP
+        , &outImage
+        , &outBpp
+        , options.numTiles
+        , options.isAffineMap
+        , 0
+        , options.slice
+        );
 
     if (NULL != options.tilesetPngFilePath)
     {
@@ -71,6 +89,8 @@ int main(int argc, char **argv)
     free(outBpp.data);
     FreeImage(&inImage);
     FreeImage(&outImage);
+    if (NULL != prefixImageP)
+        FreeImage(prefixImageP);
 
     return 0;
 }
