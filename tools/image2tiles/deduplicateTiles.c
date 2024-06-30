@@ -65,7 +65,7 @@ void DeduplicateTiles(
         for (int tile_y = 0; tile_y < prefixHeightInTiles; tile_y++)
         for (int tile_x = 0; tile_x < prefixWidthInTiles; tile_x++)
         {
-            const int prefixByteStart = tile_x * tileWidthInBytes + tile_y * prefixWidthInTiles * TILE_DIM;
+            const int prefixByteStart = tile_x * tileWidthInBytes + tile_y * prefixWidthInBytes * TILE_DIM;
 
             for (int pixel_y = 0; pixel_y < TILE_DIM; pixel_y++)
             for (int pixel_x = 0; pixel_x < tileWidthInBytes; pixel_x++)

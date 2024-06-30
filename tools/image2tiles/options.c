@@ -24,6 +24,7 @@ void ParseOptions(struct Options *options, int argc, char **argv)
     options->tilesetPngFilePath = NULL;
     options->tilesetBppFilePath = NULL;
     options->tilemapFilePath = NULL;
+    options->prefixFilePath = NULL;
     options->numTiles = 256;
     options->isAffineMap = false;
     options->slice.width = USHRT_MAX;
