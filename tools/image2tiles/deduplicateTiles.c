@@ -242,6 +242,8 @@ void DeduplicateTiles(
         }
     }
 
+    outBpp->size = tilesetSize * tileSizeInBytes;
+
     free(currentTile);
     free(tiles);
 }

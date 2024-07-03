@@ -309,7 +309,7 @@ AUTO_GEN_TARGETS += $(PKNAVREGIONGFXDIR)/map.bin
 AUTO_GEN_TARGETS += $(PKNAVREGIONGFXDIR)/map.tileset.png
 
 $(PKNAVREGIONGFXDIR)/map.8bpp $(PKNAVREGIONGFXDIR)/map.bin $(PKNAVREGIONGFXDIR)/map.tileset.png: $(PKNAVREGIONGFXDIR)/map.png
-	$(IMGTILE) $< -tilemap $(PKNAVREGIONGFXDIR)/map.bin -tileset $(PKNAVREGIONGFXDIR)/map.8bpp -tileset_png $(PKNAVREGIONGFXDIR)/map.tileset.png -num_tiles 233 -affine
+	$(IMGTILE) $< -tilemap $(PKNAVREGIONGFXDIR)/map.bin -tileset $(PKNAVREGIONGFXDIR)/map.8bpp -tileset_png $(PKNAVREGIONGFXDIR)/map.tileset.png -affine
 
 $(MISCGFXDIR)/japanese_hof.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 29 -Wnum_tiles
