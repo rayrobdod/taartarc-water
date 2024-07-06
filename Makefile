@@ -1,9 +1,4 @@
 TOOLCHAIN := $(DEVKITARM)
-COMPARE ?= 0
-
-ifeq (compare,$(MAKECMDGOALS))
-  COMPARE := 1
-endif
 
 # don't use dkP's base_tools anymore
 # because the redefinition of $(CC) conflicts
@@ -36,7 +31,7 @@ else
 EXE :=
 endif
 
-TITLE        := POKEMON EMER
+TITLE        := TAARTARCYOSH
 GAME_CODE    := BPEE
 MAKER_CODE   := 01
 REVISION     := 0
@@ -70,12 +65,12 @@ else
   CPP := $(PREFIX)cpp
 endif
 
-ROM_NAME := pokeemerald_agbcc.gba
+ROM_NAME := taartarcyoshord_agbcc.gba
 ELF_NAME := $(ROM_NAME:.gba=.elf)
 MAP_NAME := $(ROM_NAME:.gba=.map)
 OBJ_DIR_NAME := build/emerald
 
-MODERN_ROM_NAME := pokeemerald.gba
+MODERN_ROM_NAME := taartarcyoshord.gba
 MODERN_ELF_NAME := $(MODERN_ROM_NAME:.gba=.elf)
 MODERN_MAP_NAME := $(MODERN_ROM_NAME:.gba=.map)
 MODERN_OBJ_DIR_NAME := build/modern
@@ -85,6 +80,7 @@ SHELL := bash -o pipefail
 ELF = $(ROM:.gba=.elf)
 MAP = $(ROM:.gba=.map)
 SYM = $(ROM:.gba=.sym)
+PATCH = $(ROM:.gba=.vcdiff)
 
 TEST_OBJ_DIR_NAME_MODERN := build/modern-test
 TEST_OBJ_DIR_NAME_AGBCC := build/test
@@ -199,7 +195,7 @@ infoshell = $(foreach line, $(shell $1 | sed "s/ /__SPACE__/g"), $(info $(subst 
 # Disable dependency scanning for clean/tidy/tools
 # Use a separate minimal makefile for speed
 # Since we don't need to reload most of this makefile
-ifeq (,$(filter-out all rom compare agbcc modern check libagbsyscall syms $(TESTELF),$(MAKECMDGOALS)))
+ifeq (,$(filter-out all rom patch compare agbcc modern check libagbsyscall syms $(TESTELF),$(MAKECMDGOALS)))
 $(call infoshell, $(MAKE) -f make_tools.mk)
 else
 NODEP ?= 1
@@ -276,12 +272,6 @@ $(CHECKTOOLDIRS):
 	@$(MAKE) -C $@
 
 rom: $(ROM)
-ifeq ($(COMPARE),1)
-	@$(SHA1) rom.sha1
-endif
-
-# For contributors to make sure a change didn't affect the contents of the ROM.
-compare: all
 
 clean: mostlyclean clean-tools clean-check-tools
 
@@ -544,3 +534,12 @@ libagbsyscall:
 
 $(SYM): $(ELF)
 	$(OBJDUMP) -t $< | sort -u | grep -E "^0[2389]" | $(PERL) -p -e 's/^(\w{8}) (\w).{6} \S+\t(\w{8}) (\S+)$$/\1 \2 \3 \4/g' > $@
+
+###
+
+patch: $(PATCH)
+
+$(PATCH): $(ROM) pokeemerald.gba
+	sha1sum -c pokeemerald.sha1
+	xdelta3 encode -f -s pokeemerald.gba $(ROM) $(PATCH)
+	ls -l $(PATCH)
