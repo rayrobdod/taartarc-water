@@ -45,8 +45,11 @@
 #include "mystery_gift.h"
 #include "union_room_chat.h"
 #include "constants/items.h"
+#include "string_util.h"
 
 extern const u8 EventScript_ResetAllMapFlags[];
+
+static const u8 sText_PlayerName[] = _("LANCE");
 
 static void ClearFrontierRecord(void);
 static void WarpToTruck(void);
@@ -160,6 +163,8 @@ void NewGameInitData(void)
     ClearSav1();
     ClearSav3();
     ClearAllMail();
+    gSaveBlock2Ptr->playerGender = MALE;
+    StringCopy(gSaveBlock2Ptr->playerName, sText_PlayerName);
     gSaveBlock2Ptr->specialSaveWarpFlags = 0;
     gSaveBlock2Ptr->gcnLinkFlags = 0;
     InitPlayerTrainerId();

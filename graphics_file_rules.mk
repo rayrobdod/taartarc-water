@@ -442,8 +442,6 @@ $(SLOTMACHINEGFXDIR)/reel_time_gfx.4bpp: $(SLOTMACHINEGFXDIR)/reel_time_pikachu.
                                          $(SLOTMACHINEGFXDIR)/reel_time_machine.4bpp
 	@cat $^ >$@
 
-graphics/birch_speech/unused_beauty.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 822 -Wnum_tiles
 
 
 
