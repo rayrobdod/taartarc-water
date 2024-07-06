@@ -27,6 +27,9 @@ contest_types := cool beauty cute smart tough
 
 ### Tilesets ###
 
+$(patsubst %,build/tilesets/primary/aquarium/palettes/%.pal,00 01 02 03 04 05 06 07 08 09 10 11 12) build/tilesets/primary/aquarium/tiles.png &: $(TILESETGFXDIR)/primary/aquarium/top.png $(TILESETGFXDIR)/primary/aquarium/middle.png $(TILESETGFXDIR)/primary/aquarium/bottom.png $(TILESETGFXDIR)/primary/aquarium/attributes.csv
+	porytiles compile-primary --dual-layer --Wall -o build/tilesets/primary/aquarium $(TILESETGFXDIR)/primary/aquarium include/constants/metatile_behaviors.h
+
 $(TILESETGFXDIR)/secondary/petalburg/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 159 -Wnum_tiles
 
