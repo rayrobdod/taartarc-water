@@ -149,10 +149,22 @@ void ResetMenuAndMonGlobals(void)
     ResetPokeblockScrollPositions();
 }
 
+void GivePlayerStartingParty(void)
+{
+    CreateMon(&gPlayerParty[0], SPECIES_DRAGONITE, 50, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    CreateMon(&gPlayerParty[1], SPECIES_AERODACTYL, 48, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    CreateMon(&gPlayerParty[2], SPECIES_CHARIZARD, 48, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    CreateMon(&gPlayerParty[3], SPECIES_GYARADOS, 48, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+}
+
 void NewGameInitData(void)
 {
     if (gSaveFileStatus == SAVE_STATUS_EMPTY || gSaveFileStatus == SAVE_STATUS_CORRUPT)
         RtcReset();
+
+    gSaveBlock2Ptr->playerGender = MALE;
+    StringCopy(gSaveBlock2Ptr->playerName, sText_PlayerName);
+    SeedRngAndSetTrainerId();
 
     gDifferentSaveFile = TRUE;
     gSaveBlock2Ptr->encryptionKey = 0;
@@ -163,8 +175,6 @@ void NewGameInitData(void)
     ClearSav1();
     ClearSav3();
     ClearAllMail();
-    gSaveBlock2Ptr->playerGender = MALE;
-    StringCopy(gSaveBlock2Ptr->playerName, sText_PlayerName);
     gSaveBlock2Ptr->specialSaveWarpFlags = 0;
     gSaveBlock2Ptr->gcnLinkFlags = 0;
     InitPlayerTrainerId();
@@ -209,6 +219,7 @@ void NewGameInitData(void)
     WipeTrainerNameRecords();
     ResetTrainerHillResults();
     ResetContestLinkResults();
+    GivePlayerStartingParty();
 }
 
 static void ResetMiniGamesRecords(void)
