@@ -297,6 +297,21 @@ $(FONTGFXDIR)/frlg_male.fwjpnfont: $(FONTGFXDIR)/japanese_frlg_male.png
 $(FONTGFXDIR)/frlg_female.fwjpnfont: $(FONTGFXDIR)/japanese_frlg_female.png
 	$(GFX) $< $@
 
+### Region Map
+
+AUTO_GEN_TARGETS += $(REGIONGFXDIR)/hoenn_affine.tileset.png
+
+$(REGIONGFXDIR)/hoenn_pokedex.8bpp $(REGIONGFXDIR)/hoenn_pokedex.tilemap: $(REGIONGFXDIR)/hoenn.png
+	$(IMGTILE) $< -tileset $(REGIONGFXDIR)/hoenn_pokedex.8bpp -tilemap $(REGIONGFXDIR)/hoenn_pokedex.tilemap -num_tiles 233 -slice_width 32 -slice_height 32
+
+$(REGIONGFXDIR)/hoenn_affine.8bpp $(REGIONGFXDIR)/hoenn_affine.tilemap $(REGIONGFXDIR)/hoenn_affine.tileset.png: $(REGIONGFXDIR)/hoenn.png
+	$(IMGTILE) $< -tileset $(REGIONGFXDIR)/hoenn_affine.8bpp -tilemap $(REGIONGFXDIR)/hoenn_affine.tilemap -tileset_png $(REGIONGFXDIR)/hoenn_affine.tileset.png -num_tiles 233 -affine
+
+$(REGIONGFXDIR)/*.gbapal: $(REGIONGFXDIR)/*.png
+	$(GFX) $< $@
+	mv $@ $@.tmp
+	cat $@.tmp | tail --bytes=+225 | head --bytes=64 > $@
+	rm $@.tmp
 
 ### Miscellaneous ###
 graphics/title_screen/pokemon_logo.gbapal: %.gbapal: %.pal
@@ -304,18 +319,6 @@ graphics/title_screen/pokemon_logo.gbapal: %.gbapal: %.pal
 
 graphics/pokemon_jump/bg.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 63 -Wnum_tiles
-
-$(REGIONGFXDIR)/hoenn_pokedex.8bpp $(REGIONGFXDIR)/hoenn_pokedex.tilemap: $(REGIONGFXDIR)/hoenn.png
-	$(IMGTILE) $< -tileset $(REGIONGFXDIR)/hoenn_pokedex.8bpp -tilemap $(REGIONGFXDIR)/hoenn_pokedex.tilemap -num_tiles 233 -slice_width 32 -slice_height 32
-
-$(REGIONGFXDIR)/hoenn_affine.8bpp $(REGIONGFXDIR)/hoenn_affine.tilemap $(REGIONGFXDIR)/hoenn_affine.tileset.png: $(REGIONGFXDIR)/hoenn.png
-	$(IMGTILE) $< -tilemap $(REGIONGFXDIR)/hoenn_affine.tilemap -tileset $(REGIONGFXDIR)/hoenn_affine.8bpp -tileset_png $(REGIONGFXDIR)/hoenn_affine.tileset.png -num_tiles 233 -affine
-
-$(REGIONGFXDIR)/*.gbapal: $(REGIONGFXDIR)/*.png
-	$(GFX) $< $@
-	mv $@ $@.tmp
-	cat $@.tmp | tail --bytes=+225 | head --bytes=64 > $@
-	rm $@.tmp
 
 $(MISCGFXDIR)/japanese_hof.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 29 -Wnum_tiles
@@ -676,12 +679,6 @@ $(PKNAVGFXDIR)/device_outline.4bpp: %.4bpp: %.png
 
 $(PKNAVGFXDIR)/match_call/ui.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 13 -Wnum_tiles
-
-$(POKEDEXGFXDIR)/region_map.8bpp: %.8bpp: %.png
-	$(GFX) $< $@ -num_tiles 232 -Wnum_tiles
-
-$(POKEDEXGFXDIR)/region_map_affine.8bpp: %.8bpp: %.png
-	$(GFX) $< $@ -num_tiles 233 -Wnum_tiles
 
 $(NAMINGGFXDIR)/cursor.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 5 -Wnum_tiles

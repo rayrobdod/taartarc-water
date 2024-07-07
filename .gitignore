@@ -12,8 +12,6 @@
 *.4bpp
 *.8bpp
 *.gbapal
-*.tilemap
-*.tileset.png
 *.lz
 *.rl
 *.latfont
@@ -21,6 +19,8 @@
 *.fwjpnfont
 sound/**/*.bin
 sound/songs/midi/*.s
+graphics/region_map/*.tilemap
+graphics/region_map/*.tileset.png
 tools/agbcc
 *.map
 *.bat
