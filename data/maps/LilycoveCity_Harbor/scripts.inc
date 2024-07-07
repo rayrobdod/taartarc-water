@@ -48,7 +48,7 @@ LilycoveCity_Harbor_EventScript_FerryRegularLocationSelect::
 	case 0, LilycoveCity_Harbor_EventScript_GoToSlateport
 	case 1, LilycoveCity_Harbor_EventScript_GoToBattleFrontier
 	case 2, LilycoveCity_Harbor_EventScript_GoToSouthernIsland
-	case 3, LilycoveCity_Harbor_EventScript_GoToNavelRock
+	case 3, LilycoveCity_Harbor_EventScript_ExitSailSelect
 	case 4, LilycoveCity_Harbor_EventScript_GoToBirthIsland
 	case 5, LilycoveCity_Harbor_EventScript_GoToFarawayIsland
 	case 6, LilycoveCity_Harbor_EventScript_ExitSailSelect
@@ -58,13 +58,6 @@ LilycoveCity_Harbor_EventScript_FerryRegularLocationSelect::
 LilycoveCity_Harbor_EventScript_GoToSouthernIsland::
 	call LilycoveCity_Harbor_EventScript_BoardFerry
 	warp MAP_SOUTHERN_ISLAND_EXTERIOR, 13, 22
-	waitstate
-	release
-	end
-
-LilycoveCity_Harbor_EventScript_GoToNavelRock::
-	call LilycoveCity_Harbor_EventScript_BoardFerry
-	warp MAP_NAVEL_ROCK_HARBOR, 8, 4
 	waitstate
 	release
 	end
@@ -271,15 +264,6 @@ LilycoveCity_Harbor_EventScript_MysticTicketFirstTime::
 	closemessage
 	call LilycoveCity_Harbor_EventScript_GetEventTicketSailor
 	msgbox EventTicket_Text_OddTicketGetOnBoard, MSGBOX_DEFAULT
-	goto LilycoveCity_Harbor_EventScript_GoToNavelRockFirstTime
-	end
-
-LilycoveCity_Harbor_EventScript_GoToNavelRockFirstTime::
-	closemessage
-	call LilycoveCity_Harbor_EventScript_BoardFerryWithSailor
-	warp MAP_NAVEL_ROCK_HARBOR, 8, 4
-	waitstate
-	release
 	end
 
 LilycoveCity_Harbor_EventScript_MultipleEventTicketsFirstTime::
@@ -294,7 +278,6 @@ LilycoveCity_Harbor_EventScript_MultipleEventTicketsFirstTime::
 	special GetLilycoveSSTidalSelection
 	switch VAR_RESULT
 	case 2, LilycoveCity_Harbor_EventScript_GoToSouthernIslandFirstTime
-	case 3, LilycoveCity_Harbor_EventScript_GoToNavelRockFirstTime
 	case 4, LilycoveCity_Harbor_EventScript_GoToBirthIslandFirstTime
 	case 5, LilycoveCity_Harbor_EventScript_GoToFarawayIslandFirstTime
 	case 6, LilycoveCity_Harbor_EventScript_ExitFirstTimeTicketSailSelect
