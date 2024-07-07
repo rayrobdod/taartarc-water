@@ -1,6 +1,20 @@
 #ifndef GUARD_REGIONMAPSEC_H
 #define GUARD_REGIONMAPSEC_H
 
+#define MAPSEC_LOBBY                        0xD5
+#define MAPSEC_CAFETERIA                    0xD6
+#define MAPSEC_GARDEN                       0xD7
+#define MAPSEC_CLASSROOM                    0xD8
+#define MAPSEC_EXHIBIT_BIOLUMINESCENCE      0xD9
+#define MAPSEC_EXHIBIT_WINDOW               0xDA
+
+// met location of starter pokemon
+#define MAPSEC_CINNABAR_ISLAND              0x60
+#define MAPSEC_DRAGONS_DEN                  0xF0
+#define MAPSEC_CHARICIFIC_VALLEY            0xF1
+#define MAPSEC_LAKE_OF_RAGE                 0xF2
+
+// unused hoenn or kanto
 #define MAPSEC_LITTLEROOT_TOWN              0x00
 #define MAPSEC_OLDALE_TOWN                  0x01
 #define MAPSEC_DEWFORD_TOWN                 0x02
@@ -97,7 +111,6 @@
 #define MAPSEC_VERMILION_CITY               0x5D
 #define MAPSEC_CELADON_CITY                 0x5E
 #define MAPSEC_FUCHSIA_CITY                 0x5F
-#define MAPSEC_CINNABAR_ISLAND              0x60
 #define MAPSEC_INDIGO_PLATEAU               0x61
 #define MAPSEC_SAFFRON_CITY                 0x62
 #define MAPSEC_ROUTE_4_POKECENTER           0x63
@@ -214,8 +227,8 @@
 #define MAPSEC_ALTERING_CAVE                0xD2
 #define MAPSEC_NAVEL_ROCK                   0xD3
 #define MAPSEC_TRAINER_HILL                 0xD4
-#define MAPSEC_NONE                         0xD5
 
+#define MAPSEC_NONE                         0xFC
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE
 #define METLOC_FATEFUL_ENCOUNTER            0xFF

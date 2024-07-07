@@ -45,6 +45,8 @@
 #include "mystery_gift.h"
 #include "union_room_chat.h"
 #include "constants/items.h"
+#include "constants/moves.h"
+#include "constants/region_map_sections.h"
 #include "string_util.h"
 
 extern const u8 EventScript_ResetAllMapFlags[];
@@ -149,12 +151,114 @@ void ResetMenuAndMonGlobals(void)
     ResetPokeblockScrollPositions();
 }
 
-void GivePlayerStartingParty(void)
+static void GivePlayerStartingMon(
+    int slot,
+    u16 species,
+    u8 level,
+    u8 metLocation,
+    u8 metLevel,
+    u16 item,
+    u16 move1,
+    u16 move2,
+    u16 move3,
+    u16 move4
+) {
+    struct Pokemon *mon = &gPlayerParty[slot];
+    CreateMon(mon, species, level, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    SetMonData(mon, MON_DATA_MET_LOCATION, &metLocation);
+    SetMonData(mon, MON_DATA_MET_LEVEL, &metLevel);
+    SetMonData(mon, MON_DATA_HELD_ITEM, &item);
+    SetMonMoveSlot(mon, move1, 0);
+    SetMonMoveSlot(mon, move2, 1);
+    SetMonMoveSlot(mon, move3, 2);
+    SetMonMoveSlot(mon, move4, 3);
+}
+
+static void GivePlayerStartingParty(void)
 {
-    CreateMon(&gPlayerParty[0], SPECIES_DRAGONITE, 50, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
-    CreateMon(&gPlayerParty[1], SPECIES_AERODACTYL, 48, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
-    CreateMon(&gPlayerParty[2], SPECIES_CHARIZARD, 48, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
-    CreateMon(&gPlayerParty[3], SPECIES_GYARADOS, 48, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    GivePlayerStartingMon(
+        0,
+        SPECIES_DRAGONITE,
+        50,
+        MAPSEC_DRAGONS_DEN,
+        5,
+        ITEM_YACHE_BERRY,
+        MOVE_DRAGON_DANCE,
+        MOVE_OUTRAGE,
+        MOVE_BARRIER,
+        MOVE_THUNDER_PUNCH
+    );
+
+    GivePlayerStartingMon(
+        1,
+        SPECIES_AERODACTYL,
+        48,
+        MAPSEC_CINNABAR_ISLAND,
+        20,
+        ITEM_SITRUS_BERRY,
+        MOVE_ROCK_SLIDE,
+        MOVE_EARTHQUAKE,
+        MOVE_IRON_HEAD,
+        MOVE_GIGA_IMPACT
+    );
+
+    GivePlayerStartingMon(
+        2,
+        SPECIES_CHARIZARD,
+        48,
+        MAPSEC_CHARICIFIC_VALLEY,
+        24,
+        ITEM_CHARTI_BERRY,
+        MOVE_FIRE_BLAST,
+        MOVE_AIR_SLASH,
+        MOVE_DRAGON_CLAW,
+        MOVE_HYPER_BEAM
+    );
+
+    GivePlayerStartingMon(
+        3,
+        SPECIES_GYARADOS,
+        48,
+        MAPSEC_LAKE_OF_RAGE,
+        8,
+        ITEM_WACAN_BERRY,
+        MOVE_AQUA_TAIL,
+        MOVE_CRUNCH,
+        MOVE_DRAGON_DANCE,
+        MOVE_THRASH
+    );
+}
+
+static void GivePlayerStartingItems(void)
+{
+    // When this is called, the bag should be empty,
+    // so this assumes that AddBagItem succeeds
+
+    AddBagItem(ITEM_HYPER_POTION, 10);
+    AddBagItem(ITEM_REVIVE, 5);
+    AddBagItem(ITEM_FULL_HEAL, 5);
+    AddBagItem(ITEM_FULL_RESTORE, 2);
+
+    AddBagItem(ITEM_DRAGON_FANG, 1);
+    AddBagItem(ITEM_SILK_SCARF, 1);
+    AddBagItem(ITEM_EXPERT_BELT, 1);
+    AddBagItem(ITEM_WIDE_LENS, 1);
+    AddBagItem(ITEM_DRAGON_SCALE, 1);
+
+    AddBagItem(ITEM_SITRUS_BERRY, 10);
+    AddBagItem(ITEM_PERSIM_BERRY, 2);
+    AddBagItem(ITEM_LUM_BERRY, 10);
+    AddBagItem(ITEM_YACHE_BERRY, 5);
+    AddBagItem(ITEM_WACAN_BERRY, 2);
+    AddBagItem(ITEM_CHARTI_BERRY, 2);
+    AddBagItem(ITEM_HABAN_BERRY, 2);
+    AddBagItem(ITEM_ROSELI_BERRY, 2);
+
+    AddBagItem(ITEM_TM_HYPER_BEAM, 30);
+    AddBagItem(ITEM_TM_DRAGON_CLAW, 2);
+    AddBagItem(ITEM_TM_THUNDERBOLT, 1);
+    AddBagItem(ITEM_TM_FLAMETHROWER, 1);
+    AddBagItem(ITEM_TM_STEEL_WING, 1);
 }
 
 void NewGameInitData(void)
@@ -220,6 +324,7 @@ void NewGameInitData(void)
     ResetTrainerHillResults();
     ResetContestLinkResults();
     GivePlayerStartingParty();
+    GivePlayerStartingItems();
 }
 
 static void ResetMiniGamesRecords(void)
