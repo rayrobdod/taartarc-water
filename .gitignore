@@ -19,6 +19,8 @@
 *.fwjpnfont
 sound/**/*.bin
 sound/songs/midi/*.s
+graphics/region_map/*.tilemap
+graphics/region_map/*.tileset.png
 tools/agbcc
 *.map
 *.bat
