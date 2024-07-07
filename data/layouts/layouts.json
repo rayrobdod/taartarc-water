@@ -4382,36 +4382,6 @@
       "blockdata_filepath": "data/layouts/SkyPillar_Top_Clean/map.bin"
     },
     {
-      "id": "LAYOUT_SOOTOPOLIS_CITY_MYSTERY_EVENTS_HOUSE_1F",
-      "name": "SootopolisCity_MysteryEventsHouse_1F_Layout",
-      "width": 11,
-      "height": 8,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_MysteryEventsHouse",
-      "border_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_1F/border.bin",
-      "blockdata_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_1F/map.bin"
-    },
-    {
-      "id": "LAYOUT_SOOTOPOLIS_CITY_MYSTERY_EVENTS_HOUSE_B1F",
-      "name": "SootopolisCity_MysteryEventsHouse_B1F_Layout",
-      "width": 12,
-      "height": 9,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_MysteryEventsHouse",
-      "border_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_B1F/border.bin",
-      "blockdata_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_B1F/map.bin"
-    },
-    {
-      "id": "LAYOUT_SOOTOPOLIS_CITY_MYSTERY_EVENTS_HOUSE_1F_STAIRS_UNBLOCKED",
-      "name": "SootopolisCity_MysteryEventsHouse_1F_StairsUnblocked_Layout",
-      "width": 11,
-      "height": 8,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_MysteryEventsHouse",
-      "border_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_1F_StairsUnblocked/border.bin",
-      "blockdata_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_1F_StairsUnblocked/map.bin"
-    },
-    {
       "id": "LAYOUT_AQUARIUM_ENTRANCE",
       "name": "Aquarium_Entrance_Layout",
       "width": 20,
