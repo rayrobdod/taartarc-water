@@ -25,7 +25,6 @@
 
 enum {
     WIN_MAPSEC_NAME,
-    WIN_TITLE,
 };
 
 enum {
@@ -77,15 +76,7 @@ static const struct WindowTemplate sFieldRegionMapWindowTemplates[] =
         .paletteNum = 15,
         .baseBlock = 1
     },
-    [WIN_TITLE] = {
-        .bg = 0,
-        .tilemapLeft = 22,
-        .tilemapTop = 1,
-        .width = 7,
-        .height = 2,
-        .paletteNum = 15,
-        .baseBlock = 25
-    },
+    DUMMY_WIN_TEMPLATE,
     DUMMY_WIN_TEMPLATE
 };
 
@@ -139,8 +130,6 @@ static void MCB2_FieldUpdateRegionMap(void)
 
 static void FieldUpdateRegionMap(void)
 {
-    u8 offset;
-
     switch (sFieldRegionMapHandler->state)
     {
         case 0:
@@ -150,9 +139,6 @@ static void FieldUpdateRegionMap(void)
             sFieldRegionMapHandler->state++;
             break;
         case 1:
-            DrawStdFrameWithCustomTileAndPalette(WIN_TITLE, FALSE, 0x27, 0xd);
-            offset = GetStringCenterAlignXOffset(FONT_NORMAL, gText_Hoenn, 0x38);
-            AddTextPrinterParameterized(WIN_TITLE, FONT_NORMAL, gText_Hoenn, offset, 1, 0, NULL);
             ScheduleBgCopyTilemapToVram(0);
             DrawStdFrameWithCustomTileAndPalette(WIN_MAPSEC_NAME, FALSE, 0x27, 0xd);
             PrintRegionMapSecName();
@@ -198,6 +184,8 @@ static void FieldUpdateRegionMap(void)
             break;
     }
 }
+
+PADDING_text(26)
 
 static void PrintRegionMapSecName(void)
 {
