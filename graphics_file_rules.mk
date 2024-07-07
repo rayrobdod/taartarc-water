@@ -274,13 +274,13 @@ $(FONTGFXDIR)/frlg_female.fwjpnfont: $(FONTGFXDIR)/japanese_frlg_female.png
 
 ### Region Map
 
-AUTO_GEN_TARGETS += $(REGIONGFXDIR)/hoenn_affine.tileset.png
+AUTO_GEN_TARGETS += $(REGIONGFXDIR)/aquarium_affine.tileset.png
 
-$(REGIONGFXDIR)/hoenn_pokedex.8bpp $(REGIONGFXDIR)/hoenn_pokedex.tilemap: $(REGIONGFXDIR)/hoenn.png
-	$(IMGTILE) $< -tileset $(REGIONGFXDIR)/hoenn_pokedex.8bpp -tilemap $(REGIONGFXDIR)/hoenn_pokedex.tilemap -num_tiles 233 -slice_width 32 -slice_height 32
+$(REGIONGFXDIR)/aquarium_pokedex.8bpp $(REGIONGFXDIR)/aquarium_pokedex.tilemap: $(REGIONGFXDIR)/aquarium.png
+	$(IMGTILE) $< -tileset $(REGIONGFXDIR)/aquarium_pokedex.8bpp -tilemap $(REGIONGFXDIR)/aquarium_pokedex.tilemap -num_tiles 233 -slice_width 32 -slice_height 32
 
-$(REGIONGFXDIR)/hoenn_affine.8bpp $(REGIONGFXDIR)/hoenn_affine.tilemap $(REGIONGFXDIR)/hoenn_affine.tileset.png: $(REGIONGFXDIR)/hoenn.png
-	$(IMGTILE) $< -tileset $(REGIONGFXDIR)/hoenn_affine.8bpp -tilemap $(REGIONGFXDIR)/hoenn_affine.tilemap -tileset_png $(REGIONGFXDIR)/hoenn_affine.tileset.png -num_tiles 233 -affine
+$(REGIONGFXDIR)/aquarium_affine.8bpp $(REGIONGFXDIR)/aquarium_affine.tilemap $(REGIONGFXDIR)/aquarium_affine.tileset.png: $(REGIONGFXDIR)/aquarium.png
+	$(IMGTILE) $< -tileset $(REGIONGFXDIR)/aquarium_affine.8bpp -tilemap $(REGIONGFXDIR)/aquarium_affine.tilemap -tileset_png $(REGIONGFXDIR)/aquarium_affine.tileset.png -num_tiles 233 -affine
 
 $(REGIONGFXDIR)/*.gbapal: $(REGIONGFXDIR)/*.png
 	$(GFX) $< $@
