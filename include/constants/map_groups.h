@@ -548,6 +548,7 @@
 
 // gMapGroup_Aquarium
 #define MAP_AQUARIUM_ENTRANCE (0 | (34 << 8))
+#define MAP_AQUARIUM_GARDENS  (1 | (34 << 8))
 
 #define MAP_GROUPS_COUNT 35
 

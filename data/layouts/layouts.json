@@ -4240,6 +4240,16 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Aquarium_Entrance/border.bin",
       "blockdata_filepath": "data/layouts/Aquarium_Entrance/map.bin"
+    },
+    {
+      "id": "LAYOUT_AQUARIUM_GARDENS",
+      "name": "Aquarium_Gardens_Layout",
+      "width": 30,
+      "height": 15,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_BattleFrontier",
+      "border_filepath": "data/layouts/Aquarium_Gardens/border.bin",
+      "blockdata_filepath": "data/layouts/Aquarium_Gardens/map.bin"
     }
   ]
 }
