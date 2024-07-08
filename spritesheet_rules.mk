@@ -1626,6 +1626,9 @@ $(POKEMONGFXDIR)/dustox/overworld.4bpp: %.4bpp: %.png
 $(POKEMONGFXDIR)/lotad/overworld.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 
+$(POKEMONGFXDIR)/lotad/overworld_submerged.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4
+
 $(POKEMONGFXDIR)/lombre/overworld.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 
