@@ -787,4 +787,7 @@
 #define METATILE_RSMossdeepGym_Switch_Down     0x239
 #define METATILE_RSMossdeepGym_Switch_Up       0x238
 
+// gTileset_Gardens
+#define METATILE_Gardens_Door    0x10
+
 #endif // GUARD_METATILE_LABELS_H

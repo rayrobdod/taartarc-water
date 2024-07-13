@@ -23,13 +23,18 @@ STARTERGFXDIR := graphics/starter_choose
 NAMINGGFXDIR := graphics/naming_screen
 SPINDAGFXDIR := graphics/pokemon/spinda/spots
 
+TILESETBUILDDIR := build/tilesets
+
 types := none normal fight flying poison ground rock bug ghost steel mystery fire water grass electric psychic ice dragon dark fairy stellar
 contest_types := cool beauty cute smart tough
 
 ### Tilesets ###
 
-$(patsubst %,build/tilesets/primary/aquarium/palettes/%.pal,00 01 02 03 04 05 06 07 08 09 10 11 12) build/tilesets/primary/aquarium/tiles.png &: $(TILESETGFXDIR)/primary/aquarium/top.png $(TILESETGFXDIR)/primary/aquarium/middle.png $(TILESETGFXDIR)/primary/aquarium/bottom.png $(TILESETGFXDIR)/primary/aquarium/attributes.csv
-	porytiles compile-primary --dual-layer --Wall -o build/tilesets/primary/aquarium $(TILESETGFXDIR)/primary/aquarium include/constants/metatile_behaviors.h
+$(patsubst %,$(TILESETBUILDDIR)/primary/aquarium/palettes/%.pal,00 01 02 03 04 05 06 07 08 09 10 11 12) $(TILESETBUILDDIR)/primary/aquarium/metatile_attributes.bin $(TILESETBUILDDIR)/primary/aquarium/metatiles.bin $(TILESETBUILDDIR)/primary/aquarium/tiles.png &: $(TILESETGFXDIR)/primary/aquarium/top.png $(TILESETGFXDIR)/primary/aquarium/middle.png $(TILESETGFXDIR)/primary/aquarium/bottom.png $(TILESETGFXDIR)/primary/aquarium/attributes.csv
+	porytiles compile-primary --dual-layer --Wall -o $(TILESETBUILDDIR)/primary/aquarium $(TILESETGFXDIR)/primary/aquarium include/constants/metatile_behaviors.h
+
+$(patsubst %,$(TILESETBUILDDIR)/primary/gardens/palettes/%.pal,00 01 02 03 04 05 06 07 08 09 10 11 12) $(TILESETBUILDDIR)/primary/gardens/metatile_attributes.bin $(TILESETBUILDDIR)/primary/gardens/metatiles.bin $(TILESETBUILDDIR)/primary/gardens/tiles.png &: $(TILESETGFXDIR)/primary/gardens/top.png $(TILESETGFXDIR)/primary/gardens/middle.png $(TILESETGFXDIR)/primary/gardens/bottom.png $(TILESETGFXDIR)/primary/gardens/attributes.csv
+	porytiles compile-primary --dual-layer --Wall -o $(TILESETBUILDDIR)/primary/gardens $(TILESETGFXDIR)/primary/gardens include/constants/metatile_behaviors.h
 
 $(TILESETGFXDIR)/secondary/petalburg/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 159 -Wnum_tiles

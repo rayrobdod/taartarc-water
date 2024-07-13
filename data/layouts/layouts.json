@@ -4246,8 +4246,8 @@
       "name": "Aquarium_Gardens_Layout",
       "width": 30,
       "height": 15,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_BattleFrontier",
+      "primary_tileset": "gTileset_Gardens",
+      "secondary_tileset": "gTileset_BattleDome",
       "border_filepath": "data/layouts/Aquarium_Gardens/border.bin",
       "blockdata_filepath": "data/layouts/Aquarium_Gardens/map.bin"
     }
