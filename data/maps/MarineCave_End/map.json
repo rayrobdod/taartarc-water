@@ -23,16 +23,6 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 9,
-      "y": 26,
-      "elevation": 3,
-      "var": "VAR_TEMP_1",
-      "var_value": "1",
-      "script": "MarineCave_End_EventScript_Kyogre"
-    }
-  ],
+  "coord_events": [],
   "bg_events": []
 }

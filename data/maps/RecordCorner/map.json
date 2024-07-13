@@ -44,43 +44,6 @@
       "dest_warp_id": "WARP_ID_DYNAMIC"
     }
   ],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 6,
-      "y": 4,
-      "elevation": 3,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "EventScript_RecordCenter_Spot0"
-    },
-    {
-      "type": "trigger",
-      "x": 6,
-      "y": 6,
-      "elevation": 3,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "EventScript_RecordCenter_Spot2"
-    },
-    {
-      "type": "trigger",
-      "x": 13,
-      "y": 4,
-      "elevation": 3,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "EventScript_RecordCenter_Spot1"
-    },
-    {
-      "type": "trigger",
-      "x": 13,
-      "y": 6,
-      "elevation": 3,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "EventScript_RecordCenter_Spot3"
-    }
-  ],
+  "coord_events": [],
   "bg_events": []
 }

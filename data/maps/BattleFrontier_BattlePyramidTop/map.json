@@ -15,16 +15,6 @@
   "connections": null,
   "object_events": [],
   "warp_events": [],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 17,
-      "y": 9,
-      "elevation": 4,
-      "var": "VAR_TEMP_2",
-      "var_value": "0",
-      "script": "BattleFrontier_BattlePyramidTop_EventScript_BattleBrandon"
-    }
-  ],
+  "coord_events": [],
   "bg_events": []
 }

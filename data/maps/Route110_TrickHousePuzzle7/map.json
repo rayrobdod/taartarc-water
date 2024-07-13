@@ -107,43 +107,6 @@
       "dest_warp_id": "11"
     }
   ],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 8,
-      "y": 19,
-      "elevation": 0,
-      "var": "VAR_TEMP_1",
-      "var_value": "0",
-      "script": "Route110_TrickHousePuzzle7_EventScript_YellowButton"
-    },
-    {
-      "type": "trigger",
-      "x": 0,
-      "y": 14,
-      "elevation": 0,
-      "var": "VAR_TEMP_1",
-      "var_value": "0",
-      "script": "Route110_TrickHousePuzzle7_EventScript_BlueButton"
-    },
-    {
-      "type": "trigger",
-      "x": 6,
-      "y": 6,
-      "elevation": 0,
-      "var": "VAR_TEMP_1",
-      "var_value": "0",
-      "script": "Route110_TrickHousePuzzle7_EventScript_GreenButton"
-    },
-    {
-      "type": "trigger",
-      "x": 9,
-      "y": 7,
-      "elevation": 0,
-      "var": "VAR_TEMP_1",
-      "var_value": "0",
-      "script": "Route110_TrickHousePuzzle7_EventScript_PurpleButton"
-    }
-  ],
+  "coord_events": [],
   "bg_events": []
 }

@@ -37,52 +37,6 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 24,
-      "y": 21,
-      "elevation": 3,
-      "var": "TRIGGER_RUN_IMMEDIATELY",
-      "var_value": "0",
-      "script": "MtPyre_Exterior_EventScript_FogTrigger"
-    },
-    {
-      "type": "trigger",
-      "x": 25,
-      "y": 21,
-      "elevation": 3,
-      "var": "TRIGGER_RUN_IMMEDIATELY",
-      "var_value": "0",
-      "script": "MtPyre_Exterior_EventScript_FogTrigger"
-    },
-    {
-      "type": "trigger",
-      "x": 22,
-      "y": 27,
-      "elevation": 3,
-      "var": "TRIGGER_RUN_IMMEDIATELY",
-      "var_value": "0",
-      "script": "MtPyre_Exterior_EventScript_SunTrigger"
-    },
-    {
-      "type": "trigger",
-      "x": 23,
-      "y": 28,
-      "elevation": 3,
-      "var": "TRIGGER_RUN_IMMEDIATELY",
-      "var_value": "0",
-      "script": "MtPyre_Exterior_EventScript_SunTrigger"
-    },
-    {
-      "type": "trigger",
-      "x": 26,
-      "y": 21,
-      "elevation": 3,
-      "var": "TRIGGER_RUN_IMMEDIATELY",
-      "var_value": "0",
-      "script": "MtPyre_Exterior_EventScript_FogTrigger"
-    }
-  ],
+  "coord_events": [],
   "bg_events": []
 }

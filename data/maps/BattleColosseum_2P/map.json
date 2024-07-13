@@ -30,25 +30,6 @@
       "dest_warp_id": "WARP_ID_DYNAMIC"
     }
   ],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 3,
-      "y": 5,
-      "elevation": 3,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "EventScript_BattleColosseum_2P_PlayerSpot0"
-    },
-    {
-      "type": "trigger",
-      "x": 10,
-      "y": 5,
-      "elevation": 3,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "EventScript_BattleColosseum_2P_PlayerSpot1"
-    }
-  ],
+  "coord_events": [],
   "bg_events": []
 }

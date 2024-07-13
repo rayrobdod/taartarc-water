@@ -44,16 +44,6 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 8,
-      "y": 4,
-      "elevation": 3,
-      "var": "VAR_TEMP_1",
-      "var_value": "0",
-      "script": "Route121_SafariZoneEntrance_EventScript_EntranceCounterTrigger"
-    }
-  ],
+  "coord_events": [],
   "bg_events": []
 }

@@ -37,52 +37,6 @@
       "dest_warp_id": "2"
     }
   ],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 23,
-      "y": 4,
-      "elevation": 3,
-      "var": "TRIGGER_RUN_IMMEDIATELY",
-      "var_value": "0",
-      "script": "RusturfTunnel_EventScript_TunnelBlockagePos1"
-    },
-    {
-      "type": "trigger",
-      "x": 9,
-      "y": 4,
-      "elevation": 3,
-      "var": "VAR_RUSTURF_TUNNEL_STATE",
-      "var_value": "2",
-      "script": "RusturfTunnel_EventScript_AquaGruntBackUp"
-    },
-    {
-      "type": "trigger",
-      "x": 9,
-      "y": 5,
-      "elevation": 3,
-      "var": "VAR_RUSTURF_TUNNEL_STATE",
-      "var_value": "2",
-      "script": "RusturfTunnel_EventScript_AquaGruntBackUp"
-    },
-    {
-      "type": "trigger",
-      "x": 25,
-      "y": 4,
-      "elevation": 3,
-      "var": "TRIGGER_RUN_IMMEDIATELY",
-      "var_value": "0",
-      "script": "RusturfTunnel_EventScript_TunnelBlockagePos2"
-    },
-    {
-      "type": "trigger",
-      "x": 25,
-      "y": 5,
-      "elevation": 3,
-      "var": "TRIGGER_RUN_IMMEDIATELY",
-      "var_value": "0",
-      "script": "RusturfTunnel_EventScript_TunnelBlockagePos3"
-    }
-  ],
+  "coord_events": [],
   "bg_events": []
 }

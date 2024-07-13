@@ -37,43 +37,6 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 4,
-      "y": 7,
-      "elevation": 3,
-      "var": "VAR_TRICK_HOUSE_BEING_WATCHED_STATE",
-      "var_value": "0",
-      "script": "Route110_TrickHouseEntrance_EventScript_TrickMasterHiding"
-    },
-    {
-      "type": "trigger",
-      "x": 5,
-      "y": 6,
-      "elevation": 3,
-      "var": "VAR_TRICK_HOUSE_BEING_WATCHED_STATE",
-      "var_value": "0",
-      "script": "Route110_TrickHouseEntrance_EventScript_TrickMasterHiding"
-    },
-    {
-      "type": "trigger",
-      "x": 6,
-      "y": 6,
-      "elevation": 3,
-      "var": "VAR_TRICK_HOUSE_BEING_WATCHED_STATE",
-      "var_value": "0",
-      "script": "Route110_TrickHouseEntrance_EventScript_TrickMasterHiding"
-    },
-    {
-      "type": "trigger",
-      "x": 7,
-      "y": 7,
-      "elevation": 3,
-      "var": "VAR_TRICK_HOUSE_BEING_WATCHED_STATE",
-      "var_value": "0",
-      "script": "Route110_TrickHouseEntrance_EventScript_TrickMasterHiding"
-    }
-  ],
+  "coord_events": [],
   "bg_events": []
 }

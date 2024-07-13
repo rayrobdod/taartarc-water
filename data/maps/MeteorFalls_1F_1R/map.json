@@ -51,16 +51,6 @@
       "dest_warp_id": "5"
     }
   ],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 14,
-      "y": 18,
-      "elevation": 4,
-      "var": "VAR_METEOR_FALLS_STATE",
-      "var_value": "0",
-      "script": "MeteorFalls_1F_1R_EventScript_MagmaStealsMeteoriteScene"
-    }
-  ],
+  "coord_events": [],
   "bg_events": []
 }

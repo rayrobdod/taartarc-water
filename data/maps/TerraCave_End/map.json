@@ -23,16 +23,6 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 17,
-      "y": 26,
-      "elevation": 3,
-      "var": "VAR_TEMP_1",
-      "var_value": "1",
-      "script": "TerraCave_End_EventScript_Groudon"
-    }
-  ],
+  "coord_events": [],
   "bg_events": []
 }

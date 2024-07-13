@@ -37,61 +37,6 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 22,
-      "y": 7,
-      "elevation": 3,
-      "var": "VAR_MT_PYRE_STATE",
-      "var_value": "0",
-      "script": "MtPyre_Summit_EventScript_TeamAquaTrigger0"
-    },
-    {
-      "type": "trigger",
-      "x": 23,
-      "y": 7,
-      "elevation": 3,
-      "var": "VAR_MT_PYRE_STATE",
-      "var_value": "0",
-      "script": "MtPyre_Summit_EventScript_TeamAquaTrigger1"
-    },
-    {
-      "type": "trigger",
-      "x": 24,
-      "y": 7,
-      "elevation": 3,
-      "var": "VAR_MT_PYRE_STATE",
-      "var_value": "0",
-      "script": "MtPyre_Summit_EventScript_TeamAquaTrigger2"
-    },
-    {
-      "type": "trigger",
-      "x": 22,
-      "y": 9,
-      "elevation": 3,
-      "var": "VAR_MT_PYRE_STATE",
-      "var_value": "2",
-      "script": "MtPyre_Summit_EventScript_ArchieMaxieTrigger0"
-    },
-    {
-      "type": "trigger",
-      "x": 23,
-      "y": 9,
-      "elevation": 3,
-      "var": "VAR_MT_PYRE_STATE",
-      "var_value": "2",
-      "script": "MtPyre_Summit_EventScript_ArchieMaxieTrigger1"
-    },
-    {
-      "type": "trigger",
-      "x": 24,
-      "y": 9,
-      "elevation": 3,
-      "var": "VAR_MT_PYRE_STATE",
-      "var_value": "2",
-      "script": "MtPyre_Summit_EventScript_ArchieMaxieTrigger2"
-    }
-  ],
+  "coord_events": [],
   "bg_events": []
 }

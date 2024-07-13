@@ -51,25 +51,6 @@
       "dest_warp_id": "4"
     }
   ],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 2,
-      "y": 23,
-      "elevation": 4,
-      "var": "VAR_VICTORY_ROAD_1F_STATE",
-      "var_value": "0",
-      "script": "VictoryRoad_1F_EventScript_WallyBattleTrigger1"
-    },
-    {
-      "type": "trigger",
-      "x": 3,
-      "y": 23,
-      "elevation": 4,
-      "var": "VAR_VICTORY_ROAD_1F_STATE",
-      "var_value": "0",
-      "script": "VictoryRoad_1F_EventScript_WallyBattleTrigger2"
-    }
-  ],
+  "coord_events": [],
   "bg_events": []
 }
