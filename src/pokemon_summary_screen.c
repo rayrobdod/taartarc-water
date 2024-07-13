@@ -51,9 +51,10 @@ enum {
     PSS_PAGE_INFO,
     PSS_PAGE_SKILLS,
     PSS_PAGE_BATTLE_MOVES,
-    PSS_PAGE_CONTEST_MOVES,
     PSS_PAGE_COUNT,
 };
+
+#define PSS_PAGE_CONTEST_MOVES (3)
 
 // Screen titles (upper left)
 #define PSS_LABEL_WINDOW_POKEMON_INFO_TITLE 0
@@ -1453,7 +1454,7 @@ static bool8 ExtractMonDataToSummaryStruct(struct Pokemon *mon)
 
 static void SetDefaultTilemaps(void)
 {
-    if (sMonSummaryScreen->currPageIndex != PSS_PAGE_BATTLE_MOVES && sMonSummaryScreen->currPageIndex != PSS_PAGE_CONTEST_MOVES)
+    if (sMonSummaryScreen->currPageIndex != PSS_PAGE_BATTLE_MOVES)
     {
         HandlePowerAccTilemap(0, 0xFF);
         HandleAppealJamTilemap(0, 0xFF, 0);
@@ -1472,12 +1473,14 @@ static void SetDefaultTilemaps(void)
 
     if (sMonSummaryScreen->summary.ailment == AILMENT_NONE)
         HandleStatusTilemap(0, 0xFF);
-    else if (sMonSummaryScreen->currPageIndex != PSS_PAGE_BATTLE_MOVES && sMonSummaryScreen->currPageIndex != PSS_PAGE_CONTEST_MOVES)
+    else if (sMonSummaryScreen->currPageIndex != PSS_PAGE_BATTLE_MOVES)
         PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATUS);
 
     LimitEggSummaryPageDisplay();
     DrawPokerusCuredSymbol(&sMonSummaryScreen->currentMon);
 }
+
+PADDING_text(8)
 
 static void FreeSummaryScreen(void)
 {
@@ -1762,6 +1765,8 @@ static void ChangePage(u8 taskId, s8 delta)
     HidePageSpecificSprites();
 }
 
+PADDING_text(2)
+
 static void PssScrollRight(u8 taskId) // Scroll right
 {
     s16 *data = gTasks[taskId].data;
@@ -1853,6 +1858,8 @@ static void PssScrollLeftEnd(u8 taskId) // display left
     TryDrawExperienceProgressBar();
     SwitchTaskToFollowupFunc(taskId);
 }
+
+PADDING_text(2)
 
 static void TryDrawExperienceProgressBar(void)
 {
@@ -2244,6 +2251,8 @@ static void ShowCantForgetHMsWindow(u8 taskId)
     gTasks[taskId].func = Task_HandleInputCantForgetHMsMoves;
 }
 
+PADDING_text(2)
+
 // This redraws the power/accuracy window when the player scrolls out of the "HM Moves can't be forgotten" message
 static void Task_HandleInputCantForgetHMsMoves(u8 taskId)
 {
@@ -2283,7 +2292,7 @@ static void Task_HandleInputCantForgetHMsMoves(u8 taskId)
         }
         else if (JOY_NEW(DPAD_RIGHT) || GetLRKeysPressed() == MENU_R_PRESSED)
         {
-            if (sMonSummaryScreen->currPageIndex != PSS_PAGE_CONTEST_MOVES)
+            if (sMonSummaryScreen->currPageIndex != PSS_PAGE_BATTLE_MOVES)
             {
                 ClearWindowTilemap(PSS_LABEL_WINDOW_PORTRAIT_SPECIES);
                 if (!gSprites[sMonSummaryScreen->spriteIds[SPRITE_ARR_ID_STATUS]].invisible)
@@ -2309,6 +2318,8 @@ static void Task_HandleInputCantForgetHMsMoves(u8 taskId)
         }
     }
 }
+
+PADDING_text(2)
 
 u8 GetMoveSlotToReplace(void)
 {
@@ -2381,6 +2392,8 @@ static void DrawPagination(void) // Updates the pagination dots at the top of th
     ScheduleBgCopyTilemapToVram(3);
     Free(tilemap);
 }
+
+PADDING_text(2)
 
 static void ChangeTilemap(const struct TilemapCtrl *unkStruct, u16 *dest, u8 c, bool8 d)
 {
@@ -2513,6 +2526,8 @@ static void Task_ShowAppealJamWindow(u8 taskId)
     ScheduleBgCopyTilemapToVram(1);
     ScheduleBgCopyTilemapToVram(2);
 }
+
+PADDING_text(2)
 
 static void HandleStatusTilemap(u16 a, s16 b)
 {
@@ -3636,15 +3651,8 @@ static void PrintMoveDetails(u16 move)
     FillWindowPixelBuffer(windowId, PIXEL_FILL(0));
     if (move != MOVE_NONE)
     {
-        if (sMonSummaryScreen->currPageIndex == PSS_PAGE_BATTLE_MOVES)
-        {
-            PrintMovePowerAndAccuracy(move);
-            PrintTextOnWindow(windowId, gMoveDescriptionPointers[move - 1], 6, 1, 0, 0);
-        }
-        else
-        {
-            PrintTextOnWindow(windowId, gContestEffectDescriptionPointers[gContestMoves[move].effect], 6, 1, 0, 0);
-        }
+        PrintMovePowerAndAccuracy(move);
+        PrintTextOnWindow(windowId, gMoveDescriptionPointers[move - 1], 6, 1, 0, 0);
         PutWindowTilemap(windowId);
     }
     else
@@ -3654,6 +3662,8 @@ static void PrintMoveDetails(u16 move)
 
     ScheduleBgCopyTilemapToVram(0);
 }
+
+PADDING_text(34)
 
 static void PrintNewMoveDetailsOrCancelText(void)
 {
@@ -3681,6 +3691,8 @@ static void PrintNewMoveDetailsOrCancelText(void)
         PrintTextOnWindow(windowId2, gStringVar4, GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 44), 65, 0, 12);
     }
 }
+
+PADDING_text(2)
 
 static void AddAndFillMoveNamesWindow(void)
 {
@@ -3762,6 +3774,8 @@ static void SetTypeIcons(void)
         break;
     }
 }
+
+PADDING_text(2)
 
 static void CreateMoveTypeIcons(void)
 {

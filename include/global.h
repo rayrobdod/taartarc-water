@@ -23,6 +23,14 @@
 #define asm_unified(x) asm(".syntax unified\n" x "\n.syntax divided")
 #define NAKED __attribute__((naked))
 
+// to prevent pointer shifting
+#define CONCAT_1(a, b) a ## b
+#define CONCAT_2(a, b) CONCAT_1(a, b)
+
+#define PADDING_rodata(c) asm("\t.rept " #c "\n\t.byte 0\n\t.endr");
+
+#define PADDING_text(c) asm("\t.rept " #c "\n\tnop\n\t.endr");
+
 /// IDE support
 #if defined(__APPLE__) || defined(__CYGWIN__) || defined(__INTELLISENSE__)
 // We define these when using certain IDEs to fool preproc
