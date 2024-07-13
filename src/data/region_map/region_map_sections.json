@@ -1715,10 +1715,10 @@
     {
       "map_section": "MAPSEC_CAFETERIA",
       "name": "CAFETERIA",
-      "x": 0,
-      "y": 0,
-      "width": 1,
-      "height": 1
+      "x": 9,
+      "y": 7,
+      "width": 4,
+      "height": 6
     },
     {
       "map_section": "MAPSEC_GARDEN",
@@ -1731,26 +1731,26 @@
     {
       "map_section": "MAPSEC_CLASSROOM",
       "name": "CLASSROOM",
-      "x": 0,
-      "y": 0,
-      "width": 1,
-      "height": 1
+      "x": 15,
+      "y": 7,
+      "width": 4,
+      "height": 6
     },
     {
       "map_section": "MAPSEC_EXHIBIT_BIOLUMINESCENCE",
       "name": "BIOLUNINESCENCE EXHIBIT",
       "x": 0,
       "y": 0,
-      "width": 1,
-      "height": 1
+      "width": 6,
+      "height": 7
     },
     {
       "map_section": "MAPSEC_EXHIBIT_WINDOW",
       "name": "UNDERWATER WINDOW EXHIBIT",
-      "x": 0,
+      "x": 6,
       "y": 0,
-      "width": 1,
-      "height": 1
+      "width": 7,
+      "height": 7
     },
     {
       "map_section": "MAPSEC_DRAGONS_DEN",
