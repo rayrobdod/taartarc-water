@@ -407,8 +407,7 @@
     "MarineCave_End",
     "TerraCave_Entrance",
     "TerraCave_End",
-    "AlteringCave",
-    "MeteorFalls_StevensCave"
+    "AlteringCave"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

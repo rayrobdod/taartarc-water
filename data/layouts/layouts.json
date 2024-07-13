@@ -4222,16 +4222,6 @@
       "blockdata_filepath": "data/layouts/BattleFrontier_ScottsHouse/map.bin"
     },
     {
-      "id": "LAYOUT_METEOR_FALLS_STEVENS_CAVE",
-      "name": "MeteorFalls_StevensCave_Layout",
-      "width": 30,
-      "height": 32,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_MeteorFalls",
-      "border_filepath": "data/layouts/MeteorFalls_StevensCave/border.bin",
-      "blockdata_filepath": "data/layouts/MeteorFalls_StevensCave/map.bin"
-    },
-    {
       "id": "LAYOUT_AQUARIUM_ENTRANCE",
       "name": "Aquarium_Entrance_Layout",
       "width": 20,
