@@ -325,6 +325,7 @@ void NewGameInitData(void)
     ResetContestLinkResults();
     GivePlayerStartingParty();
     GivePlayerStartingItems();
+    EnableNationalPokedex();
 }
 
 static void ResetMiniGamesRecords(void)
