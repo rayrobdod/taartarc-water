@@ -1975,7 +1975,6 @@ extern const u16 gPPTextPalette[];
 extern const u32 gMoveTypes_Pal[];
 
 extern const u16 gSummaryScreen_MoveEffect_Battle_Tilemap[];
-extern const u16 gSummaryScreen_MoveEffect_Contest_Tilemap[];
 extern const u16 gSummaryScreen_MoveEffect_Cancel_Tilemap[];
 
 extern const u32 gMoveTypes_Gfx[];
