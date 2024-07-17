@@ -46,7 +46,24 @@
 #define VAR_OBJ_GFX_ID_E           0x401E
 #define VAR_OBJ_GFX_ID_F           0x401F
 
-// general purpose vars
+// general purpose vars (tarc)
+#define VAR_LOBBY_STATE                                  0x4050
+#define VAR_GIFT_SHOP_STATE                              0x4051
+#define VAR_GARDENS_STATE                                0x4052
+#define VAR_CLASSROOM_STATE                              0x4053
+#define VAR_EXHIBIT_BIOLUMINESCENCE_STATE                0x4054
+#define VAR_EXHIBIT_WINDOW_STATE                         0x4055
+#define VAR_HALLWAY_STATE                                0x4066
+#define VAR_ROUTE103_STATE                               0x4067
+#define VAR_ROUTE105_STATE                               0x4068
+#define VAR_ROUTE106_STATE                               0x4069
+
+#define VAR_UNUSED_0x406A                                0x406A
+
+#define VAR_FRIENDSHIP_STEP_COUNTER                      0x402A
+#define VAR_POISON_STEP_COUNTER                          0x402B
+
+// general purpose vars (emerald)
 #define VAR_RECYCLE_GOODS                                0x4020
 #define VAR_REPEL_STEP_COUNT                             0x4021
 #define VAR_ICE_STEP_COUNT                               0x4022
@@ -57,8 +74,6 @@
 #define VAR_CYCLING_ROAD_RECORD_COLLISIONS               0x4027
 #define VAR_CYCLING_ROAD_RECORD_TIME_L                   0x4028
 #define VAR_CYCLING_ROAD_RECORD_TIME_H                   0x4029
-#define VAR_FRIENDSHIP_STEP_COUNTER                      0x402A
-#define VAR_POISON_STEP_COUNTER                          0x402B
 #define VAR_RESET_RTC_ENABLE                             0x402C
 #define VAR_ENIGMA_BERRY_AVAILABLE                       0x402D
 #define VAR_WONDER_NEWS_STEP_COUNTER                     0x402E
@@ -97,28 +112,17 @@
 #define VAR_POKELOT_PRIZE_PLACE                          0x404D
 #define VAR_UNUSED_0x404E                                0x404E // Unused Var
 #define VAR_LOTAD_SIZE_RECORD                            0x404F
-#define VAR_LITTLEROOT_TOWN_STATE                        0x4050
-#define VAR_OLDALE_TOWN_STATE                            0x4051
-#define VAR_DEWFORD_TOWN_STATE                           0x4052 // Unused Var
-#define VAR_LAVARIDGE_TOWN_STATE                         0x4053
-#define VAR_CURRENT_SECRET_BASE                          0x4054 // was probably allocated for VAR_FALLARBOR_TOWN_STATE at one point
-#define VAR_VERDANTURF_TOWN_STATE                        0x4055 // Unused Var
-#define VAR_PACIFIDLOG_TOWN_STATE                        0x4056 // Unused Var
-#define VAR_PETALBURG_CITY_STATE                         0x4057
-#define VAR_SLATEPORT_CITY_STATE                         0x4058
-#define VAR_MAUVILLE_CITY_STATE                          0x4059 // Unused Var
-#define VAR_RUSTBORO_CITY_STATE                          0x405A
-#define VAR_FORTREE_CITY_STATE                           0x405B // Unused Var
-#define VAR_LILYCOVE_CITY_STATE                          0x405C // Unused Var
-#define VAR_MOSSDEEP_CITY_STATE                          0x405D
-#define VAR_SOOTOPOLIS_CITY_STATE                        0x405E
-#define VAR_EVER_GRANDE_CITY_STATE                       0x405F // Unused Var
-#define VAR_ROUTE101_STATE                               0x4060
-#define VAR_ROUTE102_STATE                               0x4061 // Unused Var
-#define VAR_ROUTE103_STATE                               0x4062 // Unused Var
-#define VAR_ROUTE104_STATE                               0x4063
-#define VAR_ROUTE105_STATE                               0x4064 // Unused Var
-#define VAR_ROUTE106_STATE                               0x4065 // Unused Var
+#define VAR_LITTLEROOT_TOWN_STATE                        0x405B
+#define VAR_OLDALE_TOWN_STATE                            0x405C
+#define VAR_LAVARIDGE_TOWN_STATE                         0x405D
+#define VAR_CURRENT_SECRET_BASE                          0x405E // was probably allocated for VAR_FALLARBOR_TOWN_STATE at one point
+#define VAR_PETALBURG_CITY_STATE                         0x405F
+#define VAR_SLATEPORT_CITY_STATE                         0x4060
+#define VAR_RUSTBORO_CITY_STATE                          0x4061
+#define VAR_MOSSDEEP_CITY_STATE                          0x4062
+#define VAR_SOOTOPOLIS_CITY_STATE                        0x4063
+#define VAR_ROUTE101_STATE                               0x4064
+#define VAR_ROUTE104_STATE                               0x4065
 #define VAR_ROUTE107_STATE                               0x4066 // Unused Var
 #define VAR_ROUTE108_STATE                               0x4067 // Unused Var
 #define VAR_ROUTE109_STATE                               0x4068 // Unused Var

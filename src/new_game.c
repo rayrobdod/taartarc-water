@@ -17,6 +17,7 @@
 #include "rtc.h"
 #include "easy_chat.h"
 #include "event_data.h"
+#include "field_player_avatar.h"
 #include "money.h"
 #include "trainer_hill.h"
 #include "tv.h"
@@ -131,7 +132,7 @@ static void ClearFrontierRecord(void)
 
 static void WarpToAquariumEntrance(void)
 {
-    SetWarpDestination(MAP_GROUP(AQUARIUM_ENTRANCE), MAP_NUM(AQUARIUM_ENTRANCE), WARP_ID_NONE, -1, -1);
+    SetWarpDestination(MAP_GROUP(AQUARIUM_GARDENS), MAP_NUM(AQUARIUM_GARDENS), WARP_ID_NONE, 8, 14);
     WarpIntoMap();
 }
 

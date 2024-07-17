@@ -2,7 +2,7 @@
 #define GUARD_REGIONMAPSEC_H
 
 #define MAPSEC_LOBBY                        0xD5
-#define MAPSEC_CAFETERIA                    0xD6
+#define MAPSEC_GIFT_SHOP                    0xD6
 #define MAPSEC_GARDEN                       0xD7
 #define MAPSEC_CLASSROOM                    0xD8
 #define MAPSEC_EXHIBIT_BIOLUMINESCENCE      0xD9

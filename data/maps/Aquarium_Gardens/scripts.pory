@@ -1,0 +1,35 @@
+// VAR_GARDENS_STATE
+//    0 -> 1 : upon first entering the map (during a new game)
+
+mapscripts Aquarium_Gardens_MapScripts {
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE {
+        turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+        end
+    }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_GARDENS_STATE, 0: Aquarium_Gardens_OnFrame_NewGame
+    ]
+}
+
+script Aquarium_Gardens_OnFrame_NewGame {
+	lockall
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp3)
+	waitmovement(0)
+	setvar(VAR_GARDENS_STATE, 1)
+	releaseall
+	end
+}
+
+
+script Aquarium_Gardens_EventScript_CannotLeave {
+    lockall
+    msgbox(Aquarium_Gardens_Text_CannotLeave, MSGBOX_DEFAULT)
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp)
+    waitmovement(0)
+    releaseall
+    end
+}
+
+text Aquarium_Gardens_Text_CannotLeave {
+    "I still have a job to do."
+}
