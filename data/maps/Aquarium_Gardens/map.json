@@ -52,18 +52,60 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAN_1",
+      "x": 10,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Aquarium_Gardens_Relaxing",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GIRL_2",
+      "x": 15,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Aquarium_Gardens_Looking",
+      "flag": "0"
     }
   ],
   "warp_events": [
     {
-      "x": 3,
+      "x": 7,
       "y": 4,
       "elevation": 0,
       "dest_map": "MAP_AQUARIUM_ENTRANCE",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 8,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_AQUARIUM_ENTRANCE",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Aquarium_Gardens_CannotLeave"
+    },
     {
       "type": "trigger",
       "x": 8,
@@ -71,16 +113,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "Aquarium_Gardens_EventScript_CannotLeave"
-    },
-    {
-      "type": "trigger",
-      "x": 9,
-      "y": 14,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Aquarium_Gardens_EventScript_CannotLeave"
+      "script": "Aquarium_Gardens_CannotLeave"
     }
   ],
   "bg_events": [
