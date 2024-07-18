@@ -1029,5 +1029,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/text/save.inc"
 	.include "data/text/birch_speech.inc"
 
-	.include "data/maps/Aquarium_Entrance/scripts.inc"
+	.include "data/maps/Aquarium_Lobby/scripts.inc"
 	.include "data/maps/Aquarium_Gardens/scripts.inc"

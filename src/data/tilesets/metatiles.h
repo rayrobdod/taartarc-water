@@ -213,3 +213,6 @@ const u16 gMetatileAttributes_Aquarium[] = INCBIN_U16("build/tilesets/primary/aq
 
 const u16 gMetatiles_Gardens[] = INCBIN_U16("build/tilesets/primary/gardens/metatiles.bin");
 const u16 gMetatileAttributes_Gardens[] = INCBIN_U16("build/tilesets/primary/gardens/metatile_attributes.bin");
+
+const u16 gMetatiles_Lobby[] = INCBIN_U16("build/tilesets/secondary/aquarium_lobby/metatiles.bin");
+const u16 gMetatileAttributes_Lobby[] = INCBIN_U16("build/tilesets/secondary/aquarium_lobby/metatile_attributes.bin");

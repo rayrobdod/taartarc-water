@@ -4222,14 +4222,14 @@
       "blockdata_filepath": "data/layouts/BattleFrontier_ScottsHouse/map.bin"
     },
     {
-      "id": "LAYOUT_AQUARIUM_ENTRANCE",
-      "name": "Aquarium_Entrance_Layout",
+      "id": "LAYOUT_AQUARIUM_LOBBY",
+      "name": "Aquarium_Lobby_Layout",
       "width": 20,
-      "height": 20,
+      "height": 13,
       "primary_tileset": "gTileset_Aquarium",
-      "secondary_tileset": "gTileset_Petalburg",
-      "border_filepath": "data/layouts/Aquarium_Entrance/border.bin",
-      "blockdata_filepath": "data/layouts/Aquarium_Entrance/map.bin"
+      "secondary_tileset": "gTileset_Lobby",
+      "border_filepath": "data/layouts/Aquarium_Lobby/border.bin",
+      "blockdata_filepath": "data/layouts/Aquarium_Lobby/map.bin"
     },
     {
       "id": "LAYOUT_AQUARIUM_GARDENS",

@@ -1672,3 +1672,22 @@ const u16 gTilesetPalettes_Gardens[][16] =
 };
 
 const u32 gTilesetTiles_Gardens[] = INCBIN_U32("build/tilesets/primary/gardens/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Lobby[][16] =
+{
+    INCBIN_U16("build/tilesets/secondary/aquarium_lobby/palettes/00.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_lobby/palettes/01.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_lobby/palettes/02.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_lobby/palettes/03.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_lobby/palettes/04.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_lobby/palettes/05.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_lobby/palettes/06.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_lobby/palettes/07.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_lobby/palettes/08.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_lobby/palettes/09.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_lobby/palettes/10.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_lobby/palettes/11.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_lobby/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_Lobby[] = INCBIN_U32("build/tilesets/secondary/aquarium_lobby/tiles.4bpp.lz");
