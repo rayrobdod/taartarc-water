@@ -2,7 +2,6 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
   pull_request:
 
 jobs:
@@ -18,18 +17,28 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
 
-      - name: Checkout syms
-        if: ${{ github.event_name == 'push' }}
-        uses: actions/checkout@master
-        with:
-          path: symbols
-          ref: symbols
-
       - name: Checkout agbcc
         uses: actions/checkout@master
         with:
           path: agbcc
           repository: pret/agbcc
+
+      - name: Install poryscript
+        run: |
+          url="https://github.com/huderlem/poryscript/releases/download/3.3.0/poryscript-linux.zip"
+          curl -sSL $url > /tmp/poryscript.zip
+          unzip /tmp/poryscript.zip -d ./tools
+          mv ./tools/poryscript-linux ./tools/poryscript
+          ./tools/poryscript/poryscript -v
+
+      - name: Install porytiles
+        run: |
+          url="https://github.com/grunt-lucas/porytiles/releases/download/0.0.7/porytiles-linux-amd64.zip"
+          curl -sSL $url > /tmp/porytiles.zip
+          unzip /tmp/porytiles.zip porytiles-linux-amd64/porytiles -d ./tools
+          mv ./tools/porytiles-linux-amd64 ./tools/porytiles
+          echo `pwd`/tools/porytiles >> $GITHUB_PATH
+          ./tools/porytiles/porytiles -V
 
       - name: Install binutils
         run: sudo apt install gcc-arm-none-eabi binutils-arm-none-eabi
@@ -43,26 +52,8 @@ jobs:
           ./install.sh ../
         working-directory: agbcc
 
-      - name: Compare
-        run: make -j${nproc} all syms
-
-      - name: Modern
+      - name: Build
         env:
-          MODERN: 1
+          MODERN: 0
           COMPARE: 0
         run: make -j${nproc} all
-
-      - name: Move symfiles
-        if: ${{ github.event_name == 'push' }}
-        run: |
-          cp -v *.sym symbols/
-          echo "SYMBOLS_COMMIT_MSG=$( git log --format=%s ${GITHUB_SHA} )" >> $GITHUB_ENV
-
-      - name: Update symfiles
-        if: ${{ github.event_name == 'push' }}
-        uses: EndBug/add-and-commit@v7
-        with:
-          branch: symbols
-          cwd: "./symbols"
-          add: "*.sym"
-          message: ${{ env.SYMBOLS_COMMIT_MSG }}
