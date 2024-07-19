@@ -1122,6 +1122,36 @@ void ItemUseInBattle_EnigmaBerry(u8 taskId)
     }
 }
 
+static void CB2_OpenTownMapFromBag(void)
+{
+    FieldInitRegionMap(CB2_ReturnToBagMenuPocket);
+}
+
+static void Task_OpenRegisteredTownMapCase(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        CleanupOverworldWindowsAndTilemaps();
+        FieldInitRegionMap(CB2_ReturnToField);
+        DestroyTask(taskId);
+    }
+}
+
+void ItemUseOutOfBattle_TownMap(u8 taskId)
+{
+    if (gTasks[taskId].tUsingRegisteredKeyItem != TRUE)
+    {
+        gBagMenu->newScreenCallback = CB2_OpenTownMapFromBag;
+        Task_FadeAndCloseBagMenu(taskId);
+    }
+    else
+    {
+        gFieldCallback = FieldCB_ReturnToFieldNoScript;
+        FadeScreen(FADE_TO_BLACK, 0);
+        gTasks[taskId].func = Task_OpenRegisteredTownMapCase;
+    }
+}
+
 void ItemUseOutOfBattle_CannotUse(u8 taskId)
 {
     DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
