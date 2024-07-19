@@ -1316,6 +1316,8 @@ SECTIONS {
     extra :
     ALIGN(4)
     {
+        src/*.o(added);
+        data/*.o(added);
         src/*.o(.text);
         gflib/*.o(.text);
         src/*.o(.rodata);

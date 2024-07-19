@@ -1122,12 +1122,12 @@ void ItemUseInBattle_EnigmaBerry(u8 taskId)
     }
 }
 
-static void CB2_OpenTownMapFromBag(void)
+__attribute__((section("added"))) static void CB2_OpenTownMapFromBag(void)
 {
     FieldInitRegionMap(CB2_ReturnToBagMenuPocket);
 }
 
-static void Task_OpenRegisteredTownMapCase(u8 taskId)
+__attribute__((section("added"))) static void Task_OpenRegisteredTownMapCase(u8 taskId)
 {
     if (!gPaletteFade.active)
     {
@@ -1137,7 +1137,7 @@ static void Task_OpenRegisteredTownMapCase(u8 taskId)
     }
 }
 
-void ItemUseOutOfBattle_TownMap(u8 taskId)
+__attribute__((section("added"))) void ItemUseOutOfBattle_TownMap(u8 taskId)
 {
     if (gTasks[taskId].tUsingRegisteredKeyItem != TRUE)
     {
