@@ -1,6 +1,39 @@
 #ifndef GUARD_REGIONMAPSEC_H
 #define GUARD_REGIONMAPSEC_H
 
+#define MAPSEC_LOBBY                        0x63
+#define MAPSEC_GARDEN                       0x64
+#define MAPSEC_GIFT_SHOP                    0x65
+#define MAPSEC_CLASSROOM                    0x66
+#define MAPSEC_EXHIBIT_1                    0x67
+#define MAPSEC_EXHIBIT_2                    0x68
+
+#define MAPSEC_UNUSED_69                    0x69
+#define MAPSEC_UNUSED_6A                    0x6A
+#define MAPSEC_UNUSED_6B                    0x6B
+#define MAPSEC_UNUSED_6C                    0x6C
+#define MAPSEC_UNUSED_6D                    0x6D
+#define MAPSEC_UNUSED_6E                    0x6E
+#define MAPSEC_UNUSED_6F                    0x6F
+#define MAPSEC_UNUSED_70                    0x70
+#define MAPSEC_UNUSED_71                    0x71
+#define MAPSEC_UNUSED_72                    0x72
+#define MAPSEC_UNUSED_73                    0x73
+#define MAPSEC_UNUSED_74                    0x74
+#define MAPSEC_UNUSED_75                    0x75
+#define MAPSEC_UNUSED_76                    0x76
+#define MAPSEC_UNUSED_77                    0x77
+#define MAPSEC_UNUSED_78                    0x78
+#define MAPSEC_UNUSED_79                    0x79
+#define MAPSEC_UNUSED_7A                    0x7A
+
+// met location of starter pokemon
+#define MAPSEC_DRAGONS_DEN                  0x7B
+#define MAPSEC_CHARICIFIC_VALLEY            0x7C
+#define MAPSEC_LAKE_OF_RAGE                 0x7D
+#define MAPSEC_CINNABAR_ISLAND              0x60
+
+// unused hoenn or kanto
 #define MAPSEC_LITTLEROOT_TOWN              0x00
 #define MAPSEC_OLDALE_TOWN                  0x01
 #define MAPSEC_DEWFORD_TOWN                 0x02
@@ -97,36 +130,8 @@
 #define MAPSEC_VERMILION_CITY               0x5D
 #define MAPSEC_CELADON_CITY                 0x5E
 #define MAPSEC_FUCHSIA_CITY                 0x5F
-#define MAPSEC_CINNABAR_ISLAND              0x60
 #define MAPSEC_INDIGO_PLATEAU               0x61
 #define MAPSEC_SAFFRON_CITY                 0x62
-#define MAPSEC_ROUTE_4_POKECENTER           0x63
-#define MAPSEC_ROUTE_10_POKECENTER          0x64
-#define MAPSEC_ROUTE_1                      0x65
-#define MAPSEC_ROUTE_2                      0x66
-#define MAPSEC_ROUTE_3                      0x67
-#define MAPSEC_ROUTE_4                      0x68
-#define MAPSEC_ROUTE_5                      0x69
-#define MAPSEC_ROUTE_6                      0x6A
-#define MAPSEC_ROUTE_7                      0x6B
-#define MAPSEC_ROUTE_8                      0x6C
-#define MAPSEC_ROUTE_9                      0x6D
-#define MAPSEC_ROUTE_10                     0x6E
-#define MAPSEC_ROUTE_11                     0x6F
-#define MAPSEC_ROUTE_12                     0x70
-#define MAPSEC_ROUTE_13                     0x71
-#define MAPSEC_ROUTE_14                     0x72
-#define MAPSEC_ROUTE_15                     0x73
-#define MAPSEC_ROUTE_16                     0x74
-#define MAPSEC_ROUTE_17                     0x75
-#define MAPSEC_ROUTE_18                     0x76
-#define MAPSEC_ROUTE_19                     0x77
-#define MAPSEC_ROUTE_20                     0x78
-#define MAPSEC_ROUTE_21                     0x79
-#define MAPSEC_ROUTE_22                     0x7A
-#define MAPSEC_ROUTE_23                     0x7B
-#define MAPSEC_ROUTE_24                     0x7C
-#define MAPSEC_ROUTE_25                     0x7D
 #define MAPSEC_VIRIDIAN_FOREST              0x7E
 #define MAPSEC_MT_MOON                      0x7F
 #define MAPSEC_S_S_ANNE                     0x80
