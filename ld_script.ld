@@ -89,6 +89,12 @@ SECTIONS {
         src/minigame_countdown.o(.text);
         src/rtc.o(.text);
         src/main_menu.o(.text);
+        src/new_game.o(newGameInitData);
+    } > ROM =0
+
+    text2 0x08032654 :
+    ALIGN(4)
+    {
         src/battle_controllers.o(.text);
         src/decompress.o(.text);
         src/digit_obj_util.o(.text);
