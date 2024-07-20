@@ -207,3 +207,12 @@ const u16 gMetatileAttributes_MysteryEventsHouse[] = INCBIN_U16("data/tilesets/s
 
 const u16 gMetatiles_UnionRoom[] = INCBIN_U16("data/tilesets/secondary/union_room/metatiles.bin");
 const u16 gMetatileAttributes_UnionRoom[] = INCBIN_U16("data/tilesets/secondary/union_room/metatile_attributes.bin");
+
+__attribute__((section("added"))) const u16 gMetatiles_Aquarium[] = INCBIN_U16("build/tilesets/primary/aquarium/metatiles.bin");
+__attribute__((section("added"))) const u16 gMetatileAttributes_Aquarium[] = INCBIN_U16("build/tilesets/primary/aquarium/metatile_attributes.bin");
+
+__attribute__((section("added"))) const u16 gMetatiles_Gardens[] = INCBIN_U16("build/tilesets/primary/gardens/metatiles.bin");
+__attribute__((section("added"))) const u16 gMetatileAttributes_Gardens[] = INCBIN_U16("build/tilesets/primary/gardens/metatile_attributes.bin");
+
+__attribute__((section("added"))) const u16 gMetatiles_Lobby[] = INCBIN_U16("build/tilesets/secondary/aquarium_lobby/metatiles.bin");
+__attribute__((section("added"))) const u16 gMetatileAttributes_Lobby[] = INCBIN_U16("build/tilesets/secondary/aquarium_lobby/metatile_attributes.bin");
