@@ -9,10 +9,16 @@
 	.include "asm/macros.inc"
 	.include "constants/constants.inc"
 
+	.section added
+
+	.include "data/layouts/layouts_table.inc"
+
 	.section .rodata
 
 	.include "data/layouts/layouts.inc"
-	.include "data/layouts/layouts_table.inc"
+	.rept 0x84824b8 - 0x8481dd4
+	.byte 0
+	.endr
 	.include "data/maps/headers.inc"
 	.include "data/maps/groups.inc"
 	.include "data/maps/connections.inc"

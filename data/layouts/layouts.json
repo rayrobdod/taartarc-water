@@ -4410,6 +4410,26 @@
       "secondary_tileset": "gTileset_MysteryEventsHouse",
       "border_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_1F_StairsUnblocked/border.bin",
       "blockdata_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_1F_StairsUnblocked/map.bin"
+    },
+    {
+      "id": "LAYOUT_AQUARIUM_LOBBY",
+      "name": "Aquarium_Lobby_Layout",
+      "width": 20,
+      "height": 13,
+      "primary_tileset": "gTileset_Aquarium",
+      "secondary_tileset": "gTileset_Lobby",
+      "border_filepath": "data/layouts/Aquarium_Lobby/border.bin",
+      "blockdata_filepath": "data/layouts/Aquarium_Lobby/map.bin"
+    },
+    {
+      "id": "LAYOUT_AQUARIUM_GARDENS",
+      "name": "Aquarium_Gardens_Layout",
+      "width": 20,
+      "height": 15,
+      "primary_tileset": "gTileset_Gardens",
+      "secondary_tileset": "gTileset_BattleDome",
+      "border_filepath": "data/layouts/Aquarium_Gardens/border.bin",
+      "blockdata_filepath": "data/layouts/Aquarium_Gardens/map.bin"
     }
   ]
 }

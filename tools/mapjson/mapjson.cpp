@@ -29,6 +29,8 @@ using json11::Json;
 
 #include "mapjson.h"
 
+#define IS_NEW_MAP(name) ("Aquarium_" == name.substr(0, 9))
+
 string version;
 
 string read_text_file(string filepath) {
@@ -115,6 +117,9 @@ string generate_map_header_text(Json map_data, Json layouts_data) {
 
     text << "@\n@ DO NOT MODIFY THIS FILE! It is auto-generated from data/maps/" << mapName << "/map.json\n@\n\n";
 
+    if (IS_NEW_MAP(mapName))
+        text << "\t.section added\n\n";
+
     text << mapName << ":\n"
          << "\t.4byte " << json_to_string(layout, "name") << "\n";
 
@@ -158,6 +163,9 @@ string generate_map_header_text(Json map_data, Json layouts_data) {
 
      text << "\t.byte " << json_to_string(map_data, "battle_scene") << "\n\n";
 
+    if (IS_NEW_MAP(mapName))
+        text << "\t.section .rodata\n";
+
     return text.str();
 }
 
@@ -170,6 +178,9 @@ string generate_map_connections_text(Json map_data) {
     string mapName = json_to_string(map_data, "name");
 
     text << "@\n@ DO NOT MODIFY THIS FILE! It is auto-generated from data/maps/" << mapName << "/map.json\n@\n\n";
+
+    if (IS_NEW_MAP(mapName))
+        text << "\t.section added\n\n";
 
     text << mapName << "_MapConnectionsList:\n";
 
@@ -184,6 +195,9 @@ string generate_map_connections_text(Json map_data) {
          << "\t.4byte " << map_data["connections"].array_items().size() << "\n"
          << "\t.4byte " << mapName << "_MapConnectionsList\n\n";
 
+    if (IS_NEW_MAP(mapName))
+        text << "\t.section .rodata\n";
+
     return text.str();
 }
 
@@ -196,6 +210,9 @@ string generate_map_events_text(Json map_data) {
     string mapName = json_to_string(map_data, "name");
 
     text << "@\n@ DO NOT MODIFY THIS FILE! It is auto-generated from data/maps/" << mapName << "/map.json\n@\n\n";
+
+    if (IS_NEW_MAP(mapName))
+        text << "\t.section added\n\n";
 
     string objects_label, warps_label, coords_label, bgs_label;
 
@@ -327,6 +344,9 @@ string generate_map_events_text(Json map_data) {
          << "\tmap_events " << objects_label << ", " << warps_label << ", "
          << coords_label << ", " << bgs_label << "\n\n";
 
+    if (IS_NEW_MAP(mapName))
+        text << "\t.section .rodata\n\n";
+
     return text.str();
 }
 
@@ -367,17 +387,24 @@ string generate_groups_text(Json groups_data) {
 
     for (auto &key : groups_data["group_order"].array_items()) {
         string group = json_to_string(key);
+        if (group == "gMapGroup_Aquarium")
+            text << "\t.section added\n\n";
         text << group << "::\n";
         auto maps = groups_data[group].array_items();
         for (Json &map_name : maps)
             text << "\t.4byte " << json_to_string(map_name) << "\n";
         text << "\n";
+        if (group == "gMapGroup_Aquarium")
+            text << "\t.section .rodata\n\n";
     }
 
+    text << "\t.rept 0x8486600 - 0x8486578\n" << "\t.byte 0\n" << "\t.endr\n";
+    text << "\t.section added\n\n";
     text << "\t.align 2\n" << "gMapGroups::\n";
     for (auto &group : groups_data["group_order"].array_items())
         text << "\t.4byte " << json_to_string(group) << "\n";
     text << "\n";
+    text << "\t.section .rodata\n\n";
 
     return text.str();
 }
@@ -524,6 +551,8 @@ string generate_layout_headers_text(Json layouts_data) {
     for (auto &layout : layouts_data["layouts"].array_items()) {
         if (layout == Json::object()) continue;
         string layoutName = json_to_string(layout, "name");
+        if (IS_NEW_MAP(layoutName))
+            text << "\t.section added\n";
         string border_label = layoutName + "_Border";
         string blockdata_label = layoutName + "_Blockdata";
         text << border_label << "::\n"
@@ -543,6 +572,8 @@ string generate_layout_headers_text(Json layouts_data) {
                  << "\t.byte " << json_to_string(layout, "border_height") << "\n"
                  << "\t.2byte 0\n";
         }
+        if (IS_NEW_MAP(layoutName))
+            text << "\t.section .rodata\n";
         text << "\n";
     }
 

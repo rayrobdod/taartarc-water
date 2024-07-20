@@ -72,6 +72,7 @@ Common_Movement_WalkUp6:
 	walk_up
 	walk_up
 	walk_up
+Common_Movement_WalkUp3:
 	walk_up
 	walk_up
 	walk_up

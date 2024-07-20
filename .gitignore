@@ -20,6 +20,7 @@
 sound/**/*.bin
 sound/songs/midi/*.s
 tools/agbcc
+tools/poryscript
 *.map
 *.bat
 *.dump
@@ -40,3 +41,6 @@ assign.cfg
 *.sym
 *.js
 *.vcdiff
+
+data/maps/Aquarium_Gardens/scripts.inc
+data/maps/Aquarium_Lobby/scripts.inc

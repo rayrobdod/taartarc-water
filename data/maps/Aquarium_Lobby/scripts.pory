@@ -1,0 +1,70 @@
+// VAR_LOBBY_STATE
+//	0 -> 1 : receive briefing and map
+
+const OBJ_ID_ATTENDANT = 1
+
+
+mapscripts Aquarium_Lobby_MapScripts {
+}
+
+script Aquarium_Lobby_Attendant {
+	msgbox(
+		format("???"),
+		MSGBOX_NPC)
+	end
+}
+
+script Aquarium_Lobby_Briefing_FarLeft {
+	call(Aquarium_Lobby_Briefing_BeforePlayerMove)
+	applymovement(OBJ_EVENT_ID_PLAYER, Aquarium_Lobby_Movement_WalkRight3)
+	call(Aquarium_Lobby_Briefing_AfterPlayerMove)
+}
+script Aquarium_Lobby_Briefing_Left {
+	call(Aquarium_Lobby_Briefing_BeforePlayerMove)
+	applymovement(OBJ_EVENT_ID_PLAYER, Aquarium_Lobby_Movement_WalkRight2)
+	call(Aquarium_Lobby_Briefing_AfterPlayerMove)
+}
+script Aquarium_Lobby_Briefing_Right {
+	call(Aquarium_Lobby_Briefing_BeforePlayerMove)
+	applymovement(OBJ_EVENT_ID_PLAYER, Aquarium_Lobby_Movement_WalkRight)
+	call(Aquarium_Lobby_Briefing_AfterPlayerMove)
+}
+script Aquarium_Lobby_Briefing_FarRight {
+	call(Aquarium_Lobby_Briefing_BeforePlayerMove)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight)
+	call(Aquarium_Lobby_Briefing_AfterPlayerMove)
+}
+
+script(local) Aquarium_Lobby_Briefing_BeforePlayerMove {
+	lockall
+	applymovement(OBJ_ID_ATTENDANT, Common_Movement_FaceLeft)
+	msgbox(format("Hello. Welcome to the Cerulean Aquarium."), MSGBOX_DEFAULT)
+	applymovement(OBJ_ID_ATTENDANT, Common_Movement_FaceUp)
+	return
+}
+
+script(local) Aquarium_Lobby_Briefing_AfterPlayerMove {
+	waitmovement(0)
+	msgbox(format("Some of our exhibits are closed due to technical difficulties, however."), MSGBOX_DEFAULT)
+	applymovement(OBJ_ID_ATTENDANT, Common_Movement_FaceLeft)
+	msgbox(
+		format("Oh! Champion Lance! Thank you for coming!\p"
+			"Correct, the 'technical difficulties' are Team Torpedo.\p"
+			"INSERT EXPOSITION HERE\p"
+			"Oh, and take one of these maps."),
+		MSGBOX_DEFAULT)
+	giveitem(ITEM_TOWN_MAP)
+	releaseall
+	setvar(VAR_LOBBY_STATE, 1)
+	end
+}
+
+raw `
+Aquarium_Lobby_Movement_WalkRight3:
+	walk_right
+Aquarium_Lobby_Movement_WalkRight2:
+	walk_right
+Aquarium_Lobby_Movement_WalkRight:
+	walk_right
+	step_end
+`
