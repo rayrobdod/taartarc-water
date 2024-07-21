@@ -2041,28 +2041,28 @@ static const struct SpriteFrameImage sPicTable_BirthIslandStone[] = {
     obj_frame_tiles(gObjectEventPic_BirthIslandStone),
 };
 
-static const struct SpriteFrameImage sPicTable_Anabel[] = {
-    overworld_frame(gObjectEventPic_Anabel, 2, 4, 0),
-    overworld_frame(gObjectEventPic_Anabel, 2, 4, 1),
-    overworld_frame(gObjectEventPic_Anabel, 2, 4, 2),
-    overworld_frame(gObjectEventPic_Anabel, 2, 4, 3),
-    overworld_frame(gObjectEventPic_Anabel, 2, 4, 4),
-    overworld_frame(gObjectEventPic_Anabel, 2, 4, 5),
-    overworld_frame(gObjectEventPic_Anabel, 2, 4, 6),
-    overworld_frame(gObjectEventPic_Anabel, 2, 4, 7),
-    overworld_frame(gObjectEventPic_Anabel, 2, 4, 8),
+static const struct SpriteFrameImage sPicTable_Lotad[] = {
+    overworld_frame(gObjectEventPic_Lotad, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Lotad, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Lotad, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Lotad, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Lotad, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Lotad, 4, 4, 5),
+    overworld_frame(gObjectEventPic_Lotad, 4, 4, 6),
+    overworld_frame(gObjectEventPic_Lotad, 4, 4, 7),
+    overworld_frame(gObjectEventPic_Lotad, 4, 4, 0),
 };
 
-static const struct SpriteFrameImage sPicTable_Tucker[] = {
-    overworld_frame(gObjectEventPic_Tucker, 2, 4, 0),
-    overworld_frame(gObjectEventPic_Tucker, 2, 4, 1),
-    overworld_frame(gObjectEventPic_Tucker, 2, 4, 2),
-    overworld_frame(gObjectEventPic_Tucker, 2, 4, 3),
-    overworld_frame(gObjectEventPic_Tucker, 2, 4, 4),
-    overworld_frame(gObjectEventPic_Tucker, 2, 4, 5),
-    overworld_frame(gObjectEventPic_Tucker, 2, 4, 6),
-    overworld_frame(gObjectEventPic_Tucker, 2, 4, 7),
-    overworld_frame(gObjectEventPic_Tucker, 2, 4, 8),
+static const struct SpriteFrameImage sPicTable_LotadSwimming[] = {
+    overworld_frame(gObjectEventPic_LotadSwimming, 4, 4, 0),
+    overworld_frame(gObjectEventPic_LotadSwimming, 4, 4, 1),
+    overworld_frame(gObjectEventPic_LotadSwimming, 4, 4, 2),
+    overworld_frame(gObjectEventPic_LotadSwimming, 4, 4, 3),
+    overworld_frame(gObjectEventPic_LotadSwimming, 4, 4, 4),
+    overworld_frame(gObjectEventPic_LotadSwimming, 4, 4, 5),
+    overworld_frame(gObjectEventPic_LotadSwimming, 4, 4, 6),
+    overworld_frame(gObjectEventPic_LotadSwimming, 4, 4, 7),
+    overworld_frame(gObjectEventPic_LotadSwimming, 4, 4, 0),
 };
 
 static const struct SpriteFrameImage sPicTable_Spenser[] = {

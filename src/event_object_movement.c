@@ -457,6 +457,8 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_LUGIA                   0x1121
 #define OBJ_EVENT_PAL_TAG_RS_BRENDAN              0x1122
 #define OBJ_EVENT_PAL_TAG_RS_MAY                  0x1123
+#define OBJ_EVENT_PAL_TAG_LOTAD                   0x1124
+#define OBJ_EVENT_PAL_TAG_LOTAD_REFLECTION        0x1125
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -467,6 +469,9 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #include "data/object_events/object_event_subsprites.h"
 #include "data/object_events/object_event_graphics_info.h"
 
+PADDING_rodata(0x120)
+
+__attribute__((section("added")))
 static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Npc1,                  OBJ_EVENT_PAL_TAG_NPC_1},
     {gObjectEventPal_Npc2,                  OBJ_EVENT_PAL_TAG_NPC_2},
@@ -503,7 +508,9 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Lugia,                 OBJ_EVENT_PAL_TAG_LUGIA},
     {gObjectEventPal_RubySapphireBrendan,   OBJ_EVENT_PAL_TAG_RS_BRENDAN},
     {gObjectEventPal_RubySapphireMay,       OBJ_EVENT_PAL_TAG_RS_MAY},
-#ifdef BUGFIX
+    {gObjectEventPal_Lotad,                 OBJ_EVENT_PAL_TAG_LOTAD},
+    {gObjectEventPal_LotadReflection,       OBJ_EVENT_PAL_TAG_LOTAD_REFLECTION},
+#if 1
     {NULL,                                  OBJ_EVENT_PAL_TAG_NONE},
 #else
     {}, // BUG: FindObjectEventPaletteIndexByTag looks for OBJ_EVENT_PAL_TAG_NONE and not 0x0.
@@ -616,6 +623,17 @@ static const u16 sReflectionPaletteTags_RedLeaf[] = {
     OBJ_EVENT_PAL_TAG_RED_LEAF,
 };
 
+static const u16 sReflectionPaletteTags_Lotad[] = {
+    OBJ_EVENT_PAL_TAG_LOTAD_REFLECTION,
+    OBJ_EVENT_PAL_TAG_LOTAD_REFLECTION,
+    OBJ_EVENT_PAL_TAG_LOTAD_REFLECTION,
+    OBJ_EVENT_PAL_TAG_LOTAD_REFLECTION,
+};
+
+
+PADDING_rodata(0x68)
+
+__attribute__((section("added")))
 static const struct PairedPalettes sSpecialObjectReflectionPaletteSets[] = {
     {OBJ_EVENT_PAL_TAG_BRENDAN,          sReflectionPaletteTags_Brendan},
     {OBJ_EVENT_PAL_TAG_MAY,              sReflectionPaletteTags_May},
@@ -630,6 +648,7 @@ static const struct PairedPalettes sSpecialObjectReflectionPaletteSets[] = {
     {OBJ_EVENT_PAL_TAG_NPC_3,            sReflectionPaletteTags_Npc3},
     {OBJ_EVENT_PAL_TAG_SUBMARINE_SHADOW, sReflectionPaletteTags_SubmarineShadow},
     {OBJ_EVENT_PAL_TAG_RED_LEAF,         sReflectionPaletteTags_RedLeaf},
+    {OBJ_EVENT_PAL_TAG_LOTAD,            sReflectionPaletteTags_Lotad},
     {OBJ_EVENT_PAL_TAG_NONE,             NULL},
 };
 

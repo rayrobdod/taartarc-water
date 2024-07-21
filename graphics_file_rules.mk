@@ -524,6 +524,8 @@ $(SLOTMACHINEGFXDIR)/reel_time_gfx.4bpp: $(SLOTMACHINEGFXDIR)/reel_time_pikachu.
 graphics/birch_speech/unused_beauty.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 822 -Wnum_tiles
 
+$(OBJEVENTGFXDIR)/pics/pokemon/lotad_reflection.gbapal: $(OBJEVENTGFXDIR)/pics/pokemon/lotad.gbapal
+	./tools/reflection_palette/reflection_palette <$< >$@
 
 
 ### Pokémon Storage System ###

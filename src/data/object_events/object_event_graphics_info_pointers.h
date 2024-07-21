@@ -68,8 +68,8 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Man5;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ReporterM;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ReporterF;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Bard;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Anabel;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Tucker;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lotad;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LotadSwimming;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Greta;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Spenser;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Noland;
@@ -317,12 +317,10 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_REPORTER_M] =               &gObjectEventGraphicsInfo_ReporterM,
     [OBJ_EVENT_GFX_REPORTER_F] =               &gObjectEventGraphicsInfo_ReporterF,
     [OBJ_EVENT_GFX_BARD] =                     &gObjectEventGraphicsInfo_Bard,
-    [OBJ_EVENT_GFX_ANABEL] =                   &gObjectEventGraphicsInfo_Anabel,
-    [OBJ_EVENT_GFX_TUCKER] =                   &gObjectEventGraphicsInfo_Tucker,
-    [OBJ_EVENT_GFX_GRETA] =                    &gObjectEventGraphicsInfo_Greta,
-    [OBJ_EVENT_GFX_SPENSER] =                  &gObjectEventGraphicsInfo_Spenser,
-    [OBJ_EVENT_GFX_NOLAND] =                   &gObjectEventGraphicsInfo_Noland,
-    [OBJ_EVENT_GFX_LUCY] =                     &gObjectEventGraphicsInfo_Lucy,
+    [OBJ_EVENT_GFX_GRETA] =                    &gObjectEventGraphicsInfo_UnusedNatuDoll,
+    [OBJ_EVENT_GFX_SPENSER] =                  &gObjectEventGraphicsInfo_UnusedNatuDoll,
+    [OBJ_EVENT_GFX_NOLAND] =                   &gObjectEventGraphicsInfo_UnusedNatuDoll,
+    [OBJ_EVENT_GFX_LUCY] =                     &gObjectEventGraphicsInfo_UnusedNatuDoll,
     [OBJ_EVENT_GFX_UNUSED_NATU_DOLL] =         &gObjectEventGraphicsInfo_UnusedNatuDoll,
     [OBJ_EVENT_GFX_UNUSED_MAGNEMITE_DOLL] =    &gObjectEventGraphicsInfo_UnusedMagnemiteDoll,
     [OBJ_EVENT_GFX_UNUSED_SQUIRTLE_DOLL] =     &gObjectEventGraphicsInfo_UnusedSquirtleDoll,
@@ -486,6 +484,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_LINK_RS_MAY] =              &gObjectEventGraphicsInfo_RubySapphireMay,
     [OBJ_EVENT_GFX_LUGIA] =                    &gObjectEventGraphicsInfo_Lugia,
     [OBJ_EVENT_GFX_HOOH] =                     &gObjectEventGraphicsInfo_HoOh,
+    [OBJ_EVENT_GFX_LOTAD] =                    &gObjectEventGraphicsInfo_Lotad,
+    [OBJ_EVENT_GFX_LOTAD_SWIMMING] =           &gObjectEventGraphicsInfo_LotadSwimming,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

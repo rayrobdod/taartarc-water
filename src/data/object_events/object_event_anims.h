@@ -1175,3 +1175,183 @@ static const struct StepAnimTable sStepAnimTables[] = {
     },
     {},
 };
+
+__attribute__((section("added")))
+static const union AnimCmd sAnim_HeartGoldFollower_FaceSouth[] =
+{
+    ANIMCMD_FRAME(6, 16),
+    ANIMCMD_JUMP(0),
+};
+
+__attribute__((section("added")))
+static const union AnimCmd sAnim_HeartGoldFollower_FaceNorth[] =
+{
+    ANIMCMD_FRAME(2, 16),
+    ANIMCMD_JUMP(0),
+};
+
+__attribute__((section("added")))
+static const union AnimCmd sAnim_HeartGoldFollower_FaceWest[] =
+{
+    ANIMCMD_FRAME(3, 16),
+    ANIMCMD_JUMP(0),
+};
+
+__attribute__((section("added")))
+static const union AnimCmd sAnim_HeartGoldFollower_FaceEast[] =
+{
+    ANIMCMD_FRAME(7, 16),
+    ANIMCMD_JUMP(0),
+};
+
+__attribute__((section("added")))
+static const union AnimCmd sAnim_HeartGoldFollower_GoSouth[] =
+{
+    ANIMCMD_FRAME(4, 8),
+    ANIMCMD_FRAME(6, 8),
+    ANIMCMD_JUMP(0),
+};
+
+__attribute__((section("added")))
+static const union AnimCmd sAnim_HeartGoldFollower_GoNorth[] =
+{
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(2, 8),
+    ANIMCMD_JUMP(0),
+};
+
+__attribute__((section("added")))
+static const union AnimCmd sAnim_HeartGoldFollower_GoWest[] =
+{
+    ANIMCMD_FRAME(1, 8),
+    ANIMCMD_FRAME(3, 8),
+    ANIMCMD_JUMP(0),
+};
+
+__attribute__((section("added")))
+static const union AnimCmd sAnim_HeartGoldFollower_GoEast[] =
+{
+    ANIMCMD_FRAME(5, 8),
+    ANIMCMD_FRAME(7, 8),
+    ANIMCMD_JUMP(0),
+};
+
+__attribute__((section("added")))
+static const union AnimCmd sAnim_HeartGoldFollower_GoFastSouth[] =
+{
+    ANIMCMD_FRAME(4, 4),
+    ANIMCMD_FRAME(6, 4),
+    ANIMCMD_JUMP(0),
+};
+
+__attribute__((section("added")))
+static const union AnimCmd sAnim_HeartGoldFollower_GoFastNorth[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(2, 4),
+    ANIMCMD_JUMP(0),
+};
+
+__attribute__((section("added")))
+static const union AnimCmd sAnim_HeartGoldFollower_GoFastWest[] =
+{
+    ANIMCMD_FRAME(1, 4),
+    ANIMCMD_FRAME(3, 4),
+    ANIMCMD_JUMP(0),
+};
+
+__attribute__((section("added")))
+static const union AnimCmd sAnim_HeartGoldFollower_GoFastEast[] =
+{
+    ANIMCMD_FRAME(5, 4),
+    ANIMCMD_FRAME(7, 4),
+    ANIMCMD_JUMP(0),
+};
+
+__attribute__((section("added")))
+static const union AnimCmd sAnim_HeartGoldFollower_GoFasterSouth[] =
+{
+    ANIMCMD_FRAME(4, 2),
+    ANIMCMD_FRAME(6, 2),
+    ANIMCMD_JUMP(0),
+};
+
+__attribute__((section("added")))
+static const union AnimCmd sAnim_HeartGoldFollower_GoFasterNorth[] =
+{
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_FRAME(2, 2),
+    ANIMCMD_JUMP(0),
+};
+
+__attribute__((section("added")))
+static const union AnimCmd sAnim_HeartGoldFollower_GoFasterWest[] =
+{
+    ANIMCMD_FRAME(1, 2),
+    ANIMCMD_FRAME(3, 2),
+    ANIMCMD_JUMP(0),
+};
+
+__attribute__((section("added")))
+static const union AnimCmd sAnim_HeartGoldFollower_GoFasterEast[] =
+{
+    ANIMCMD_FRAME(5, 2),
+    ANIMCMD_FRAME(7, 2),
+    ANIMCMD_JUMP(0),
+};
+
+__attribute__((section("added")))
+static const union AnimCmd sAnim_HeartGoldFollower_GoFastestSouth[] =
+{
+    ANIMCMD_FRAME(4, 1),
+    ANIMCMD_FRAME(6, 1),
+    ANIMCMD_JUMP(0),
+};
+
+__attribute__((section("added")))
+static const union AnimCmd sAnim_HeartGoldFollower_GoFastestNorth[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_FRAME(2, 1),
+    ANIMCMD_JUMP(0),
+};
+
+__attribute__((section("added")))
+static const union AnimCmd sAnim_HeartGoldFollower_GoFastestWest[] =
+{
+    ANIMCMD_FRAME(1, 1),
+    ANIMCMD_FRAME(3, 1),
+    ANIMCMD_JUMP(0),
+};
+
+__attribute__((section("added")))
+static const union AnimCmd sAnim_HeartGoldFollower_GoFastestEast[] =
+{
+    ANIMCMD_FRAME(5, 1),
+    ANIMCMD_FRAME(7, 1),
+    ANIMCMD_JUMP(0),
+};
+
+__attribute__((section("added")))
+static const union AnimCmd *const sAnimTable_HeartGoldFollower[] = {
+    [ANIM_STD_FACE_SOUTH] = sAnim_HeartGoldFollower_FaceSouth,
+    [ANIM_STD_FACE_NORTH] = sAnim_HeartGoldFollower_FaceNorth,
+    [ANIM_STD_FACE_WEST] = sAnim_HeartGoldFollower_FaceWest,
+    [ANIM_STD_FACE_EAST] = sAnim_HeartGoldFollower_FaceEast,
+    [ANIM_STD_GO_SOUTH] = sAnim_HeartGoldFollower_GoSouth,
+    [ANIM_STD_GO_NORTH] = sAnim_HeartGoldFollower_GoNorth,
+    [ANIM_STD_GO_WEST] = sAnim_HeartGoldFollower_GoWest,
+    [ANIM_STD_GO_EAST] = sAnim_HeartGoldFollower_GoEast,
+    [ANIM_STD_GO_FAST_SOUTH] = sAnim_HeartGoldFollower_GoFastSouth,
+    [ANIM_STD_GO_FAST_NORTH] = sAnim_HeartGoldFollower_GoFastNorth,
+    [ANIM_STD_GO_FAST_WEST] = sAnim_HeartGoldFollower_GoFastWest,
+    [ANIM_STD_GO_FAST_EAST] = sAnim_HeartGoldFollower_GoFastEast,
+    [ANIM_STD_GO_FASTER_SOUTH] = sAnim_HeartGoldFollower_GoFasterSouth,
+    [ANIM_STD_GO_FASTER_NORTH] = sAnim_HeartGoldFollower_GoFasterNorth,
+    [ANIM_STD_GO_FASTER_WEST] = sAnim_HeartGoldFollower_GoFasterWest,
+    [ANIM_STD_GO_FASTER_EAST] = sAnim_HeartGoldFollower_GoFasterEast,
+    [ANIM_STD_GO_FASTEST_SOUTH] = sAnim_HeartGoldFollower_GoFastestSouth,
+    [ANIM_STD_GO_FASTEST_NORTH] = sAnim_HeartGoldFollower_GoFastestNorth,
+    [ANIM_STD_GO_FASTEST_WEST] = sAnim_HeartGoldFollower_GoFastestWest,
+    [ANIM_STD_GO_FASTEST_EAST] = sAnim_HeartGoldFollower_GoFastestEast,
+};

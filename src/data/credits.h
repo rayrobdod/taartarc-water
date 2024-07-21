@@ -1,5 +1,6 @@
 enum
 {
+    RESOURCES_OVERWORLD_LOTAD,
     PAGE_TITLE,
     PAGE_DIRECTOR,
     PAGE_ART_DIRECTOR,
@@ -381,9 +382,26 @@ static const struct CreditsEntry sCreditsEntry_NicolaPrattBarlow                
 static const struct CreditsEntry sCreditsEntry_ShellieDow                       = { 0, FALSE, sCreditsText_ShellieDow};
 static const struct CreditsEntry sCreditsEntry_ErikJohnson                      = { 0, FALSE, sCreditsText_ErikJohnson};
 
+#define COMPOUND_STRING(str) (const u8[]) _(str)
+/* Couldn't get the 'compound' pattern to work with a pointer to a CreditsEntry, but not having to name each string here is at least something */
+static const struct CreditsEntry sCreditsEntry_Resources = { 0, TRUE, COMPOUND_STRING("Resources")};
+static const struct CreditsEntry sCreditsEntry_LotadOverworldSprite = { 0, TRUE, COMPOUND_STRING("From HeartGold/SoulSilver")};
+static const struct CreditsEntry sCreditsEntry_FromHeartGoldSoulSilver = { 0, FALSE, COMPOUND_STRING("From HeartGold/SoulSilver")};
+
+PADDING_rodata(0x434)
+
 #define _ &sCreditsEntry_EmptyString
+
+__attribute__((section("added")))
 static const struct CreditsEntry *const sCreditsEntryPointerTable[PAGE_COUNT][ENTRIES_PER_PAGE] =
 {
+    [RESOURCES_OVERWORLD_LOTAD] = {
+        _,
+        &sCreditsEntry_LotadOverworldSprite,
+        &sCreditsEntry_FromHeartGoldSoulSilver,
+        _,
+        _,
+    },
     [PAGE_TITLE] = {
         _,
         &sCreditsEntry_PkmnEmeraldVersion,

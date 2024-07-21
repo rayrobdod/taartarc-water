@@ -71,8 +71,8 @@
 #define OBJ_EVENT_GFX_REPORTER_M                  67
 #define OBJ_EVENT_GFX_REPORTER_F                  68
 #define OBJ_EVENT_GFX_BARD                        69
-#define OBJ_EVENT_GFX_ANABEL                      70
-#define OBJ_EVENT_GFX_TUCKER                      71
+#define OBJ_EVENT_GFX_LOTAD                       70
+#define OBJ_EVENT_GFX_LOTAD_SWIMMING              71
 #define OBJ_EVENT_GFX_GRETA                       72
 #define OBJ_EVENT_GFX_SPENSER                     73
 #define OBJ_EVENT_GFX_NOLAND                      74
