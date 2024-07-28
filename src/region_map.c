@@ -1040,7 +1040,7 @@ static void InitMapBasedOnPlayerLocation(void)
     sRegionMap->cursorPosY = gRegionMapEntries[sRegionMap->mapSecId].y + y + MAPCURSOR_Y_MIN;
 }
 
-PADDING_text(410)
+PADDING(".text", 820)
 
 static u8 GetMapsecType(u16 mapSecId)
 {

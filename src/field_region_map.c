@@ -185,7 +185,7 @@ static void FieldUpdateRegionMap(void)
     }
 }
 
-PADDING_text(26)
+PADDING(".text", 52)
 
 static void PrintRegionMapSecName(void)
 {

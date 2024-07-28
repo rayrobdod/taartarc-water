@@ -469,7 +469,7 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #include "data/object_events/object_event_subsprites.h"
 #include "data/object_events/object_event_graphics_info.h"
 
-PADDING_rodata(0x120)
+PADDING(".rodata", 0x120)
 
 __attribute__((section("added")))
 static const struct SpritePalette sObjectEventSpritePalettes[] = {
@@ -628,7 +628,7 @@ static const u16 sReflectionPaletteTags_Lotad[] = {
 };
 
 
-PADDING_rodata(0x68)
+PADDING(".rodata", 0x68)
 
 __attribute__((section("added")))
 static const struct PairedPalettes sSpecialObjectReflectionPaletteSets[] = {

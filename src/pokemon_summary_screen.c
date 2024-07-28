@@ -1480,7 +1480,7 @@ static void SetDefaultTilemaps(void)
     DrawPokerusCuredSymbol(&sMonSummaryScreen->currentMon);
 }
 
-PADDING_text(8)
+PADDING(".text", 16)
 
 static void FreeSummaryScreen(void)
 {
@@ -1765,7 +1765,7 @@ static void ChangePage(u8 taskId, s8 delta)
     HidePageSpecificSprites();
 }
 
-PADDING_text(2)
+PADDING(".text", 4)
 
 static void PssScrollRight(u8 taskId) // Scroll right
 {
@@ -1859,7 +1859,7 @@ static void PssScrollLeftEnd(u8 taskId) // display left
     SwitchTaskToFollowupFunc(taskId);
 }
 
-PADDING_text(2)
+PADDING(".text", 4)
 
 static void TryDrawExperienceProgressBar(void)
 {
@@ -2251,7 +2251,7 @@ static void ShowCantForgetHMsWindow(u8 taskId)
     gTasks[taskId].func = Task_HandleInputCantForgetHMsMoves;
 }
 
-PADDING_text(2)
+PADDING(".text", 4)
 
 // This redraws the power/accuracy window when the player scrolls out of the "HM Moves can't be forgotten" message
 static void Task_HandleInputCantForgetHMsMoves(u8 taskId)
@@ -2319,7 +2319,7 @@ static void Task_HandleInputCantForgetHMsMoves(u8 taskId)
     }
 }
 
-PADDING_text(2)
+PADDING(".text", 4)
 
 u8 GetMoveSlotToReplace(void)
 {
@@ -2393,7 +2393,7 @@ static void DrawPagination(void) // Updates the pagination dots at the top of th
     Free(tilemap);
 }
 
-PADDING_text(2)
+PADDING(".text", 4)
 
 static void ChangeTilemap(const struct TilemapCtrl *unkStruct, u16 *dest, u8 c, bool8 d)
 {
@@ -2527,7 +2527,7 @@ static void Task_ShowAppealJamWindow(u8 taskId)
     ScheduleBgCopyTilemapToVram(2);
 }
 
-PADDING_text(2)
+PADDING(".text", 4)
 
 static void HandleStatusTilemap(u16 a, s16 b)
 {
@@ -3663,7 +3663,7 @@ static void PrintMoveDetails(u16 move)
     ScheduleBgCopyTilemapToVram(0);
 }
 
-PADDING_text(34)
+PADDING(".text", 68)
 
 static void PrintNewMoveDetailsOrCancelText(void)
 {
@@ -3692,7 +3692,7 @@ static void PrintNewMoveDetailsOrCancelText(void)
     }
 }
 
-PADDING_text(2)
+PADDING(".text", 4)
 
 static void AddAndFillMoveNamesWindow(void)
 {
@@ -3775,7 +3775,7 @@ static void SetTypeIcons(void)
     }
 }
 
-PADDING_text(2)
+PADDING(".text", 4)
 
 static void CreateMoveTypeIcons(void)
 {

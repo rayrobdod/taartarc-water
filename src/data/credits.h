@@ -395,7 +395,7 @@ static const struct CreditsEntry sCreditsEntry_Resources = { 0, TRUE, COMPOUND_S
 static const struct CreditsEntry sCreditsEntry_LotadOverworldSprite = { 0, TRUE, COMPOUND_STRING("From HeartGold/SoulSilver")};
 static const struct CreditsEntry sCreditsEntry_FromHeartGoldSoulSilver = { 0, FALSE, COMPOUND_STRING("From HeartGold/SoulSilver")};
 
-PADDING_rodata(0x434)
+PADDING(".rodata", 0x434)
 
 #define _ &sCreditsEntry_EmptyString
 

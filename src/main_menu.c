@@ -1004,7 +1004,7 @@ static void Task_HandleMainMenuAPressed(u8 taskId)
     }
 }
 
-PADDING_text(6)
+PADDING(".text", 12)
 
 static void Task_HandleMainMenuBPressed(u8 taskId)
 {
@@ -1152,7 +1152,7 @@ static void HighlightSelectedMainMenuItem(u8 menuType, u8 selectedMenuItem, s16 
     }
 }
 
-PADDING_text(2868)
+PADDING(".text", 5736)
 
 static void CreateMainMenuErrorWindow(const u8 *str)
 {
@@ -1261,7 +1261,7 @@ static void ClearMainMenuWindowTilemap(const struct WindowTemplate *template)
     CopyBgTilemapBufferToVram(template->bg);
 }
 
-PADDING_text(154)
+PADDING(".text", 308)
 
 void CreateYesNoMenuParameterized(u8 x, u8 y, u16 baseTileNum, u16 baseBlock, u8 yesNoPalNum, u8 winPalNum)
 {

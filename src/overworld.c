@@ -1547,7 +1547,7 @@ void CB2_NewGame(void)
     SetMainCallback2(CB2_Overworld);
 }
 
-PADDING_text(2)
+PADDING(".text", 4)
 
 void CB2_WhiteOut(void)
 {

@@ -132,7 +132,7 @@ static void ClearFrontierRecord(void)
     gSaveBlock2Ptr->frontier.opponentNames[1][0] = EOS;
 }
 
-PADDING_text(15)
+PADDING(".text", 30)
 
 __attribute__((section("newGameInitData"))) static void WarpToAquariumEntrance(void)
 {

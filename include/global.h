@@ -24,13 +24,6 @@
 #define NAKED __attribute__((naked))
 
 // to prevent pointer shifting
-#define CONCAT_1(a, b) a ## b
-#define CONCAT_2(a, b) CONCAT_1(a, b)
-
-#define PADDING_rodata(c) asm("\t.rept " #c "\n\t.byte 0\n\t.endr");
-
-#define PADDING_text(c) asm("\t.rept " #c "\n\tnop\n\t.endr");
-
 #define PADDING(section, bytes) asm("\t.section " #section "\n\t.rept " #bytes "\n\t.byte 0\n\t.endr");
 
 /// IDE support
