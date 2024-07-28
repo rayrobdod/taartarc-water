@@ -68,10 +68,22 @@ static const union AnimCmd sAnimCmd_RubySapphireMay_1[] =
     ANIMCMD_END,
 };
 
-static const union AnimCmd *const sBackAnims_Brendan[] =
+__attribute__((section("added")))
+static const union AnimCmd sAnimCmd_Lance_Back[] =
 {
-    sAnim_GeneralFrame3,
-    sAnimCmd_Brendan_1,
+    ANIMCMD_FRAME(1, 8),
+    ANIMCMD_FRAME(2, 12),
+    ANIMCMD_FRAME(3, 6),
+    ANIMCMD_FRAME(4, 6),
+    ANIMCMD_FRAME(5, 24),
+    ANIMCMD_FRAME(0, 50),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sBackAnims_Lance[] =
+{
+    sAnim_GeneralFrame0,
+    sAnimCmd_Lance_Back,
 };
 
 static const union AnimCmd *const sBackAnims_May[] =
@@ -118,7 +130,7 @@ static const union AnimCmd *const sBackAnims_Steven[] =
 
 const union AnimCmd *const *const gTrainerBackAnimsPtrTable[] =
 {
-    [TRAINER_BACK_PIC_BRENDAN] = sBackAnims_Brendan,
+    [TRAINER_BACK_PIC_BRENDAN] = sBackAnims_Lance,
     [TRAINER_BACK_PIC_MAY] = sBackAnims_May,
     [TRAINER_BACK_PIC_RED] = sBackAnims_Red,
     [TRAINER_BACK_PIC_LEAF] = sBackAnims_Leaf,
