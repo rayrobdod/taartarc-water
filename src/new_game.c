@@ -45,6 +45,7 @@
 #include "berry_powder.h"
 #include "mystery_gift.h"
 #include "union_room_chat.h"
+#include "constants/heal_locations.h"
 #include "constants/items.h"
 #include "constants/moves.h"
 #include "constants/region_map_sections.h"
@@ -254,6 +255,7 @@ void NewGameInitData(void)
     GivePlayerStartingParty();
     GivePlayerStartingItems();
     EnableNationalPokedex();
+    SetLastHealLocationWarp(HEAL_LOCATION_STORAGE_ROOM);
 }
 
 static void ResetMiniGamesRecords(void)
