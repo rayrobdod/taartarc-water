@@ -858,3 +858,14 @@ __attribute__((section("added"))) const struct Tileset gTileset_Lobby =
     .metatileAttributes = gMetatileAttributes_Lobby,
     .callback = NULL,
 };
+
+__attribute__((section("added"))) const struct Tileset gTileset_Storage =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Storage,
+    .palettes = gTilesetPalettes_Storage,
+    .metatiles = gMetatiles_Storage,
+    .metatileAttributes = gMetatileAttributes_Storage,
+    .callback = NULL,
+};

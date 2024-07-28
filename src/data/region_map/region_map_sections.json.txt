@@ -15,7 +15,7 @@ static const u8 sMapName_{{ cleanString(map_section.name) }}_Clone[] = _("{{ map
 {% endif %}
 ## endfor
 
-PADDING_rodata(2260)
+PADDING_rodata(2244)
 
 const struct RegionMapLocation gRegionMapEntries[] = {
 ## for map_section in map_sections

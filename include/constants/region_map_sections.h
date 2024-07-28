@@ -7,8 +7,8 @@
 #define MAPSEC_CLASSROOM                    0x66
 #define MAPSEC_EXHIBIT_1                    0x67
 #define MAPSEC_EXHIBIT_2                    0x68
+#define MAPSEC_STORAGE_ROOM                 0x69
 
-#define MAPSEC_UNUSED_69                    0x69
 #define MAPSEC_UNUSED_6A                    0x6A
 #define MAPSEC_UNUSED_6B                    0x6B
 #define MAPSEC_UNUSED_6C                    0x6C

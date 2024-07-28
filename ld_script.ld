@@ -1326,6 +1326,8 @@ SECTIONS {
         data/*.o(added);
         src/*.o(.text);
         gflib/*.o(.text);
+        src/*.o(added_rodata);
+        data/*.o(added_rodata);
         src/*.o(.rodata);
         gflib/*.o(.rodata);
         data/*.o(.rodata);

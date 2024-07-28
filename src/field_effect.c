@@ -1,5 +1,6 @@
 #include "global.h"
 #include "decompress.h"
+#include "event_data.h"
 #include "event_object_movement.h"
 #include "field_camera.h"
 #include "field_control_avatar.h"
@@ -45,6 +46,12 @@ static void PokecenterHealEffect_WaitForBallFlashing(struct Task *);
 static void PokecenterHealEffect_WaitForSoundAndEnd(struct Task *);
 static u8 CreatePokecenterMonitorSprite(s16, s16);
 static void SpriteCB_PokecenterMonitor(struct Sprite *);
+
+static void Task_StorageRoomHeal(u8 taskId);
+static void StorageRoomHealEffect_Init(struct Task *task);
+static void StorageRoomHealEffect_WaitForBallPlacement(struct Task *task);
+static void StorageRoomHealEffect_WaitForBallFlashing(struct Task *task);
+static void StorageRoomHealEffect_WaitForSoundAndEnd(struct Task *task);
 
 static void Task_HallOfFameRecord(u8 taskId);
 static void HallOfFameRecordEffect_Init(struct Task *);
@@ -574,6 +581,15 @@ static void (*const sPokecenterHealEffectFuncs[])(struct Task *) =
     PokecenterHealEffect_WaitForSoundAndEnd
 };
 
+__attribute__((section("added_rodata")))
+static void (*const sStorageRoomHealEffectFuncs[])(struct Task *) =
+{
+    StorageRoomHealEffect_Init,
+    StorageRoomHealEffect_WaitForBallPlacement,
+    StorageRoomHealEffect_WaitForBallFlashing,
+    StorageRoomHealEffect_WaitForSoundAndEnd
+};
+
 static void (*const sHallOfFameRecordEffectFuncs[])(struct Task *) =
 {
     HallOfFameRecordEffect_Init,
@@ -1056,6 +1072,64 @@ static void PokecenterHealEffect_WaitForSoundAndEnd(struct Task *task)
         DestroySprite(&gSprites[task->tBallSpriteId]);
         FieldEffectActiveListRemove(FLDEFF_POKECENTER_HEAL);
         DestroyTask(FindTaskIdByFunc(Task_PokecenterHeal));
+    }
+}
+
+__attribute__((section("added")))
+bool8 FldEff_StorageRoomHeal(void)
+{
+    u8 nPokemon;
+    struct Task *task;
+
+    nPokemon = CalculatePlayerPartyCount();
+    task = &gTasks[CreateTask(Task_StorageRoomHeal, 0xff)];
+    task->tNumMons = nPokemon;
+    task->tFirstBallX = gSpecialVar_0x800A;
+    task->tFirstBallY = gSpecialVar_0x800B;
+    return FALSE;
+}
+
+__attribute__((section("added")))
+static void Task_StorageRoomHeal(u8 taskId)
+{
+    struct Task *task;
+    task = &gTasks[taskId];
+    sStorageRoomHealEffectFuncs[task->tState](task);
+}
+
+__attribute__((section("added")))
+static void StorageRoomHealEffect_Init(struct Task *task)
+{
+    task->tState++;
+    task->tBallSpriteId = CreateGlowingPokeballsEffect(task->tNumMons, task->tFirstBallX, task->tFirstBallY, TRUE);
+}
+
+__attribute__((section("added")))
+static void StorageRoomHealEffect_WaitForBallPlacement(struct Task *task)
+{
+    if (gSprites[task->tBallSpriteId].sState > 1)
+    {
+        task->tState++;
+    }
+}
+
+__attribute__((section("added")))
+static void StorageRoomHealEffect_WaitForBallFlashing(struct Task *task)
+{
+    if (gSprites[task->tBallSpriteId].sState > 4)
+    {
+        task->tState++;
+    }
+}
+
+__attribute__((section("added")))
+static void StorageRoomHealEffect_WaitForSoundAndEnd(struct Task *task)
+{
+    if (gSprites[task->tBallSpriteId].sState > 6)
+    {
+        DestroySprite(&gSprites[task->tBallSpriteId]);
+        FieldEffectActiveListRemove(FLDEFF_STORAGEROOM_HEAL);
+        DestroyTask(FindTaskIdByFunc(Task_StorageRoomHeal));
     }
 }
 

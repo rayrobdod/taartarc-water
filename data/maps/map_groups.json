@@ -624,7 +624,8 @@
   ],
   "gMapGroup_Aquarium": [
     "Aquarium_Lobby",
-    "Aquarium_Gardens"
+    "Aquarium_Gardens",
+    "Aquarium_StorageRoom"
   ],
   "connections_include_order": [
     "LittlerootTown",

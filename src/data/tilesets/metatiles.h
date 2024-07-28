@@ -216,3 +216,6 @@ __attribute__((section("added"))) const u16 gMetatileAttributes_Gardens[] = INCB
 
 __attribute__((section("added"))) const u16 gMetatiles_Lobby[] = INCBIN_U16("build/tilesets/secondary/aquarium_lobby/metatiles.bin");
 __attribute__((section("added"))) const u16 gMetatileAttributes_Lobby[] = INCBIN_U16("build/tilesets/secondary/aquarium_lobby/metatile_attributes.bin");
+
+__attribute__((section("added"))) const u16 gMetatiles_Storage[] = INCBIN_U16("build/tilesets/secondary/aquarium_storage/metatiles.bin");
+__attribute__((section("added"))) const u16 gMetatileAttributes_Storage[] = INCBIN_U16("build/tilesets/secondary/aquarium_storage/metatile_attributes.bin");

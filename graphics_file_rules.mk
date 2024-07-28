@@ -106,6 +106,21 @@ $(patsubst %,$(TILESETBUILDDIR)/secondary/aquarium_lobby/palettes/%.pal,00 01 02
 	porytiles compile-secondary --dual-layer --Wall -o $(TILESETBUILDDIR)/secondary/aquarium_lobby \
 		$(TILESETGFXDIR)/secondary/aquarium_lobby $(TILESETGFXDIR)/primary/aquarium include/constants/metatile_behaviors.h
 
+$(patsubst %,$(TILESETBUILDDIR)/secondary/aquarium_storage/palettes/%.pal,00 01 02 03 04 05 06 07 08 09 10 11 12) \
+                $(TILESETBUILDDIR)/secondary/aquarium_storage/metatile_attributes.bin \
+                $(TILESETBUILDDIR)/secondary/aquarium_storage/metatiles.bin \
+                $(TILESETBUILDDIR)/secondary/aquarium_storage/tiles.png \
+                &: \
+                $(TILESETGFXDIR)/primary/aquarium/top.png \
+                $(TILESETGFXDIR)/primary/aquarium/middle.png \
+                $(TILESETGFXDIR)/primary/aquarium/bottom.png \
+                $(TILESETGFXDIR)/secondary/aquarium_storage/top.png \
+                $(TILESETGFXDIR)/secondary/aquarium_storage/middle.png \
+                $(TILESETGFXDIR)/secondary/aquarium_storage/bottom.png \
+                $(TILESETGFXDIR)/secondary/aquarium_storage/attributes.csv
+	porytiles compile-secondary --dual-layer --Wall -o $(TILESETBUILDDIR)/secondary/aquarium_storage \
+		$(TILESETGFXDIR)/secondary/aquarium_storage $(TILESETGFXDIR)/primary/aquarium include/constants/metatile_behaviors.h
+
 $(TILESETGFXDIR)/secondary/petalburg/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 159 -Wnum_tiles
 

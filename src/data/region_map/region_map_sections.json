@@ -49,6 +49,14 @@
       "height": 7
     },
     {
+      "map_section": "MAPSEC_STORAGE_ROOM",
+      "name": "STORAGE ROOM",
+      "x": 8,
+      "y": 12,
+      "width": 1,
+      "height": 1
+    },
+    {
       "map_section": "MAPSEC_DRAGONS_DEN",
       "name": "DRAGON'S DEN",
       "x": 0,
@@ -75,17 +83,6 @@
     {
       "map_section": "MAPSEC_CINNABAR_ISLAND",
       "name": "CINNABAR ISLAND",
-      "x": 0,
-      "y": 0,
-      "width": 1,
-      "height": 1
-    },
-
-
-
-    {
-      "map_section": "MAPSEC_UNUSED_69",
-      "name": "UNUSED",
       "x": 0,
       "y": 0,
       "width": 1,

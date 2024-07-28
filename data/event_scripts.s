@@ -1061,3 +1061,4 @@ Common_EventScript_LegendaryFlewAway::
 
 	.include "data/maps/Aquarium_Lobby/scripts.inc"
 	.include "data/maps/Aquarium_Gardens/scripts.inc"
+	.include "data/maps/Aquarium_StorageRoom/scripts.inc"

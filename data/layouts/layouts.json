@@ -4430,6 +4430,16 @@
       "secondary_tileset": "gTileset_BattleDome",
       "border_filepath": "data/layouts/Aquarium_Gardens/border.bin",
       "blockdata_filepath": "data/layouts/Aquarium_Gardens/map.bin"
+    },
+    {
+      "id": "LAYOUT_AQUARIUM_STORAGE_ROOM",
+      "name": "Aquarium_StorageRoom_Layout",
+      "width": 6,
+      "height": 7,
+      "primary_tileset": "gTileset_Aquarium",
+      "secondary_tileset": "gTileset_Storage",
+      "border_filepath": "data/layouts/Aquarium_StorageRoom/border.bin",
+      "blockdata_filepath": "data/layouts/Aquarium_StorageRoom/map.bin"
     }
   ]
 }

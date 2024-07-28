@@ -42,5 +42,4 @@ assign.cfg
 *.js
 *.vcdiff
 
-data/maps/Aquarium_Gardens/scripts.inc
-data/maps/Aquarium_Lobby/scripts.inc
+data/maps/Aquarium_*/scripts.inc

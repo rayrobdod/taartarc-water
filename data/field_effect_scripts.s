@@ -52,7 +52,7 @@ gFieldEffectScriptPointers::
 	.4byte gFieldEffectScript_UseDive                   @ FLDEFF_USE_DIVE
 	.4byte gFieldEffectScript_PokeballTrail             @ FLDEFF_POKEBALL_TRAIL
 	.4byte gFieldEffectScript_HeartIcon                 @ FLDEFF_HEART_ICON
-	.4byte gFieldEffectScript_Nop47                     @ FLDEFF_NOP_47
+	.4byte gFieldEffectScript_StorageRoomHeal           @ FLDEFF_STORAGEROOM_HEAL
 	.4byte gFieldEffectScript_Nop48                     @ FLDEFF_NOP_48
 	.4byte gFieldEffectScript_AshPuff                   @ FLDEFF_ASH_PUFF
 	.4byte gFieldEffectScript_AshLaunch                 @ FLDEFF_ASH_LAUNCH
@@ -342,4 +342,11 @@ gFieldEffectScript_DestroyDeoxysRock::
 
 gFieldEffectScript_MoveDeoxysRock::
 	field_eff_callnative FldEff_MoveDeoxysRock
+	field_eff_end
+
+.section "added"
+
+gFieldEffectScript_StorageRoomHeal::
+	field_eff_loadfadedpal gSpritePalette_PokeballGlow
+	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect0, FldEff_StorageRoomHeal
 	field_eff_end
