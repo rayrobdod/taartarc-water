@@ -298,8 +298,8 @@ static void GivePlayerStartingParty(void)
         MAPSEC_DRAGONS_DEN,
         5,
         ITEM_SITRUS_BERRY, // ITEM_YACHE_BERRY,
-        MOVE_DRAGON_DANCE,
         MOVE_OUTRAGE,
+        MOVE_DRAGON_DANCE,
         MOVE_BARRIER,
         MOVE_THUNDER_PUNCH
     );
