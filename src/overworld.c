@@ -948,7 +948,7 @@ static u8 GetAdjustedInitialDirection(struct InitialPlayerAvatarState *playerStr
     else if (MetatileBehavior_IsLadder(metatileBehavior) == TRUE)
         return playerStruct->direction;
     else
-        return DIR_SOUTH;
+        return DIR_NORTH;
 }
 
 static u16 GetCenterScreenMetatileBehavior(void)
