@@ -61,6 +61,13 @@ enum
     PAGE_COUNT
 };
 
+// TODO: Add to credits: pret bugfixes included:
+
+// 1: FindObjectEventPaletteIndexByTag looks for OBJ_EVENT_PAL_TAG_NONE and not 0x0.
+// If it's looking for a tag that isn't in this table, the game locks in an infinite loop.
+
+// 2: static void SeedRngWithRtc(void);
+
 #define ENTRIES_PER_PAGE 5
 
 static const u8 sCreditsText_EmptyString[]                    = _("");

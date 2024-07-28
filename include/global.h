@@ -31,6 +31,8 @@
 
 #define PADDING_text(c) asm("\t.rept " #c "\n\tnop\n\t.endr");
 
+#define PADDING(section, bytes) asm("\t.section " #section "\n\t.rept " #bytes "\n\t.byte 0\n\t.endr");
+
 /// IDE support
 #if defined(__APPLE__) || defined(__CYGWIN__) || defined(__INTELLISENSE__)
 // We define these when using certain IDEs to fool preproc

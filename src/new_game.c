@@ -90,7 +90,7 @@ void CopyTrainerId(u8 *dst, u8 *src)
 
 static void InitPlayerTrainerId(void)
 {
-    u32 trainerId = (Random() << 16) | GetGeneratedTrainerIdLower();
+    u32 trainerId = (Random() << 16) | Random();
     SetTrainerId(trainerId, gSaveBlock2Ptr->playerTrainerId);
 }
 
@@ -155,16 +155,48 @@ void ResetMenuAndMonGlobals(void)
     ResetPokeblockScrollPositions();
 }
 
-PADDING_text(150)
+static void GivePlayerStartingItems(void)
+{
+    // When this is called, the bag should be empty,
+    // so this assumes that AddBagItem succeeds
 
-__attribute__((section("newGameInitData"))) void NewGameInitData(void)
+    AddBagItem(ITEM_HYPER_POTION, 10);
+    AddBagItem(ITEM_REVIVE, 5);
+    AddBagItem(ITEM_FULL_HEAL, 5);
+    AddBagItem(ITEM_FULL_RESTORE, 2);
+
+    AddBagItem(ITEM_DRAGON_FANG, 1);
+    AddBagItem(ITEM_SILK_SCARF, 1);
+    //AddBagItem(ITEM_EXPERT_BELT, 1);
+    //AddBagItem(ITEM_WIDE_LENS, 1);
+    AddBagItem(ITEM_DRAGON_SCALE, 1);
+
+    AddBagItem(ITEM_SITRUS_BERRY, 10);
+    AddBagItem(ITEM_PERSIM_BERRY, 2);
+    AddBagItem(ITEM_LUM_BERRY, 10);
+    //AddBagItem(ITEM_YACHE_BERRY, 5);
+    //AddBagItem(ITEM_WACAN_BERRY, 2);
+    //AddBagItem(ITEM_CHARTI_BERRY, 2);
+    //AddBagItem(ITEM_HABAN_BERRY, 2);
+    //AddBagItem(ITEM_ROSELI_BERRY, 2);
+
+    AddBagItem(ITEM_TM_HYPER_BEAM, 30);
+    AddBagItem(ITEM_TM_DRAGON_CLAW, 2);
+    AddBagItem(ITEM_TM_THUNDERBOLT, 1);
+    AddBagItem(ITEM_TM_FLAMETHROWER, 1);
+    AddBagItem(ITEM_TM_STEEL_WING, 1);
+}
+
+PADDING(".text", 156)
+
+__attribute__((section("newGameInitData")))
+void NewGameInitData(void)
 {
     if (gSaveFileStatus == SAVE_STATUS_EMPTY || gSaveFileStatus == SAVE_STATUS_CORRUPT)
         RtcReset();
 
     gSaveBlock2Ptr->playerGender = MALE;
     StringCopy(gSaveBlock2Ptr->playerName, gText_DefaultNameLance);
-    SeedRngAndSetTrainerId();
 
     gDifferentSaveFile = TRUE;
     gSaveBlock2Ptr->encryptionKey = 0;
@@ -232,7 +264,8 @@ static void ResetMiniGamesRecords(void)
     CpuFill16(0, &gSaveBlock2Ptr->berryPick, sizeof(struct BerryPickingResults));
 }
 
-__attribute__((section("added"))) static void GivePlayerStartingMon(
+__attribute__((section("added")))
+static void GivePlayerStartingMon(
     int slot,
     u16 species,
     u8 level,
@@ -255,7 +288,8 @@ __attribute__((section("added"))) static void GivePlayerStartingMon(
     SetMonMoveSlot(mon, move4, 3);
 }
 
-__attribute__((section("added"))) static void GivePlayerStartingParty(void)
+__attribute__((section("added")))
+static void GivePlayerStartingParty(void)
 {
     GivePlayerStartingMon(
         0,
@@ -308,36 +342,4 @@ __attribute__((section("added"))) static void GivePlayerStartingParty(void)
         MOVE_DRAGON_DANCE,
         MOVE_THRASH
     );
-}
-
-__attribute__((section("newGameInitData"))) static void GivePlayerStartingItems(void)
-{
-    // When this is called, the bag should be empty,
-    // so this assumes that AddBagItem succeeds
-
-    AddBagItem(ITEM_HYPER_POTION, 10);
-    AddBagItem(ITEM_REVIVE, 5);
-    AddBagItem(ITEM_FULL_HEAL, 5);
-    AddBagItem(ITEM_FULL_RESTORE, 2);
-
-    AddBagItem(ITEM_DRAGON_FANG, 1);
-    AddBagItem(ITEM_SILK_SCARF, 1);
-    //AddBagItem(ITEM_EXPERT_BELT, 1);
-    //AddBagItem(ITEM_WIDE_LENS, 1);
-    AddBagItem(ITEM_DRAGON_SCALE, 1);
-
-    AddBagItem(ITEM_SITRUS_BERRY, 10);
-    AddBagItem(ITEM_PERSIM_BERRY, 2);
-    AddBagItem(ITEM_LUM_BERRY, 10);
-    //AddBagItem(ITEM_YACHE_BERRY, 5);
-    //AddBagItem(ITEM_WACAN_BERRY, 2);
-    //AddBagItem(ITEM_CHARTI_BERRY, 2);
-    //AddBagItem(ITEM_HABAN_BERRY, 2);
-    //AddBagItem(ITEM_ROSELI_BERRY, 2);
-
-    AddBagItem(ITEM_TM_HYPER_BEAM, 30);
-    AddBagItem(ITEM_TM_DRAGON_CLAW, 2);
-    AddBagItem(ITEM_TM_THUNDERBOLT, 1);
-    AddBagItem(ITEM_TM_FLAMETHROWER, 1);
-    AddBagItem(ITEM_TM_STEEL_WING, 1);
 }

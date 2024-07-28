@@ -510,12 +510,9 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_RubySapphireMay,       OBJ_EVENT_PAL_TAG_RS_MAY},
     {gObjectEventPal_Lotad,                 OBJ_EVENT_PAL_TAG_LOTAD},
     {gObjectEventPal_LotadReflection,       OBJ_EVENT_PAL_TAG_LOTAD_REFLECTION},
-#if 1
     {NULL,                                  OBJ_EVENT_PAL_TAG_NONE},
-#else
     {}, // BUG: FindObjectEventPaletteIndexByTag looks for OBJ_EVENT_PAL_TAG_NONE and not 0x0.
         // If it's looking for a tag that isn't in this table, the game locks in an infinite loop.
-#endif
 };
 
 static const u16 sReflectionPaletteTags_Brendan[] = {
