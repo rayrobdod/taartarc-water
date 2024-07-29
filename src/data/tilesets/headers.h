@@ -869,3 +869,46 @@ __attribute__((section("added_rodata"))) const struct Tileset gTileset_Storage =
     .metatileAttributes = gMetatileAttributes_Storage,
     .callback = NULL,
 };
+
+__attribute__((section("added_rodata"))) const struct Tileset gTileset_GiftShop =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_GiftShop,
+    .palettes = gTilesetPalettes_GiftShop,
+    .metatiles = gMetatiles_GiftShop,
+    .metatileAttributes = gMetatileAttributes_GiftShop,
+    .callback = NULL,
+};
+
+__attribute__((section("added_rodata"))) const struct Tileset gTileset_Window =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Window,
+    .palettes = gTilesetPalettes_Window,
+    .metatiles = gMetatiles_Window,
+    .metatileAttributes = gMetatileAttributes_Window,
+    .callback = NULL,
+};
+
+__attribute__((section("added_rodata"))) const struct Tileset gTileset_Bioluminescence =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Bioluminescence,
+    .palettes = gTilesetPalettes_Bioluminescence,
+    .metatiles = gMetatiles_Bioluminescence,
+    .metatileAttributes = gMetatileAttributes_Bioluminescence,
+    .callback = NULL,
+};
+__attribute__((section("added_rodata"))) const struct Tileset gTileset_Classroom =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Classroom,
+    .palettes = gTilesetPalettes_Classroom,
+    .metatiles = gMetatiles_Classroom,
+    .metatileAttributes = gMetatileAttributes_Classroom,
+    .callback = NULL,
+};

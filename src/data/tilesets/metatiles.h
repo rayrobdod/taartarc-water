@@ -219,3 +219,15 @@ __attribute__((section("added_rodata"))) const u16 gMetatileAttributes_Lobby[] =
 
 __attribute__((section("added_rodata"))) const u16 gMetatiles_Storage[] = INCBIN_U16("build/tilesets/secondary/aquarium_storage/metatiles.bin");
 __attribute__((section("added_rodata"))) const u16 gMetatileAttributes_Storage[] = INCBIN_U16("build/tilesets/secondary/aquarium_storage/metatile_attributes.bin");
+
+__attribute__((section("added_rodata"))) const u16 gMetatiles_GiftShop[] = INCBIN_U16("build/tilesets/secondary/aquarium_giftshop/metatiles.bin");
+__attribute__((section("added_rodata"))) const u16 gMetatileAttributes_GiftShop[] = INCBIN_U16("build/tilesets/secondary/aquarium_giftshop/metatile_attributes.bin");
+
+__attribute__((section("added_rodata"))) const u16 gMetatiles_Window[] = INCBIN_U16("build/tilesets/secondary/aquarium_window/metatiles.bin");
+__attribute__((section("added_rodata"))) const u16 gMetatileAttributes_Window[] = INCBIN_U16("build/tilesets/secondary/aquarium_window/metatile_attributes.bin");
+
+__attribute__((section("added_rodata"))) const u16 gMetatiles_Bioluminescence[] = INCBIN_U16("build/tilesets/secondary/aquarium_bioluminescence/metatiles.bin");
+__attribute__((section("added_rodata"))) const u16 gMetatileAttributes_Bioluminescence[] = INCBIN_U16("build/tilesets/secondary/aquarium_bioluminescence/metatile_attributes.bin");
+
+__attribute__((section("added_rodata"))) const u16 gMetatiles_Classroom[] = INCBIN_U16("build/tilesets/secondary/aquarium_classroom/metatiles.bin");
+__attribute__((section("added_rodata"))) const u16 gMetatileAttributes_Classroom[] = INCBIN_U16("build/tilesets/secondary/aquarium_classroom/metatile_attributes.bin");

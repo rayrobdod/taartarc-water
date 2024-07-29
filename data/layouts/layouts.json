@@ -4440,6 +4440,46 @@
       "secondary_tileset": "gTileset_Storage",
       "border_filepath": "data/layouts/Aquarium_StorageRoom/border.bin",
       "blockdata_filepath": "data/layouts/Aquarium_StorageRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_AQUARIUM_GIFT_SHOP",
+      "name": "Aquarium_GiftShop_Layout",
+      "width": 8,
+      "height": 13,
+      "primary_tileset": "gTileset_Aquarium",
+      "secondary_tileset": "gTileset_Lobby",
+      "border_filepath": "data/layouts/Aquarium_GiftShop/border.bin",
+      "blockdata_filepath": "data/layouts/Aquarium_GiftShop/map.bin"
+    },
+    {
+      "id": "LAYOUT_AQUARIUM_WINDOW",
+      "name": "Aquarium_Window_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_Aquarium",
+      "secondary_tileset": "gTileset_Window",
+      "border_filepath": "data/layouts/Aquarium_Window/border.bin",
+      "blockdata_filepath": "data/layouts/Aquarium_Window/map.bin"
+    },
+    {
+      "id": "LAYOUT_AQUARIUM_BIOLUMINESCENCE",
+      "name": "Aquarium_Bioluminescence_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_Aquarium",
+      "secondary_tileset": "gTileset_Bioluminescence",
+      "border_filepath": "data/layouts/Aquarium_Bioluminescence/border.bin",
+      "blockdata_filepath": "data/layouts/Aquarium_Bioluminescence/map.bin"
+    },
+    {
+      "id": "LAYOUT_AQUARIUM_CLASSROOM",
+      "name": "Aquarium_Classroom_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_Aquarium",
+      "secondary_tileset": "gTileset_Classroom",
+      "border_filepath": "data/layouts/Aquarium_Classroom/border.bin",
+      "blockdata_filepath": "data/layouts/Aquarium_Classroom/map.bin"
     }
   ]
 }

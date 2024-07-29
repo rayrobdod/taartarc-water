@@ -1712,3 +1712,87 @@ const u16 gTilesetPalettes_Storage[][16] =
 
 __attribute__((section("added_rodata")))
 const u32 gTilesetTiles_Storage[] = INCBIN_U32("build/tilesets/secondary/aquarium_storage/tiles.4bpp.lz");
+
+__attribute__((section("added_rodata")))
+const u16 gTilesetPalettes_GiftShop[][16] =
+{
+    INCBIN_U16("build/tilesets/secondary/aquarium_giftshop/palettes/00.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_giftshop/palettes/01.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_giftshop/palettes/02.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_giftshop/palettes/03.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_giftshop/palettes/04.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_giftshop/palettes/05.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_giftshop/palettes/06.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_giftshop/palettes/07.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_giftshop/palettes/08.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_giftshop/palettes/09.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_giftshop/palettes/10.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_giftshop/palettes/11.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_giftshop/palettes/12.gbapal"),
+};
+
+__attribute__((section("added_rodata")))
+const u32 gTilesetTiles_GiftShop[] = INCBIN_U32("build/tilesets/secondary/aquarium_giftshop/tiles.4bpp.lz");
+
+__attribute__((section("added_rodata")))
+const u16 gTilesetPalettes_Window[][16] =
+{
+    INCBIN_U16("build/tilesets/secondary/aquarium_window/palettes/00.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_window/palettes/01.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_window/palettes/02.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_window/palettes/03.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_window/palettes/04.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_window/palettes/05.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_window/palettes/06.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_window/palettes/07.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_window/palettes/08.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_window/palettes/09.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_window/palettes/10.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_window/palettes/11.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_window/palettes/12.gbapal"),
+};
+
+__attribute__((section("added_rodata")))
+const u32 gTilesetTiles_Window[] = INCBIN_U32("build/tilesets/secondary/aquarium_window/tiles.4bpp.lz");
+
+__attribute__((section("added_rodata")))
+const u16 gTilesetPalettes_Bioluminescence[][16] =
+{
+    INCBIN_U16("build/tilesets/secondary/aquarium_bioluminescence/palettes/00.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_bioluminescence/palettes/01.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_bioluminescence/palettes/02.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_bioluminescence/palettes/03.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_bioluminescence/palettes/04.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_bioluminescence/palettes/05.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_bioluminescence/palettes/06.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_bioluminescence/palettes/07.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_bioluminescence/palettes/08.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_bioluminescence/palettes/09.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_bioluminescence/palettes/10.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_bioluminescence/palettes/11.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_bioluminescence/palettes/12.gbapal"),
+};
+
+__attribute__((section("added_rodata")))
+const u32 gTilesetTiles_Bioluminescence[] = INCBIN_U32("build/tilesets/secondary/aquarium_bioluminescence/tiles.4bpp.lz");
+
+__attribute__((section("added_rodata")))
+const u16 gTilesetPalettes_Classroom[][16] =
+{
+    INCBIN_U16("build/tilesets/secondary/aquarium_classroom/palettes/00.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_classroom/palettes/01.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_classroom/palettes/02.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_classroom/palettes/03.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_classroom/palettes/04.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_classroom/palettes/05.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_classroom/palettes/06.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_classroom/palettes/07.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_classroom/palettes/08.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_classroom/palettes/09.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_classroom/palettes/10.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_classroom/palettes/11.gbapal"),
+    INCBIN_U16("build/tilesets/secondary/aquarium_classroom/palettes/12.gbapal"),
+};
+
+__attribute__((section("added_rodata")))
+const u32 gTilesetTiles_Classroom[] = INCBIN_U32("build/tilesets/secondary/aquarium_classroom/tiles.4bpp.lz");

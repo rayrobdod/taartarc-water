@@ -121,6 +121,66 @@ $(patsubst %,$(TILESETBUILDDIR)/secondary/aquarium_storage/palettes/%.pal,00 01 
 	porytiles compile-secondary --dual-layer --Wall -o $(TILESETBUILDDIR)/secondary/aquarium_storage \
 		$(TILESETGFXDIR)/secondary/aquarium_storage $(TILESETGFXDIR)/primary/aquarium include/constants/metatile_behaviors.h
 
+$(patsubst %,$(TILESETBUILDDIR)/secondary/aquarium_giftshop/palettes/%.pal,00 01 02 03 04 05 06 07 08 09 10 11 12) \
+                $(TILESETBUILDDIR)/secondary/aquarium_giftshop/metatile_attributes.bin \
+                $(TILESETBUILDDIR)/secondary/aquarium_giftshop/metatiles.bin \
+                $(TILESETBUILDDIR)/secondary/aquarium_giftshop/tiles.png \
+                &: \
+                $(TILESETGFXDIR)/primary/aquarium/top.png \
+                $(TILESETGFXDIR)/primary/aquarium/middle.png \
+                $(TILESETGFXDIR)/primary/aquarium/bottom.png \
+                $(TILESETGFXDIR)/secondary/aquarium_giftshop/top.png \
+                $(TILESETGFXDIR)/secondary/aquarium_giftshop/middle.png \
+                $(TILESETGFXDIR)/secondary/aquarium_giftshop/bottom.png \
+                $(TILESETGFXDIR)/secondary/aquarium_giftshop/attributes.csv
+	porytiles compile-secondary --dual-layer --Wall -o $(TILESETBUILDDIR)/secondary/aquarium_giftshop \
+		$(TILESETGFXDIR)/secondary/aquarium_giftshop $(TILESETGFXDIR)/primary/aquarium include/constants/metatile_behaviors.h
+
+$(patsubst %,$(TILESETBUILDDIR)/secondary/aquarium_window/palettes/%.pal,00 01 02 03 04 05 06 07 08 09 10 11 12) \
+                $(TILESETBUILDDIR)/secondary/aquarium_window/metatile_attributes.bin \
+                $(TILESETBUILDDIR)/secondary/aquarium_window/metatiles.bin \
+                $(TILESETBUILDDIR)/secondary/aquarium_window/tiles.png \
+                &: \
+                $(TILESETGFXDIR)/primary/aquarium/top.png \
+                $(TILESETGFXDIR)/primary/aquarium/middle.png \
+                $(TILESETGFXDIR)/primary/aquarium/bottom.png \
+                $(TILESETGFXDIR)/secondary/aquarium_window/top.png \
+                $(TILESETGFXDIR)/secondary/aquarium_window/middle.png \
+                $(TILESETGFXDIR)/secondary/aquarium_window/bottom.png \
+                $(TILESETGFXDIR)/secondary/aquarium_window/attributes.csv
+	porytiles compile-secondary --dual-layer --Wall -o $(TILESETBUILDDIR)/secondary/aquarium_window \
+		$(TILESETGFXDIR)/secondary/aquarium_window $(TILESETGFXDIR)/primary/aquarium include/constants/metatile_behaviors.h
+
+$(patsubst %,$(TILESETBUILDDIR)/secondary/aquarium_bioluminescence/palettes/%.pal,00 01 02 03 04 05 06 07 08 09 10 11 12) \
+                $(TILESETBUILDDIR)/secondary/aquarium_bioluminescence/metatile_attributes.bin \
+                $(TILESETBUILDDIR)/secondary/aquarium_bioluminescence/metatiles.bin \
+                $(TILESETBUILDDIR)/secondary/aquarium_bioluminescence/tiles.png \
+                &: \
+                $(TILESETGFXDIR)/primary/aquarium/top.png \
+                $(TILESETGFXDIR)/primary/aquarium/middle.png \
+                $(TILESETGFXDIR)/primary/aquarium/bottom.png \
+                $(TILESETGFXDIR)/secondary/aquarium_bioluminescence/top.png \
+                $(TILESETGFXDIR)/secondary/aquarium_bioluminescence/middle.png \
+                $(TILESETGFXDIR)/secondary/aquarium_bioluminescence/bottom.png \
+                $(TILESETGFXDIR)/secondary/aquarium_bioluminescence/attributes.csv
+	porytiles compile-secondary --dual-layer --Wall -o $(TILESETBUILDDIR)/secondary/aquarium_bioluminescence \
+		$(TILESETGFXDIR)/secondary/aquarium_bioluminescence $(TILESETGFXDIR)/primary/aquarium include/constants/metatile_behaviors.h
+
+$(patsubst %,$(TILESETBUILDDIR)/secondary/aquarium_classroom/palettes/%.pal,00 01 02 03 04 05 06 07 08 09 10 11 12) \
+                $(TILESETBUILDDIR)/secondary/aquarium_classroom/metatile_attributes.bin \
+                $(TILESETBUILDDIR)/secondary/aquarium_classroom/metatiles.bin \
+                $(TILESETBUILDDIR)/secondary/aquarium_classroom/tiles.png \
+                &: \
+                $(TILESETGFXDIR)/primary/aquarium/top.png \
+                $(TILESETGFXDIR)/primary/aquarium/middle.png \
+                $(TILESETGFXDIR)/primary/aquarium/bottom.png \
+                $(TILESETGFXDIR)/secondary/aquarium_classroom/top.png \
+                $(TILESETGFXDIR)/secondary/aquarium_classroom/middle.png \
+                $(TILESETGFXDIR)/secondary/aquarium_classroom/bottom.png \
+                $(TILESETGFXDIR)/secondary/aquarium_classroom/attributes.csv
+	porytiles compile-secondary --dual-layer --Wall -o $(TILESETBUILDDIR)/secondary/aquarium_classroom \
+		$(TILESETGFXDIR)/secondary/aquarium_classroom $(TILESETGFXDIR)/primary/aquarium include/constants/metatile_behaviors.h
+
 $(TILESETGFXDIR)/secondary/petalburg/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 159 -Wnum_tiles
 

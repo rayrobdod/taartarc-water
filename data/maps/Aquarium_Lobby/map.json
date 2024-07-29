@@ -56,6 +56,20 @@
       "elevation": 0,
       "dest_map": "MAP_AQUARIUM_STORAGE_ROOM",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 19,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_AQUARIUM_GIFT_SHOP",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 19,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_AQUARIUM_GIFT_SHOP",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [
