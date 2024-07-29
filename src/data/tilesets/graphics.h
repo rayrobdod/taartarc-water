@@ -1635,7 +1635,7 @@ const u16 gTilesetPalettes_UnionRoom[][16] =
 
 const u32 gTilesetTiles_UnionRoom[] = INCBIN_U32("data/tilesets/secondary/union_room/tiles.4bpp.lz");
 
-__attribute__((section("added"))) const u16 gTilesetPalettes_Aquarium[][16] =
+__attribute__((section("added_rodata"))) const u16 gTilesetPalettes_Aquarium[][16] =
 {
     INCBIN_U16("build/tilesets/primary/aquarium/palettes/00.gbapal"),
     INCBIN_U16("build/tilesets/primary/aquarium/palettes/01.gbapal"),
@@ -1652,9 +1652,9 @@ __attribute__((section("added"))) const u16 gTilesetPalettes_Aquarium[][16] =
     INCBIN_U16("build/tilesets/primary/aquarium/palettes/12.gbapal"),
 };
 
-__attribute__((section("added"))) const u32 gTilesetTiles_Aquarium[] = INCBIN_U32("build/tilesets/primary/aquarium/tiles.4bpp.lz");
+__attribute__((section("added_rodata"))) const u32 gTilesetTiles_Aquarium[] = INCBIN_U32("build/tilesets/primary/aquarium/tiles.4bpp.lz");
 
-__attribute__((section("added"))) const u16 gTilesetPalettes_Gardens[][16] =
+__attribute__((section("added_rodata"))) const u16 gTilesetPalettes_Gardens[][16] =
 {
     INCBIN_U16("build/tilesets/primary/gardens/palettes/00.gbapal"),
     INCBIN_U16("build/tilesets/primary/gardens/palettes/01.gbapal"),
@@ -1671,9 +1671,9 @@ __attribute__((section("added"))) const u16 gTilesetPalettes_Gardens[][16] =
     INCBIN_U16("build/tilesets/primary/gardens/palettes/12.gbapal"),
 };
 
-__attribute__((section("added"))) const u32 gTilesetTiles_Gardens[] = INCBIN_U32("build/tilesets/primary/gardens/tiles.4bpp.lz");
+__attribute__((section("added_rodata"))) const u32 gTilesetTiles_Gardens[] = INCBIN_U32("build/tilesets/primary/gardens/tiles.4bpp.lz");
 
-__attribute__((section("added"))) const u16 gTilesetPalettes_Lobby[][16] =
+__attribute__((section("added_rodata"))) const u16 gTilesetPalettes_Lobby[][16] =
 {
     INCBIN_U16("build/tilesets/secondary/aquarium_lobby/palettes/00.gbapal"),
     INCBIN_U16("build/tilesets/secondary/aquarium_lobby/palettes/01.gbapal"),
@@ -1690,9 +1690,9 @@ __attribute__((section("added"))) const u16 gTilesetPalettes_Lobby[][16] =
     INCBIN_U16("build/tilesets/secondary/aquarium_lobby/palettes/12.gbapal"),
 };
 
-__attribute__((section("added"))) const u32 gTilesetTiles_Lobby[] = INCBIN_U32("build/tilesets/secondary/aquarium_lobby/tiles.4bpp.lz");
+__attribute__((section("added_rodata"))) const u32 gTilesetTiles_Lobby[] = INCBIN_U32("build/tilesets/secondary/aquarium_lobby/tiles.4bpp.lz");
 
-__attribute__((section("added")))
+__attribute__((section("added_rodata")))
 const u16 gTilesetPalettes_Storage[][16] =
 {
     INCBIN_U16("build/tilesets/secondary/aquarium_storage/palettes/00.gbapal"),
@@ -1710,5 +1710,5 @@ const u16 gTilesetPalettes_Storage[][16] =
     INCBIN_U16("build/tilesets/secondary/aquarium_storage/palettes/12.gbapal"),
 };
 
-__attribute__((section("added")))
+__attribute__((section("added_rodata")))
 const u32 gTilesetTiles_Storage[] = INCBIN_U32("build/tilesets/secondary/aquarium_storage/tiles.4bpp.lz");

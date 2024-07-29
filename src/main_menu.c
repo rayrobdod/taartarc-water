@@ -1152,8 +1152,7 @@ static void HighlightSelectedMainMenuItem(u8 menuType, u8 selectedMenuItem, s16 
     }
 }
 
-PADDING(".text", 5736)
-
+__attribute__((section("text2")))
 static void CreateMainMenuErrorWindow(const u8 *str)
 {
     FillWindowPixelBuffer(7, PIXEL_FILL(1));
@@ -1165,6 +1164,7 @@ static void CreateMainMenuErrorWindow(const u8 *str)
     SetGpuReg(REG_OFFSET_WIN0V, WIN_RANGE(113, DISPLAY_HEIGHT - 1));
 }
 
+__attribute__((section("text2")))
 static void MainMenu_FormatSavegameText(void)
 {
     MainMenu_FormatSavegamePlayer();
@@ -1173,6 +1173,7 @@ static void MainMenu_FormatSavegameText(void)
     MainMenu_FormatSavegameBadges();
 }
 
+__attribute__((section("text2")))
 static void MainMenu_FormatSavegamePlayer(void)
 {
     StringExpandPlaceholders(gStringVar4, gText_ContinueMenuPlayer);
@@ -1180,6 +1181,7 @@ static void MainMenu_FormatSavegamePlayer(void)
     AddTextPrinterParameterized3(2, FONT_NORMAL, GetStringRightAlignXOffset(FONT_NORMAL, gSaveBlock2Ptr->playerName, 100), 17, sTextColor_MenuInfo, TEXT_SKIP_DRAW, gSaveBlock2Ptr->playerName);
 }
 
+__attribute__((section("text2")))
 static void MainMenu_FormatSavegameTime(void)
 {
     u8 str[0x20];
@@ -1193,6 +1195,7 @@ static void MainMenu_FormatSavegameTime(void)
     AddTextPrinterParameterized3(2, FONT_NORMAL, GetStringRightAlignXOffset(FONT_NORMAL, str, 0xD0), 17, sTextColor_MenuInfo, TEXT_SKIP_DRAW, str);
 }
 
+__attribute__((section("text2")))
 static void MainMenu_FormatSavegamePokedex(void)
 {
     u8 str[0x20];
@@ -1211,6 +1214,7 @@ static void MainMenu_FormatSavegamePokedex(void)
     }
 }
 
+__attribute__((section("text2")))
 static void MainMenu_FormatSavegameBadges(void)
 {
     u8 str[0x20];
@@ -1228,12 +1232,14 @@ static void MainMenu_FormatSavegameBadges(void)
     AddTextPrinterParameterized3(2, FONT_NORMAL, GetStringRightAlignXOffset(FONT_NORMAL, str, 0xD0), 33, sTextColor_MenuInfo, TEXT_SKIP_DRAW, str);
 }
 
+__attribute__((section("text2")))
 static void LoadMainMenuWindowFrameTiles(u8 bgId, u16 tileOffset)
 {
     LoadBgTiles(bgId, GetWindowFrameTilesPal(gSaveBlock2Ptr->optionsWindowFrameType)->tiles, 0x120, tileOffset);
     LoadPalette(GetWindowFrameTilesPal(gSaveBlock2Ptr->optionsWindowFrameType)->pal, BG_PLTT_ID(2), PLTT_SIZE_4BPP);
 }
 
+__attribute__((section("text2")))
 static void DrawMainMenuWindowBorder(const struct WindowTemplate *template, u16 baseTileNum)
 {
     u16 r9 = 1 + baseTileNum;
@@ -1255,14 +1261,16 @@ static void DrawMainMenuWindowBorder(const struct WindowTemplate *template, u16 
     CopyBgTilemapBufferToVram(template->bg);
 }
 
+__attribute__((section("text2")))
 static void ClearMainMenuWindowTilemap(const struct WindowTemplate *template)
 {
     FillBgTilemapBufferRect(template->bg, 0, template->tilemapLeft - 1, template->tilemapTop - 1, template->tilemapLeft + template->width + 1, template->tilemapTop + template->height + 1, 2);
     CopyBgTilemapBufferToVram(template->bg);
 }
 
-PADDING(".text", 308)
+PADDING("text2", 308)
 
+__attribute__((section("text2")))
 void CreateYesNoMenuParameterized(u8 x, u8 y, u16 baseTileNum, u16 baseBlock, u8 yesNoPalNum, u8 winPalNum)
 {
     struct WindowTemplate template = CreateWindowTemplate(0, x + 1, y + 1, 5, 4, winPalNum, baseBlock);

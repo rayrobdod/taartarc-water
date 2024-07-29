@@ -9,7 +9,7 @@
 	.include "asm/macros.inc"
 	.include "constants/constants.inc"
 
-	.section added
+	.section added_rodata
 
 	.include "data/layouts/layouts_table.inc"
 

@@ -399,7 +399,7 @@ PADDING(".rodata", 0x434)
 
 #define _ &sCreditsEntry_EmptyString
 
-__attribute__((section("added")))
+__attribute__((section("added_rodata")))
 static const struct CreditsEntry *const sCreditsEntryPointerTable[PAGE_COUNT][ENTRIES_PER_PAGE] =
 {
     [RESOURCES_OVERWORLD_LOTAD] = {

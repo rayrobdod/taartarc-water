@@ -118,7 +118,7 @@ string generate_map_header_text(Json map_data, Json layouts_data) {
     text << "@\n@ DO NOT MODIFY THIS FILE! It is auto-generated from data/maps/" << mapName << "/map.json\n@\n\n";
 
     if (IS_NEW_MAP(mapName))
-        text << "\t.section added\n\n";
+        text << "\t.section added_rodata\n\n";
 
     text << mapName << ":\n"
          << "\t.4byte " << json_to_string(layout, "name") << "\n";
@@ -180,7 +180,7 @@ string generate_map_connections_text(Json map_data) {
     text << "@\n@ DO NOT MODIFY THIS FILE! It is auto-generated from data/maps/" << mapName << "/map.json\n@\n\n";
 
     if (IS_NEW_MAP(mapName))
-        text << "\t.section added\n\n";
+        text << "\t.section added_rodata\n\n";
 
     text << mapName << "_MapConnectionsList:\n";
 
@@ -212,7 +212,7 @@ string generate_map_events_text(Json map_data) {
     text << "@\n@ DO NOT MODIFY THIS FILE! It is auto-generated from data/maps/" << mapName << "/map.json\n@\n\n";
 
     if (IS_NEW_MAP(mapName))
-        text << "\t.section added\n\n";
+        text << "\t.section added_rodata\n\n";
 
     string objects_label, warps_label, coords_label, bgs_label;
 
@@ -388,7 +388,7 @@ string generate_groups_text(Json groups_data) {
     for (auto &key : groups_data["group_order"].array_items()) {
         string group = json_to_string(key);
         if (group == "gMapGroup_Aquarium")
-            text << "\t.section added\n\n";
+            text << "\t.section added_rodata\n\n";
         text << group << "::\n";
         auto maps = groups_data[group].array_items();
         for (Json &map_name : maps)
@@ -399,7 +399,7 @@ string generate_groups_text(Json groups_data) {
     }
 
     text << "\t.rept 0x8486600 - 0x8486578\n" << "\t.byte 0\n" << "\t.endr\n";
-    text << "\t.section added\n\n";
+    text << "\t.section added_rodata\n\n";
     text << "\t.align 2\n" << "gMapGroups::\n";
     for (auto &group : groups_data["group_order"].array_items())
         text << "\t.4byte " << json_to_string(group) << "\n";
@@ -552,7 +552,7 @@ string generate_layout_headers_text(Json layouts_data) {
         if (layout == Json::object()) continue;
         string layoutName = json_to_string(layout, "name");
         if (IS_NEW_MAP(layoutName))
-            text << "\t.section added\n";
+            text << "\t.section added_rodata\n";
         string border_label = layoutName + "_Border";
         string blockdata_label = layoutName + "_Blockdata";
         text << border_label << "::\n"

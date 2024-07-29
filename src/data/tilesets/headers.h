@@ -826,7 +826,7 @@ const struct Tileset gTileset_UnionRoom =
     .callback = NULL,
 };
 
-__attribute__((section("added"))) const struct Tileset gTileset_Aquarium =
+__attribute__((section("added_rodata"))) const struct Tileset gTileset_Aquarium =
 {
     .isCompressed = TRUE,
     .isSecondary = FALSE,
@@ -837,7 +837,7 @@ __attribute__((section("added"))) const struct Tileset gTileset_Aquarium =
     .callback = NULL,
 };
 
-__attribute__((section("added"))) const struct Tileset gTileset_Gardens =
+__attribute__((section("added_rodata"))) const struct Tileset gTileset_Gardens =
 {
     .isCompressed = TRUE,
     .isSecondary = FALSE,
@@ -848,7 +848,7 @@ __attribute__((section("added"))) const struct Tileset gTileset_Gardens =
     .callback = NULL,
 };
 
-__attribute__((section("added"))) const struct Tileset gTileset_Lobby =
+__attribute__((section("added_rodata"))) const struct Tileset gTileset_Lobby =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
@@ -859,7 +859,7 @@ __attribute__((section("added"))) const struct Tileset gTileset_Lobby =
     .callback = NULL,
 };
 
-__attribute__((section("added"))) const struct Tileset gTileset_Storage =
+__attribute__((section("added_rodata"))) const struct Tileset gTileset_Storage =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,

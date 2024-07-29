@@ -360,5 +360,7 @@ const u32 gObjectEventPic_Lugia[] = INCBIN_U32("graphics/object_events/pics/poke
 const u16 gObjectEventPal_Lugia[] = INCBIN_U16("graphics/object_events/palettes/lugia.gbapal");
 const u32 gObjectEventPic_HoOh[] = INCBIN_U32("graphics/object_events/pics/pokemon/ho_oh.4bpp");
 const u16 gObjectEventPal_HoOh[] = INCBIN_U16("graphics/object_events/palettes/ho_oh.gbapal");
-__attribute__((section("added"))) const u32 gObjectEventPic_Lotad[] = INCBIN_U32("graphics/object_events/pics/pokemon/lotad.4bpp");
-__attribute__((section("added"))) const u32 gObjectEventPic_LotadSwimming[] = INCBIN_U32("graphics/object_events/pics/pokemon/lotad_swimming.4bpp");
+__attribute__((section("added_rodata")))
+const u32 gObjectEventPic_Lotad[] = INCBIN_U32("graphics/object_events/pics/pokemon/lotad.4bpp");
+__attribute__((section("added_rodata")))
+const u32 gObjectEventPic_LotadSwimming[] = INCBIN_U32("graphics/object_events/pics/pokemon/lotad_swimming.4bpp");

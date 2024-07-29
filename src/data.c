@@ -112,7 +112,7 @@ const struct SpriteFrameImage gTrainerBackPicTable_Steven[] =
     {gTrainerBackPic_Steven + TRAINER_PIC_SIZE * 3, TRAINER_PIC_SIZE},
 };
 
-__attribute__((section("added")))
+__attribute__((section("added_rodata")))
 const struct SpriteFrameImage gTrainerBackPicTable_Lance[] =
 {
     {gTrainerBackPic_Lance + TRAINER_PIC_SIZE * 0, TRAINER_PIC_SIZE},

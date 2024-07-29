@@ -277,9 +277,9 @@ const u32 gTrainerPalette_RubySapphireBrendan[] = INCBIN_U32("graphics/trainers/
 const u32 gTrainerFrontPic_RubySapphireMay[] = INCBIN_U32("graphics/trainers/front_pics/may_rs.4bpp.lz");
 const u32 gTrainerPalette_RubySapphireMay[] = INCBIN_U32("graphics/trainers/palettes/may_rs.gbapal.lz");
 
-__attribute__((section("added")))
+__attribute__((section("added_rodata")))
 const u32 gTrainerFrontPic_Lance[] = INCBIN_U32("graphics/trainers/front_pics/lance.4bpp.lz");
-__attribute__((section("added")))
+__attribute__((section("added_rodata")))
 const u32 gTrainerPalette_Lance[] = INCBIN_U32("graphics/trainers/front_pics/lance.gbapal.lz");
 
 const u8 gTrainerBackPic_Brendan[] = INCBIN_U8("graphics/trainers/back_pics/brendan.4bpp");
@@ -290,7 +290,7 @@ const u8 gTrainerBackPic_RubySapphireBrendan[] = INCBIN_U8("graphics/trainers/ba
 const u8 gTrainerBackPic_RubySapphireMay[] = INCBIN_U8("graphics/trainers/back_pics/may_rs.4bpp");
 const u8 gTrainerBackPic_Wally[] = INCBIN_U8("graphics/trainers/back_pics/wally.4bpp");
 const u8 gTrainerBackPic_Steven[] = INCBIN_U8("graphics/trainers/back_pics/steven.4bpp");
-__attribute__((section("added")))
+__attribute__((section("added_rodata")))
 const u8 gTrainerBackPic_Lance[] = INCBIN_U8("graphics/trainers/back_pics/lance.4bpp");
 
 const u32 gTrainerBackPicPalette_Red[] = INCBIN_U32("graphics/trainers/back_pics/red.gbapal.lz");

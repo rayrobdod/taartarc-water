@@ -89,10 +89,18 @@ SECTIONS {
         src/minigame_countdown.o(.text);
         src/rtc.o(.text);
         src/main_menu.o(.text);
+        src/*.o(added);
+        data/*.o(added);
+    } > ROM =0
+
+    text2 0x08031e18 :
+    ALIGN(4)
+    {
+        src/main_menu.o(text2);
         src/new_game.o(newGameInitData);
     } > ROM =0
 
-    text2 0x08032654 :
+    text3 0x08032654 :
     ALIGN(4)
     {
         src/battle_controllers.o(.text);
@@ -1322,8 +1330,6 @@ SECTIONS {
     extra :
     ALIGN(4)
     {
-        src/*.o(added);
-        data/*.o(added);
         src/*.o(.text);
         gflib/*.o(.text);
         src/*.o(added_rodata);

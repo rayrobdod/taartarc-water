@@ -68,7 +68,7 @@ static const union AnimCmd sAnimCmd_RubySapphireMay_1[] =
     ANIMCMD_END,
 };
 
-__attribute__((section("added")))
+__attribute__((section("added_rodata")))
 static const union AnimCmd sAnimCmd_Lance_Back[] =
 {
     ANIMCMD_FRAME(1, 8),

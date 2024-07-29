@@ -471,7 +471,7 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 
 PADDING(".rodata", 0x120)
 
-__attribute__((section("added")))
+__attribute__((section("added_rodata")))
 static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Npc1,                  OBJ_EVENT_PAL_TAG_NPC_1},
     {gObjectEventPal_Npc2,                  OBJ_EVENT_PAL_TAG_NPC_2},
@@ -630,7 +630,7 @@ static const u16 sReflectionPaletteTags_Lotad[] = {
 
 PADDING(".rodata", 0x68)
 
-__attribute__((section("added")))
+__attribute__((section("added_rodata")))
 static const struct PairedPalettes sSpecialObjectReflectionPaletteSets[] = {
     {OBJ_EVENT_PAL_TAG_BRENDAN,          sReflectionPaletteTags_Brendan},
     {OBJ_EVENT_PAL_TAG_MAY,              sReflectionPaletteTags_May},
