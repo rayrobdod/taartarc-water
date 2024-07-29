@@ -364,3 +364,5 @@ __attribute__((section("added_rodata")))
 const u32 gObjectEventPic_Lotad[] = INCBIN_U32("graphics/object_events/pics/pokemon/lotad.4bpp");
 __attribute__((section("added_rodata")))
 const u32 gObjectEventPic_LotadSwimming[] = INCBIN_U32("graphics/object_events/pics/pokemon/lotad_swimming.4bpp");
+__attribute__((section("added_rodata")))
+const u32 gObjectEventPic_SeelDoll[] = INCBIN_U32("graphics/object_events/pics/dolls/seel_doll.4bpp");

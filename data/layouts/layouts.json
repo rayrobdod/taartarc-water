@@ -4444,10 +4444,10 @@
     {
       "id": "LAYOUT_AQUARIUM_GIFT_SHOP",
       "name": "Aquarium_GiftShop_Layout",
-      "width": 8,
-      "height": 13,
+      "width": 7,
+      "height": 12,
       "primary_tileset": "gTileset_Aquarium",
-      "secondary_tileset": "gTileset_Lobby",
+      "secondary_tileset": "gTileset_GiftShop",
       "border_filepath": "data/layouts/Aquarium_GiftShop/border.bin",
       "blockdata_filepath": "data/layouts/Aquarium_GiftShop/map.bin"
     },

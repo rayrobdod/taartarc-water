@@ -1,1 +1,43 @@
 mapscripts Aquarium_GiftShop_MapScripts {}
+
+script Aquarium_GiftShop_HorseaDoll {
+	lock
+	msgbox(
+		format("Clair would like this doll\nalthough she wouldn't be willing to be seen with it."),
+		MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script Aquarium_GiftShop_LittleGirl {
+	lock
+	msgbox(
+		format("Mommy! Mommy! Can I get this doll? Please?"),
+		MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script Aquarium_GiftShop_Mother {
+	lock
+	msgbox(
+		format(
+			"I'd be more inclined to buy the Seel doll for my kid "
+			"if she had shown any interest in the real Seel in the exhibit."
+		),
+		MSGBOX_NPC)
+	release
+	end
+}
+
+script Aquarium_GiftShop_Keychain {
+	lock
+	msgbox(
+		format(
+			"I buy a keychain from every place I visit."
+			"The hard part is choosing just one."
+		),
+		MSGBOX_NPC)
+	release
+	end
+}

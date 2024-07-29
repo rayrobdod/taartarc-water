@@ -221,7 +221,8 @@ __attribute__((section("added_rodata"))) const u16 gMetatiles_Storage[] = INCBIN
 __attribute__((section("added_rodata"))) const u16 gMetatileAttributes_Storage[] = INCBIN_U16("build/tilesets/secondary/aquarium_storage/metatile_attributes.bin");
 
 __attribute__((section("added_rodata"))) const u16 gMetatiles_GiftShop[] = INCBIN_U16("build/tilesets/secondary/aquarium_giftshop/metatiles.bin");
-__attribute__((section("added_rodata"))) const u16 gMetatileAttributes_GiftShop[] = INCBIN_U16("build/tilesets/secondary/aquarium_giftshop/metatile_attributes.bin");
+// XXX: porytiles is refusing to write attributes to the built `metatile_attributes.bin` for this one specific tileset, hence this manual override
+__attribute__((section("added_rodata"))) const u16 gMetatileAttributes_GiftShop[] = INCBIN_U16("data/tilesets/secondary/aquarium_giftshop/metatile_attributes.bin");
 
 __attribute__((section("added_rodata"))) const u16 gMetatiles_Window[] = INCBIN_U16("build/tilesets/secondary/aquarium_window/metatiles.bin");
 __attribute__((section("added_rodata"))) const u16 gMetatileAttributes_Window[] = INCBIN_U16("build/tilesets/secondary/aquarium_window/metatile_attributes.bin");
