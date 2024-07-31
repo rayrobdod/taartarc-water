@@ -9,10 +9,37 @@ script Aquarium_GiftShop_HorseaDoll {
 	end
 }
 
+script Aquarium_GiftShop_SeelDoll {
+	lock
+	msgbox(
+		format("I think Lorelei has a Seel doll already, but I'm not certain."),
+		MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script Aquarium_GiftShop_MarillDoll {
+	lock
+	msgbox(
+		format("Marill must be popular, considering that they're selling dolls of something they don't have."),
+		MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script Aquarium_GiftShop_LotadDoll {
+	lock
+	msgbox(
+		format(""),
+		MSGBOX_DEFAULT)
+	release
+	end
+}
+
 script Aquarium_GiftShop_LittleGirl {
 	lock
 	msgbox(
-		format("Mommy! Mommy! Can I get this doll? Please?"),
+		format("Mommy! Mommy! Can I get this doll? Pleeeaase?"),
 		MSGBOX_DEFAULT)
 	release
 	end
@@ -36,6 +63,18 @@ script Aquarium_GiftShop_Keychain {
 		format(
 			"I buy a keychain from every place I visit."
 			"The hard part is choosing just one."
+		),
+		MSGBOX_NPC)
+	release
+	end
+}
+
+script Aquarium_GiftShop_Clerk {
+	lock
+	msgbox(
+		format(
+			"Do you you wish to buy some useless plastic "
+			"that will end up in a landfill in a year or two?"
 		),
 		MSGBOX_NPC)
 	release
