@@ -70,6 +70,34 @@
       "elevation": 0,
       "dest_map": "MAP_AQUARIUM_GIFT_SHOP",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 14,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_AQUARIUM_WINDOW",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 15,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_AQUARIUM_WINDOW",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 6,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_AQUARIUM_BIOLUMINESCENCE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 7,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_AQUARIUM_BIOLUMINESCENCE",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [
