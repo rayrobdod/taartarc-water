@@ -889,7 +889,7 @@ __attribute__((section("added_rodata"))) const struct Tileset gTileset_Window =
     .palettes = gTilesetPalettes_Window,
     .metatiles = gMetatiles_Window,
     .metatileAttributes = gMetatileAttributes_Window,
-    .callback = NULL,
+    .callback = InitTilesetAnim_AquariumWindow,
 };
 
 __attribute__((section("added_rodata"))) const struct Tileset gTileset_Bioluminescence =

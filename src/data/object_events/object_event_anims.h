@@ -1205,6 +1205,38 @@ static const union AnimCmd sAnim_HeartGoldFollower_FaceEast[] =
 };
 
 __attribute__((section("added_rodata")))
+static const union AnimCmd sAnim_HeartGoldFollower_GoSouthSlower[] =
+{
+    ANIMCMD_FRAME(4, 16),
+    ANIMCMD_FRAME(6, 16),
+    ANIMCMD_JUMP(0),
+};
+
+__attribute__((section("added_rodata")))
+static const union AnimCmd sAnim_HeartGoldFollower_GoNorthSlower[] =
+{
+    ANIMCMD_FRAME(0, 16),
+    ANIMCMD_FRAME(2, 16),
+    ANIMCMD_JUMP(0),
+};
+
+__attribute__((section("added_rodata")))
+static const union AnimCmd sAnim_HeartGoldFollower_GoWestSlower[] =
+{
+    ANIMCMD_FRAME(1, 16),
+    ANIMCMD_FRAME(3, 16),
+    ANIMCMD_JUMP(0),
+};
+
+__attribute__((section("added_rodata")))
+static const union AnimCmd sAnim_HeartGoldFollower_GoEastSlower[] =
+{
+    ANIMCMD_FRAME(5, 16),
+    ANIMCMD_FRAME(7, 16),
+    ANIMCMD_JUMP(0),
+};
+
+__attribute__((section("added_rodata")))
 static const union AnimCmd sAnim_HeartGoldFollower_GoSouth[] =
 {
     ANIMCMD_FRAME(4, 8),
@@ -1338,6 +1370,30 @@ static const union AnimCmd *const sAnimTable_HeartGoldFollower[] = {
     [ANIM_STD_FACE_NORTH] = sAnim_HeartGoldFollower_FaceNorth,
     [ANIM_STD_FACE_WEST] = sAnim_HeartGoldFollower_FaceWest,
     [ANIM_STD_FACE_EAST] = sAnim_HeartGoldFollower_FaceEast,
+    [ANIM_STD_GO_SOUTH] = sAnim_HeartGoldFollower_GoSouth,
+    [ANIM_STD_GO_NORTH] = sAnim_HeartGoldFollower_GoNorth,
+    [ANIM_STD_GO_WEST] = sAnim_HeartGoldFollower_GoWest,
+    [ANIM_STD_GO_EAST] = sAnim_HeartGoldFollower_GoEast,
+    [ANIM_STD_GO_FAST_SOUTH] = sAnim_HeartGoldFollower_GoFastSouth,
+    [ANIM_STD_GO_FAST_NORTH] = sAnim_HeartGoldFollower_GoFastNorth,
+    [ANIM_STD_GO_FAST_WEST] = sAnim_HeartGoldFollower_GoFastWest,
+    [ANIM_STD_GO_FAST_EAST] = sAnim_HeartGoldFollower_GoFastEast,
+    [ANIM_STD_GO_FASTER_SOUTH] = sAnim_HeartGoldFollower_GoFasterSouth,
+    [ANIM_STD_GO_FASTER_NORTH] = sAnim_HeartGoldFollower_GoFasterNorth,
+    [ANIM_STD_GO_FASTER_WEST] = sAnim_HeartGoldFollower_GoFasterWest,
+    [ANIM_STD_GO_FASTER_EAST] = sAnim_HeartGoldFollower_GoFasterEast,
+    [ANIM_STD_GO_FASTEST_SOUTH] = sAnim_HeartGoldFollower_GoFastestSouth,
+    [ANIM_STD_GO_FASTEST_NORTH] = sAnim_HeartGoldFollower_GoFastestNorth,
+    [ANIM_STD_GO_FASTEST_WEST] = sAnim_HeartGoldFollower_GoFastestWest,
+    [ANIM_STD_GO_FASTEST_EAST] = sAnim_HeartGoldFollower_GoFastestEast,
+};
+
+__attribute__((section("added_rodata")))
+static const union AnimCmd *const sAnimTable_HeartGoldFollower_Hyperactive[] = {
+    [ANIM_STD_FACE_SOUTH] = sAnim_HeartGoldFollower_GoSouthSlower,
+    [ANIM_STD_FACE_NORTH] = sAnim_HeartGoldFollower_GoNorthSlower,
+    [ANIM_STD_FACE_WEST] = sAnim_HeartGoldFollower_GoWestSlower,
+    [ANIM_STD_FACE_EAST] = sAnim_HeartGoldFollower_GoEastSlower,
     [ANIM_STD_GO_SOUTH] = sAnim_HeartGoldFollower_GoSouth,
     [ANIM_STD_GO_NORTH] = sAnim_HeartGoldFollower_GoNorth,
     [ANIM_STD_GO_WEST] = sAnim_HeartGoldFollower_GoWest,

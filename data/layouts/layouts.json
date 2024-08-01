@@ -4455,7 +4455,7 @@
       "id": "LAYOUT_AQUARIUM_WINDOW",
       "name": "Aquarium_Window_Layout",
       "width": 12,
-      "height": 12,
+      "height": 11,
       "primary_tileset": "gTileset_Aquarium",
       "secondary_tileset": "gTileset_Window",
       "border_filepath": "data/layouts/Aquarium_Window/border.bin",

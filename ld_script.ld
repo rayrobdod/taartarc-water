@@ -643,6 +643,12 @@ SECTIONS {
         src/battle_anim_throw.o(.rodata);
         src/hall_of_fame.o(.rodata);
         src/credits.o(.rodata);
+    } > ROM =0
+
+    rodata2 0x85e6f68 :
+    ALIGN(4)
+    {
+        src/credits.o(rodata2);
         src/lottery_corner.o(.rodata);
         src/diploma.o(.rodata);
         src/strings.o(.rodata);

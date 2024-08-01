@@ -1186,3 +1186,28 @@ static void BlendAnimPalette_BattleDome_FloorLightsNoBlend(u16 timer)
             sSecondaryTilesetAnimCallback = NULL;
     }
 }
+
+__attribute__((section("added_rodata")))
+const u16 gTilesetAnims_AquariumWindow_Cube[] = INCBIN_U16("build/tilesets/secondary/aquarium_window/anim/cube.4bpp");
+
+__attribute__((section("added")))
+static void QueueAnimTiles_AquariumWindow_Cube(u16 timer)
+{
+    u16 i = timer % 4;
+    AppendTilesetAnimToBuffer(gTilesetAnims_AquariumWindow_Cube + (i * (9 * 4 * TILE_SIZE_4BPP / 2)), (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 0)), 9 * 4 * TILE_SIZE_4BPP);
+}
+
+__attribute__((section("added")))
+static void TilesetAnim_AquariumWindow(u16 timer)
+{
+    if (timer % 32 == 0)
+        QueueAnimTiles_AquariumWindow_Cube(timer / 32);
+}
+
+__attribute__((section("added")))
+void InitTilesetAnim_AquariumWindow(void)
+{
+    sSecondaryTilesetAnimCounter = 0;
+    sSecondaryTilesetAnimCounterMax = 256;
+    sSecondaryTilesetAnimCallback = TilesetAnim_AquariumWindow;
+}

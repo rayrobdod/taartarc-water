@@ -6,7 +6,7 @@ const u32 gObjectEventPic_RubySapphireBrendanRunning[] = INCBIN_U32("graphics/ob
 const u16 gObjectEventPal_RubySapphireBrendan[] = INCBIN_U16("graphics/object_events/palettes/ruby_sapphire_brendan.gbapal");
 const u16 gObjectEventPal_Lotad[16] = INCBIN_U16("graphics/object_events/pics/pokemon/lotad.gbapal");
 const u16 gObjectEventPal_LotadReflection[16] = INCBIN_U16("graphics/object_events/pics/pokemon/lotad_reflection.gbapal");
-const u16 gObjectEventPal_Null3[16] = {};
+const u16 gObjectEventPal_Seel[16] = INCBIN_U16("graphics/object_events/pics/pokemon/seel.gbapal");
 const u16 gObjectEventPal_Null4[16] = {};
 const u16 gObjectEventPal_Null5[16] = {};
 const u16 gObjectEventPal_Null6[16] = {};
@@ -366,3 +366,5 @@ __attribute__((section("added_rodata")))
 const u32 gObjectEventPic_LotadSwimming[] = INCBIN_U32("graphics/object_events/pics/pokemon/lotad_swimming.4bpp");
 __attribute__((section("added_rodata")))
 const u32 gObjectEventPic_SeelDoll[] = INCBIN_U32("graphics/object_events/pics/dolls/seel_doll.4bpp");
+__attribute__((section("added_rodata")))
+const u32 gObjectEventPic_Seel[] = INCBIN_U32("graphics/object_events/pics/pokemon/seel.4bpp");

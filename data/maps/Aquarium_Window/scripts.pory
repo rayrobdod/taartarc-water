@@ -1,1 +1,49 @@
 mapscripts Aquarium_Window_MapScripts {}
+
+script Aquarium_Window_SeelCopyee {
+	lockall
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	if (var(VAR_RESULT) == DIR_EAST) {
+		applymovement(3, Aquarium_Window_SeelCopyee_SeelRight)
+		applymovement(4, Aquarium_Window_SeelCopyee_HumanRight)
+		waitmovement(0)
+		applymovement(3, Aquarium_Window_SeelCopyee_SeelLeft)
+		applymovement(4, Aquarium_Window_SeelCopyee_HumanLeft)
+	} else {
+		applymovement(3, Aquarium_Window_SeelCopyee_SeelLeft)
+		applymovement(4, Aquarium_Window_SeelCopyee_HumanLeft)
+		waitmovement(0)
+		applymovement(3, Aquarium_Window_SeelCopyee_SeelRight)
+		applymovement(4, Aquarium_Window_SeelCopyee_HumanRight)
+	}
+	waitmovement(0)
+	releaseall
+	end
+}
+
+movement Aquarium_Window_SeelCopyee_SeelLeft {
+	delay_4
+	walk_left
+	walk_in_place_down
+	step_end
+}
+movement Aquarium_Window_SeelCopyee_SeelRight {
+	delay_4
+	walk_right
+	walk_in_place_down
+	step_end
+}
+movement Aquarium_Window_SeelCopyee_HumanLeft {
+	walk_left
+	face_up
+	delay_16
+	delay_16
+	step_end
+}
+movement Aquarium_Window_SeelCopyee_HumanRight {
+	walk_right
+	face_up
+	delay_16
+	delay_16
+	step_end
+}

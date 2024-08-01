@@ -181,6 +181,10 @@ $(patsubst %,$(TILESETBUILDDIR)/secondary/aquarium_classroom/palettes/%.pal,00 0
 	porytiles compile-secondary --dual-layer --Wall -o $(TILESETBUILDDIR)/secondary/aquarium_classroom \
 		$(TILESETGFXDIR)/secondary/aquarium_classroom $(TILESETGFXDIR)/primary/aquarium include/constants/metatile_behaviors.h
 
+$(TILESETBUILDDIR)/secondary/aquarium_window/anim/cube.4bpp : \
+		$(patsubst %,$(TILESETBUILDDIR)/secondary/aquarium_window/anim/cube/%.4bpp,0 1 2 3)
+	cat $^ >$@
+
 $(TILESETGFXDIR)/secondary/petalburg/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 159 -Wnum_tiles
 

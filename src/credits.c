@@ -165,6 +165,7 @@ static const u8 sTheEnd_LetterMap_D[] =
 
 #include "data/credits.h"
 
+__attribute__((section("rodata2")))
 static const struct BgTemplate sBackgroundTemplates[] =
 {
     {
@@ -177,6 +178,7 @@ static const struct BgTemplate sBackgroundTemplates[] =
         .baseTile = 0
     },
 };
+__attribute__((section("rodata2")))
 static const struct WindowTemplate sWindowTemplates[] =
 {
     {
@@ -190,6 +192,7 @@ static const struct WindowTemplate sWindowTemplates[] =
     },
     DUMMY_WIN_TEMPLATE,
 };
+__attribute__((section("rodata2")))
 static const u8 sMonSpritePos[][2] =
 {
     {104, 36},
@@ -197,6 +200,7 @@ static const u8 sMonSpritePos[][2] =
     {136, 36},
 };
 
+__attribute__((section("rodata2")))
 static const union AnimCmd sAnim_Player_Slow[] =
 {
     ANIMCMD_FRAME(0, 8),
@@ -206,6 +210,7 @@ static const union AnimCmd sAnim_Player_Slow[] =
     ANIMCMD_JUMP(0),
 };
 
+__attribute__((section("rodata2")))
 static const union AnimCmd sAnim_Player_Fast[] =
 {
     ANIMCMD_FRAME(0, 4),
@@ -215,6 +220,7 @@ static const union AnimCmd sAnim_Player_Fast[] =
     ANIMCMD_JUMP(0),
 };
 
+__attribute__((section("rodata2")))
 static const union AnimCmd sAnim_Player_LookBack[] =
 {
     ANIMCMD_FRAME(256, 4),
@@ -223,6 +229,7 @@ static const union AnimCmd sAnim_Player_LookBack[] =
     ANIMCMD_END,
 };
 
+__attribute__((section("rodata2")))
 static const union AnimCmd sAnim_Player_LookForward[] =
 {
     ANIMCMD_FRAME(384, 30),
@@ -232,6 +239,7 @@ static const union AnimCmd sAnim_Player_LookForward[] =
     ANIMCMD_END,
 };
 
+__attribute__((section("rodata2")))
 static const union AnimCmd *const sAnims_Player[] =
 {
     sAnim_Player_Slow,
@@ -240,6 +248,7 @@ static const union AnimCmd *const sAnims_Player[] =
     sAnim_Player_LookForward,
 };
 
+__attribute__((section("rodata2")))
 static const union AnimCmd sAnim_Rival_Slow[] =
 {
     ANIMCMD_FRAME(0, 8),
@@ -249,6 +258,7 @@ static const union AnimCmd sAnim_Rival_Slow[] =
     ANIMCMD_JUMP(0),
 };
 
+__attribute__((section("rodata2")))
 static const union AnimCmd sAnim_Rival_Fast[] =
 {
     ANIMCMD_FRAME(0, 4),
@@ -258,12 +268,14 @@ static const union AnimCmd sAnim_Rival_Fast[] =
     ANIMCMD_JUMP(0),
 };
 
+__attribute__((section("rodata2")))
 static const union AnimCmd sAnim_Rival_Still[] =
 {
     ANIMCMD_FRAME(0, 4),
     ANIMCMD_END,
 };
 
+__attribute__((section("rodata2")))
 static const union AnimCmd *const sAnims_Rival[] =
 {
     sAnim_Rival_Slow,
@@ -272,15 +284,18 @@ static const union AnimCmd *const sAnims_Rival[] =
 };
 
 #define MONBG_OFFSET (MON_PIC_SIZE * 3)
+__attribute__((section("rodata2")))
 static const struct SpriteSheet sSpriteSheet_MonBg[] = {
     { gDecompressionBuffer, MONBG_OFFSET, TAG_MON_BG },
     {},
 };
+__attribute__((section("rodata2")))
 static const struct SpritePalette sSpritePalette_MonBg[] = {
     { (const u16 *)&gDecompressionBuffer[MONBG_OFFSET], TAG_MON_BG },
     {},
 };
 
+__attribute__((section("rodata2")))
 static const struct OamData sOamData_MonBg =
 {
     .y = DISPLAY_HEIGHT,
@@ -298,24 +313,28 @@ static const struct OamData sOamData_MonBg =
     .affineParam = 0,
 };
 
+__attribute__((section("rodata2")))
 static const union AnimCmd sAnim_MonBg_Yellow[] =
 {
     ANIMCMD_FRAME(0, 8),
     ANIMCMD_END,
 };
 
+__attribute__((section("rodata2")))
 static const union AnimCmd sAnim_MonBg_Red[] =
 {
     ANIMCMD_FRAME(64, 8),
     ANIMCMD_END,
 };
 
+__attribute__((section("rodata2")))
 static const union AnimCmd sAnim_MonBg_Blue[] =
 {
     ANIMCMD_FRAME(128, 8),
     ANIMCMD_END,
 };
 
+__attribute__((section("rodata2")))
 static const union AnimCmd *const sAnims_MonBg[] =
 {
     [POS_LEFT]   = sAnim_MonBg_Yellow,
@@ -323,6 +342,7 @@ static const union AnimCmd *const sAnims_MonBg[] =
     [POS_RIGHT]  = sAnim_MonBg_Blue,
 };
 
+__attribute__((section("rodata2")))
 static const struct SpriteTemplate sSpriteTemplate_CreditsMonBg =
 {
     .tileTag = TAG_MON_BG,

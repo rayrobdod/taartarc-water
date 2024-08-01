@@ -1,5 +1,6 @@
 enum
 {
+    RESOURCES_CUBE_AQUARIUM,
     RESOURCES_OVERWORLD_LOTAD,
     PAGE_TITLE,
     PAGE_DIRECTOR,
@@ -392,21 +393,32 @@ static const struct CreditsEntry sCreditsEntry_ErikJohnson                      
 #define COMPOUND_STRING(str) (const u8[]) _(str)
 /* Couldn't get the 'compound' pattern to work with a pointer to a CreditsEntry, but not having to name each string here is at least something */
 static const struct CreditsEntry sCreditsEntry_Resources = { 0, TRUE, COMPOUND_STRING("Resources")};
-static const struct CreditsEntry sCreditsEntry_LotadOverworldSprite = { 0, TRUE, COMPOUND_STRING("From HeartGold/SoulSilver")};
+static const struct CreditsEntry sCreditsEntry_LotadOverworldSprite = { 0, TRUE, COMPOUND_STRING("Overworld Lotad Sprite")};
+static const struct CreditsEntry sCreditsEntry_SeelOverworldSprite = { 0, TRUE, COMPOUND_STRING("Overworld Seel Sprite")};
 static const struct CreditsEntry sCreditsEntry_FromHeartGoldSoulSilver = { 0, FALSE, COMPOUND_STRING("From HeartGold/SoulSilver")};
+static const struct CreditsEntry sCreditsEntry_CubeAquariumTiles = { 0, TRUE, COMPOUND_STRING("Cube Aquarium Tiles")};
+static const struct CreditsEntry sCreditsEntry_Oomer = { 0, FALSE, COMPOUND_STRING("Oomer")};
+static const struct CreditsEntry sCreditsEntry_taar = { 0, FALSE, COMPOUND_STRING("From Team Aqua's Asset Repository")};
 
-PADDING(".rodata", 0x434)
+
 
 #define _ &sCreditsEntry_EmptyString
 
 __attribute__((section("added_rodata")))
 static const struct CreditsEntry *const sCreditsEntryPointerTable[PAGE_COUNT][ENTRIES_PER_PAGE] =
 {
+    [RESOURCES_CUBE_AQUARIUM] = {
+        _,
+        &sCreditsEntry_CubeAquariumTiles,
+        &sCreditsEntry_Oomer,
+        &sCreditsEntry_taar,
+        _,
+    },
     [RESOURCES_OVERWORLD_LOTAD] = {
         _,
         &sCreditsEntry_LotadOverworldSprite,
+        &sCreditsEntry_SeelOverworldSprite,
         &sCreditsEntry_FromHeartGoldSoulSilver,
-        _,
         _,
     },
     [PAGE_TITLE] = {

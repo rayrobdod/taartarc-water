@@ -70,7 +70,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ReporterF;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Bard;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lotad;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LotadSwimming;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Greta;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Seel;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Spenser;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Noland;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lucy;
@@ -317,7 +317,6 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_REPORTER_M] =               &gObjectEventGraphicsInfo_ReporterM,
     [OBJ_EVENT_GFX_REPORTER_F] =               &gObjectEventGraphicsInfo_ReporterF,
     [OBJ_EVENT_GFX_BARD] =                     &gObjectEventGraphicsInfo_Bard,
-    [OBJ_EVENT_GFX_GRETA] =                    &gObjectEventGraphicsInfo_Bard,
     [OBJ_EVENT_GFX_SPENSER] =                  &gObjectEventGraphicsInfo_Bard,
     [OBJ_EVENT_GFX_NOLAND] =                   &gObjectEventGraphicsInfo_Bard,
     [OBJ_EVENT_GFX_LUCY] =                     &gObjectEventGraphicsInfo_Bard,
@@ -486,6 +485,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_LOTAD] =                    &gObjectEventGraphicsInfo_Lotad,
     [OBJ_EVENT_GFX_LOTAD_SWIMMING] =           &gObjectEventGraphicsInfo_LotadSwimming,
     [OBJ_EVENT_GFX_SEEL_DOLL] =                    &gObjectEventGraphicsInfo_SeelDoll,
+    [OBJ_EVENT_GFX_SEEL] =                         &gObjectEventGraphicsInfo_Seel,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {
