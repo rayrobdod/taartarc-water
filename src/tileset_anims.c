@@ -1194,7 +1194,10 @@ __attribute__((section("added")))
 static void QueueAnimTiles_AquariumWindow_Cube(u16 timer)
 {
     u16 i = timer % 4;
-    AppendTilesetAnimToBuffer(gTilesetAnims_AquariumWindow_Cube + (i * (9 * 4 * TILE_SIZE_4BPP / 2)), (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 0)), 9 * 4 * TILE_SIZE_4BPP);
+    AppendTilesetAnimToBuffer(
+        gTilesetAnims_AquariumWindow_Cube + (i * (5 * 6 * TILE_SIZE_4BPP / 2)),
+        (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 0)),
+        5 * 6 * TILE_SIZE_4BPP);
 }
 
 __attribute__((section("added")))
