@@ -2,10 +2,6 @@
 //	0 -> 1 : upon first entering the map (during a new game)
 
 mapscripts Aquarium_Gardens_MapScripts {
-	MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE {
-		turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
-		end
-	}
 	MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_GARDENS_STATE, 0: Aquarium_Gardens_OnFrame_NewGame
 	]
