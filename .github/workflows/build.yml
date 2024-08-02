@@ -14,14 +14,59 @@ jobs:
       MODERN: 0
       COMPARE: 1
     steps:
+      - name: Install binutils
+        run: sudo apt install gcc-arm-none-eabi binutils-arm-none-eabi xdelta3
+        # build-essential, git, and libpng-dev are already installed
+        # gcc-arm-none-eabi is only needed for the modern build
+        # as an alternative to dkP
+
+      - name: Checkout base
+        uses: actions/checkout@master
+        with:
+          ref: 'a0a02f9733f3963ea50f76bd03b39130e3cc2f2f'
+
+      - name: Checkout agbcc for base
+        uses: actions/checkout@master
+        with:
+          path: agbcc
+          repository: pret/agbcc
+
+      - name: Install agbcc for base
+        run: |
+          ./build.sh
+          ./install.sh ../
+        working-directory: agbcc
+
+      - name: Build base
+        env:
+          MODERN: 0
+          COMPARE: 0
+        run: make -j${nproc} all syms
+
+      - name: preserve files 1
+        run: |
+          mv ./pokeemerald.gba /tmp/pokeemerald.gba
+          mv ./pokeemerald.sym /tmp/pokeemerald.sym
+
       - name: Checkout
         uses: actions/checkout@master
+
+      - name: preserve files 2
+        run: |
+          mv /tmp/pokeemerald.gba ./pokeemerald.gba
+          mv /tmp/pokeemerald.sym ./pokeemerald.sym
 
       - name: Checkout agbcc
         uses: actions/checkout@master
         with:
           path: agbcc
           repository: pret/agbcc
+
+      - name: Install agbcc
+        run: |
+          ./build.sh
+          ./install.sh ../
+        working-directory: agbcc
 
       - name: Install poryscript
         run: |
@@ -40,20 +85,19 @@ jobs:
           echo `pwd`/tools/porytiles >> $GITHUB_PATH
           ./tools/porytiles/porytiles -V
 
-      - name: Install binutils
-        run: sudo apt install gcc-arm-none-eabi binutils-arm-none-eabi
-        # build-essential, git, and libpng-dev are already installed
-        # gcc-arm-none-eabi is only needed for the modern build
-        # as an alternative to dkP
-
-      - name: Install agbcc
-        run: |
-          ./build.sh
-          ./install.sh ../
-        working-directory: agbcc
-
       - name: Build
         env:
           MODERN: 0
           COMPARE: 0
-        run: make -j${nproc} all
+        run: make -j${nproc} all syms patch
+
+      - name: deltas
+        run: |
+          diff --unified pokeemerald.sym taartarcyoshord.sym >syms.diff || true
+          du -b taartarcyoshord.vcdiff >> $GITHUB_STEP_SUMMARY || true
+
+      - name: upload symbol diff
+        uses: actions/upload-artifact@v4
+        with:
+          name: symbols difference
+          path: syms.diff
