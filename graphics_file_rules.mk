@@ -139,6 +139,10 @@ $(patsubst %,$(TILESETBUILDDIR)/secondary/aquarium_giftshop/palettes/%.pal,00 01
 $(patsubst %,$(TILESETBUILDDIR)/secondary/aquarium_window/palettes/%.pal,00 01 02 03 04 05 06 07 08 09 10 11 12) \
                 $(TILESETBUILDDIR)/secondary/aquarium_window/metatile_attributes.bin \
                 $(TILESETBUILDDIR)/secondary/aquarium_window/metatiles.bin \
+                $(TILESETBUILDDIR)/secondary/aquarium_window/anim/cube/0.png \
+                $(TILESETBUILDDIR)/secondary/aquarium_window/anim/cube/1.png \
+                $(TILESETBUILDDIR)/secondary/aquarium_window/anim/cube/2.png \
+                $(TILESETBUILDDIR)/secondary/aquarium_window/anim/cube/3.png \
                 $(TILESETBUILDDIR)/secondary/aquarium_window/tiles.png \
                 &: \
                 $(TILESETGFXDIR)/primary/aquarium/top.png \
@@ -147,6 +151,11 @@ $(patsubst %,$(TILESETBUILDDIR)/secondary/aquarium_window/palettes/%.pal,00 01 0
                 $(TILESETGFXDIR)/secondary/aquarium_window/top.png \
                 $(TILESETGFXDIR)/secondary/aquarium_window/middle.png \
                 $(TILESETGFXDIR)/secondary/aquarium_window/bottom.png \
+                $(TILESETGFXDIR)/secondary/aquarium_window/anim/cube/key.png \
+                $(TILESETGFXDIR)/secondary/aquarium_window/anim/cube/0.png \
+                $(TILESETGFXDIR)/secondary/aquarium_window/anim/cube/1.png \
+                $(TILESETGFXDIR)/secondary/aquarium_window/anim/cube/2.png \
+                $(TILESETGFXDIR)/secondary/aquarium_window/anim/cube/3.png \
                 $(TILESETGFXDIR)/secondary/aquarium_window/attributes.csv
 	porytiles compile-secondary --dual-layer --Wall -o $(TILESETBUILDDIR)/secondary/aquarium_window \
 		$(TILESETGFXDIR)/secondary/aquarium_window $(TILESETGFXDIR)/primary/aquarium include/constants/metatile_behaviors.h
