@@ -17,6 +17,9 @@ script Aquarium_Window_SeelCopyee {
 		applymovement(4, Aquarium_Window_SeelCopyee_HumanRight)
 	}
 	waitmovement(0)
+	msgbox(format("I didn't think Seel were\nknown for mimicry."), MSGBOX_NPC)
+	applymovement(4, Common_Movement_FaceUp)
+	waitmovement(0)
 	releaseall
 	end
 }
@@ -25,12 +28,14 @@ movement Aquarium_Window_SeelCopyee_SeelLeft {
 	delay_4
 	walk_left
 	walk_in_place_down
+	// XXX: face_down isn't working on seel
 	step_end
 }
 movement Aquarium_Window_SeelCopyee_SeelRight {
 	delay_4
 	walk_right
 	walk_in_place_down
+	// XXX: face_down isn't working on seel
 	step_end
 }
 movement Aquarium_Window_SeelCopyee_HumanLeft {
@@ -46,4 +51,23 @@ movement Aquarium_Window_SeelCopyee_HumanRight {
 	delay_16
 	delay_16
 	step_end
+}
+
+script Aquarium_Window_RunningCirclesBoy {
+	msgbox(
+		format("Wheeee!"),
+		MSGBOX_NPC)
+	end
+}
+
+script Aquarium_Window_Maniac {
+	msgbox(
+		format(
+			"That strain of seaweed thrives in warmer waters "
+			"while Seel thrive in colder waters.\p"
+			"I will send a strongly worded letter about this."
+		),
+		MSGBOX_NPC)
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
+	end
 }
