@@ -114,9 +114,10 @@ EventScript_ResetAllBerries::
 
 EventScript_ResetAllMapFlags::
 	setflag FLAG_SYS_POKEMON_GET
+	setflag FLAG_SYS_B_DASH
 	call EventScript_ResetAllBerries
 	end
 
-	.rept 474
+	.rept 471
 	.byte 0
 	.endr
