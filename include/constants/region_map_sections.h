@@ -27,6 +27,10 @@
 #define MAPSEC_UNUSED_79                    0x79
 #define MAPSEC_UNUSED_7A                    0x7A
 
+#define AQUARIUM_MAPSEC_START               MAPSEC_LOBBY
+#define AQUARIUM_MAPSEC_END                 MAPSEC_STORAGE_ROOM
+#define AQUARIUM_MAPSEC_COUNT               (AQUARIUM_MAPSEC_END - AQUARIUM_MAPSEC_START + 1)
+
 // met location of starter pokemon
 #define MAPSEC_DRAGONS_DEN                  0x7B
 #define MAPSEC_CHARICIFIC_VALLEY            0x7C
