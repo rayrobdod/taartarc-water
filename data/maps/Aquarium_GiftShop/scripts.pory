@@ -36,6 +36,16 @@ script Aquarium_GiftShop_LotadDoll {
 	end
 }
 
+script Aquarium_GiftShop_LaprasDoll {
+	lock
+	msgbox(
+		"There isn't a price tag on this doll.\n"
+		"It might just be decoration.",
+		MSGBOX_DEFAULT)
+	release
+	end
+}
+
 script Aquarium_GiftShop_LittleGirl {
 	lock
 	msgbox(

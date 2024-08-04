@@ -14,16 +14,36 @@ static const struct TrainerMonNoItemDefaultMoves sParty_GruntAquaHideout1[] = {
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_GruntAquaHideout2[] = {
+static const struct TrainerMonNoItemDefaultMoves sParty_GruntWindow[] = {
     {
     .iv = 0,
-    .lvl = 31,
-    .species = SPECIES_ZUBAT,
+    .lvl = 50,
+    .species = SPECIES_GOLBAT,
     },
     {
     .iv = 0,
-    .lvl = 31,
-    .species = SPECIES_CARVANHA,
+    .lvl = 50,
+    .species = SPECIES_MANTINE,
+    },
+};
+
+__attribute__((section("added_rodata")))
+static const struct TrainerMonItemCustomMoves sParty_GruntBiolum[] = {
+    {
+    .iv = 0,
+    .lvl = 50,
+    .species = SPECIES_NOCTOWL,
+    .heldItem = ITEM_NONE,
+    // default moves would be confusion over psychic
+    .moves = {MOVE_HYPNOSIS, MOVE_PSYCHIC, MOVE_REFLECT, MOVE_TAKE_DOWN}
+    },
+    {
+    .iv = 0,
+    .lvl = 50,
+    .species = SPECIES_SCYTHER,
+    .heldItem = ITEM_NONE,
+    // default moves would be double team over wing attack
+    .moves = {MOVE_WING_ATTACK, MOVE_SLASH, MOVE_SWORDS_DANCE, MOVE_FURY_CUTTER}
     }
 };
 

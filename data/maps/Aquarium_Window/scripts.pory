@@ -1,3 +1,5 @@
+const LOCALID_GRUNT = 8
+
 mapscripts Aquarium_Window_MapScripts {}
 
 script Aquarium_Window_SeelCopyee {
@@ -17,6 +19,7 @@ script Aquarium_Window_SeelCopyee {
 		applymovement(4, Aquarium_Window_SeelCopyee_HumanRight)
 	}
 	waitmovement(0)
+	delay_16
 	msgbox(format("I didn't think Seel were\nknown for mimicry."), MSGBOX_NPC)
 	applymovement(4, Common_Movement_FaceUp)
 	waitmovement(0)
@@ -55,7 +58,7 @@ movement Aquarium_Window_SeelCopyee_HumanRight {
 
 script Aquarium_Window_RunningCirclesBoy {
 	msgbox(
-		format("Wheeee!"),
+		format("I saw a picture of that purple spikey thing in one of my textbooks!"),
 		MSGBOX_NPC)
 	end
 }
@@ -70,4 +73,68 @@ script Aquarium_Window_Maniac {
 		MSGBOX_NPC)
 	applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
 	end
+}
+
+script Aquarium_Window_Lass {
+	msgbox(
+		format(
+			"Do you think those creatures are aware that someone is watching them?\p"
+			"Do you think we'd know if someone were watching us?"
+		),
+		MSGBOX_NPC)
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceDown)
+	end
+}
+
+script Aquarium_Window_Grunt {
+	lockall
+	faceplayer
+	msgbox(
+		format("No! You weren't supposed to show up while we were still here!"),
+		MSGBOX_DEFAULT)
+	trainerbattle_no_intro(
+		TRAINER_GRUNT_WINDOW,
+		"Overwhelming",
+	)
+	if (flag(FLAG_HIDE_BIOLUM_GRUNT))
+	{
+		msgbox(
+			format(
+				"You want the key to the room that the boss has locked himself in?\p"
+				"Fine. Take it."),
+			MSGBOX_DEFAULT)
+		giveitem(ITEM_ROOM_1_KEY)
+	} else {
+		msgbox(
+			format(
+				"You want the key to the room that the boss has locked himself in?\p"
+				"I don't have it. So there!"),
+			MSGBOX_DEFAULT)
+	}
+	closemessage
+	if (var(VAR_RESULT) == DIR_NORTH) {
+		applymovement(LOCALID_GRUNT, Aquarium_Window_Grunt_Flee_North)
+	} else {
+		applymovement(LOCALID_GRUNT, Aquarium_Window_Grunt_Flee_Other)
+	}
+	waitmovement(0)
+	removeobject(LOCALID_GRUNT)
+	setflag(FLAG_HIDE_WINDOW_GRUNT)
+	playse(SE_DOOR)
+	releaseall
+	end
+}
+
+movement Aquarium_Window_Grunt_Flee_North {
+	walk_right
+	walk_down * 5
+	walk_right
+	walk_down
+}
+movement Aquarium_Window_Grunt_Flee_Other {
+	walk_down * 2
+	walk_right
+	walk_down * 3
+	walk_right
+	walk_down
 }
