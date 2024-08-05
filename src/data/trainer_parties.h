@@ -28,12 +28,11 @@ static const struct TrainerMonNoItemDefaultMoves sParty_GruntWindow[] = {
 };
 
 __attribute__((section("added_rodata")))
-static const struct TrainerMonItemCustomMoves sParty_GruntBiolum[] = {
+static const struct TrainerMonNoItemCustomMoves sParty_GruntBiolum[] = {
     {
     .iv = 0,
     .lvl = 50,
     .species = SPECIES_NOCTOWL,
-    .heldItem = ITEM_NONE,
     // default moves would be confusion over psychic
     .moves = {MOVE_HYPNOSIS, MOVE_PSYCHIC, MOVE_REFLECT, MOVE_TAKE_DOWN}
     },
@@ -41,9 +40,36 @@ static const struct TrainerMonItemCustomMoves sParty_GruntBiolum[] = {
     .iv = 0,
     .lvl = 50,
     .species = SPECIES_SCYTHER,
-    .heldItem = ITEM_NONE,
     // default moves would be double team over wing attack
     .moves = {MOVE_WING_ATTACK, MOVE_SLASH, MOVE_SWORDS_DANCE, MOVE_FURY_CUTTER}
+    }
+};
+
+__attribute__((section("added_rodata")))
+static const struct TrainerMonNoItemCustomMoves sParty_Leader[] = {
+    {
+    .iv = 0,
+    .lvl = 50,
+    .species = SPECIES_SKARMORY,
+    .moves = {MOVE_STEEL_WING, MOVE_AIR_CUTTER, MOVE_SANDSTORM, MOVE_METAL_SOUND}
+    },
+    {
+    .iv = 0,
+    .lvl = 50,
+    .species = SPECIES_PILOSWINE,
+    .moves = {MOVE_ICE_BEAM, MOVE_ROCK_SLIDE, MOVE_TAKE_DOWN, MOVE_ENDURE}
+    },
+    {
+    .iv = 0,
+    .lvl = 50,
+    .species = SPECIES_ALTARIA,
+    .moves = {MOVE_DRAGON_DANCE, MOVE_DRAGON_BREATH, MOVE_HAZE, MOVE_AERIAL_ACE}
+    },
+    {
+    .iv = 0,
+    .lvl = 50,
+    .species = SPECIES_PIDGEOT,
+    .moves = {MOVE_WING_ATTACK, MOVE_TWISTER, MOVE_MIRROR_MOVE, MOVE_RAIN_DANCE}
     }
 };
 
