@@ -91,6 +91,7 @@ ASM_BUILDDIR = $(OBJ_DIR)/$(ASM_SUBDIR)
 DATA_ASM_BUILDDIR = $(OBJ_DIR)/$(DATA_ASM_SUBDIR)
 SONG_BUILDDIR = $(OBJ_DIR)/$(SONG_SUBDIR)
 MID_BUILDDIR = $(OBJ_DIR)/$(MID_SUBDIR)
+TILESET_BUILDDIR := build/tilesets
 
 ASFLAGS := -mcpu=arm7tdmi --defsym MODERN=$(MODERN)
 
@@ -233,6 +234,7 @@ mostlyclean: tidynonmodern tidymodern
 	rm -f $(DATA_ASM_SUBDIR)/maps/connections.inc $(DATA_ASM_SUBDIR)/maps/events.inc $(DATA_ASM_SUBDIR)/maps/groups.inc $(DATA_ASM_SUBDIR)/maps/headers.inc
 	find $(DATA_ASM_SUBDIR)/maps \( -iname 'connections.inc' -o -iname 'events.inc' -o -iname 'header.inc' \) -exec rm {} +
 	rm -f $(patsubst %.pory,%.inc,$(shell find data/ -type f -name '*.pory'))
+	rm -r $(TILESET_BUILDDIR)
 	rm -f $(AUTO_GEN_TARGETS)
 	@$(MAKE) clean -C libagbsyscall
 
