@@ -137,24 +137,12 @@ $(patsubst %,$(TILESET_BUILDDIR)/secondary/aquarium_giftshop/palettes/%.pal,00 0
 $(patsubst %,$(TILESET_BUILDDIR)/secondary/aquarium_window/palettes/%.pal,00 01 02 03 04 05 06 07 08 09 10 11 12) \
                 $(TILESET_BUILDDIR)/secondary/aquarium_window/metatile_attributes.bin \
                 $(TILESET_BUILDDIR)/secondary/aquarium_window/metatiles.bin \
-                $(TILESET_BUILDDIR)/secondary/aquarium_window/anim/cube/0.png \
-                $(TILESET_BUILDDIR)/secondary/aquarium_window/anim/cube/1.png \
-                $(TILESET_BUILDDIR)/secondary/aquarium_window/anim/cube/2.png \
-                $(TILESET_BUILDDIR)/secondary/aquarium_window/anim/cube/3.png \
                 $(TILESET_BUILDDIR)/secondary/aquarium_window/tiles.png \
+                $(subst $(TILESETGFXDIR),$(TILESET_BUILDDIR),$(wildcard $(TILESETGFXDIR)/secondary/aquarium_window/anim/*/*)) \
                 &: \
-                $(TILESETGFXDIR)/primary/aquarium/top.png \
-                $(TILESETGFXDIR)/primary/aquarium/middle.png \
-                $(TILESETGFXDIR)/primary/aquarium/bottom.png \
-                $(TILESETGFXDIR)/secondary/aquarium_window/top.png \
-                $(TILESETGFXDIR)/secondary/aquarium_window/middle.png \
-                $(TILESETGFXDIR)/secondary/aquarium_window/bottom.png \
-                $(TILESETGFXDIR)/secondary/aquarium_window/anim/cube/key.png \
-                $(TILESETGFXDIR)/secondary/aquarium_window/anim/cube/0.png \
-                $(TILESETGFXDIR)/secondary/aquarium_window/anim/cube/1.png \
-                $(TILESETGFXDIR)/secondary/aquarium_window/anim/cube/2.png \
-                $(TILESETGFXDIR)/secondary/aquarium_window/anim/cube/3.png \
-                $(TILESETGFXDIR)/secondary/aquarium_window/attributes.csv
+                $(wildcard $(TILESETGFXDIR)/primary/aquarium/*.png) \
+                $(wildcard $(TILESETGFXDIR)/secondary/aquarium_window/*.*) \
+                $(wildcard $(TILESETGFXDIR)/secondary/aquarium_window/anim/*/*.*)
 	porytiles compile-secondary --dual-layer --Wall -o $(TILESET_BUILDDIR)/secondary/aquarium_window \
 		$(TILESETGFXDIR)/secondary/aquarium_window $(TILESETGFXDIR)/primary/aquarium include/constants/metatile_behaviors.h
 
