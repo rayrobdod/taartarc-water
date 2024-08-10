@@ -65,116 +65,53 @@ $(CASTFORMGFXDIR)/shiny.gbapal: $(CASTFORMGFXDIR)/normal/shiny.gbapal \
 
 ### Tilesets ###
 
-$(patsubst %,$(TILESET_BUILDDIR)/primary/aquarium/palettes/%.pal,00 01 02 03 04 05 06 07 08 09 10 11 12) \
-                $(TILESET_BUILDDIR)/primary/aquarium/metatile_attributes.bin \
-                $(TILESET_BUILDDIR)/primary/aquarium/metatiles.bin \
-                $(TILESET_BUILDDIR)/primary/aquarium/tiles.png \
+define PORYMAP_PRIMARY =
+$$(patsubst %,$$(TILESET_BUILDDIR)/primary/$(1)/palettes/%.pal,00 01 02 03 04 05 06 07 08 09 10 11 12) \
+                $$(TILESET_BUILDDIR)/primary/$(1)/metatile_attributes.bin \
+                $$(TILESET_BUILDDIR)/primary/$(1)/metatiles.bin \
+                $$(TILESET_BUILDDIR)/primary/$(1)/tiles.png \
+                $$(subst $$(TILESETGFXDIR),$$(TILESET_BUILDDIR),$$(wildcard $$(TILESETGFXDIR)/primary/$(1)/anim/*/*)) \
                 &: \
-                $(TILESETGFXDIR)/primary/aquarium/top.png \
-                $(TILESETGFXDIR)/primary/aquarium/middle.png \
-                $(TILESETGFXDIR)/primary/aquarium/bottom.png \
-                $(TILESETGFXDIR)/primary/aquarium/attributes.csv
-	porytiles compile-primary --dual-layer --Wall -o $(TILESET_BUILDDIR)/primary/aquarium \
-		$(TILESETGFXDIR)/primary/aquarium include/constants/metatile_behaviors.h
+                $$(filter-out %/assign.cfg,$$(wildcard $$(TILESETGFXDIR)/primary/$(1)/*.*)) \
+                $$(wildcard $$(TILESETGFXDIR)/primary/$(1)/anim/*/*.*)
+	porytiles compile-primary --dual-layer --Wall \
+		-o $$(TILESET_BUILDDIR)/primary/$(1) \
+		$$(TILESETGFXDIR)/primary/$(1) \
+		include/constants/metatile_behaviors.h
+endef
 
-$(patsubst %,$(TILESET_BUILDDIR)/primary/gardens/palettes/%.pal,00 01 02 03 04 05 06 07 08 09 10 11 12) \
-                $(TILESET_BUILDDIR)/primary/gardens/metatile_attributes.bin \
-                $(TILESET_BUILDDIR)/primary/gardens/metatiles.bin \
-                $(TILESET_BUILDDIR)/primary/gardens/tiles.png \
+define PORYMAP_SECONDARY =
+$$(patsubst %,$$(TILESET_BUILDDIR)/secondary/$(1)/palettes/%.pal,00 01 02 03 04 05 06 07 08 09 10 11 12) \
+                $$(TILESET_BUILDDIR)/secondary/$(1)/metatile_attributes.bin \
+                $$(TILESET_BUILDDIR)/secondary/$(1)/metatiles.bin \
+                $$(TILESET_BUILDDIR)/secondary/$(1)/tiles.png \
+                $$(subst $$(TILESETGFXDIR),$$(TILESET_BUILDDIR),$$(wildcard $$(TILESETGFXDIR)/secondary/$(1)/anim/*/*)) \
                 &: \
-                $(TILESETGFXDIR)/primary/gardens/top.png \
-                $(TILESETGFXDIR)/primary/gardens/middle.png \
-                $(TILESETGFXDIR)/primary/gardens/bottom.png \
-                $(TILESETGFXDIR)/primary/gardens/attributes.csv
-	porytiles compile-primary --dual-layer --Wall -o $(TILESET_BUILDDIR)/primary/gardens \
-		$(TILESETGFXDIR)/primary/gardens include/constants/metatile_behaviors.h
+                $$(wildcard $$(TILESETGFXDIR)/primary/$(2)/*.png) \
+                $$(filter-out %/assign.cfg,$$(wildcard $$(TILESETGFXDIR)/secondary/$(1)/*.*)) \
+                $$(wildcard $$(TILESETGFXDIR)/secondary/$(1)/anim/*/*.*)
+	porytiles compile-secondary --dual-layer --Wall \
+		-o $$(TILESET_BUILDDIR)/secondary/$(1) \
+		$$(TILESETGFXDIR)/secondary/$(1) \
+		$$(TILESETGFXDIR)/primary/$(2) \
+		include/constants/metatile_behaviors.h
+endef
 
-$(patsubst %,$(TILESET_BUILDDIR)/secondary/aquarium_lobby/palettes/%.pal,00 01 02 03 04 05 06 07 08 09 10 11 12) \
-                $(TILESET_BUILDDIR)/secondary/aquarium_lobby/metatile_attributes.bin \
-                $(TILESET_BUILDDIR)/secondary/aquarium_lobby/metatiles.bin \
-                $(TILESET_BUILDDIR)/secondary/aquarium_lobby/tiles.png \
-                &: \
-                $(TILESETGFXDIR)/primary/aquarium/top.png \
-                $(TILESETGFXDIR)/primary/aquarium/middle.png \
-                $(TILESETGFXDIR)/primary/aquarium/bottom.png \
-                $(TILESETGFXDIR)/secondary/aquarium_lobby/top.png \
-                $(TILESETGFXDIR)/secondary/aquarium_lobby/middle.png \
-                $(TILESETGFXDIR)/secondary/aquarium_lobby/bottom.png \
-                $(TILESETGFXDIR)/secondary/aquarium_lobby/attributes.csv
-	porytiles compile-secondary --dual-layer --Wall -o $(TILESET_BUILDDIR)/secondary/aquarium_lobby \
-		$(TILESETGFXDIR)/secondary/aquarium_lobby $(TILESETGFXDIR)/primary/aquarium include/constants/metatile_behaviors.h
+$(eval $(call PORYMAP_PRIMARY,aquarium))
 
-$(patsubst %,$(TILESET_BUILDDIR)/secondary/aquarium_storage/palettes/%.pal,00 01 02 03 04 05 06 07 08 09 10 11 12) \
-                $(TILESET_BUILDDIR)/secondary/aquarium_storage/metatile_attributes.bin \
-                $(TILESET_BUILDDIR)/secondary/aquarium_storage/metatiles.bin \
-                $(TILESET_BUILDDIR)/secondary/aquarium_storage/tiles.png \
-                &: \
-                $(TILESETGFXDIR)/primary/aquarium/top.png \
-                $(TILESETGFXDIR)/primary/aquarium/middle.png \
-                $(TILESETGFXDIR)/primary/aquarium/bottom.png \
-                $(TILESETGFXDIR)/secondary/aquarium_storage/top.png \
-                $(TILESETGFXDIR)/secondary/aquarium_storage/middle.png \
-                $(TILESETGFXDIR)/secondary/aquarium_storage/bottom.png \
-                $(TILESETGFXDIR)/secondary/aquarium_storage/attributes.csv
-	porytiles compile-secondary --dual-layer --Wall -o $(TILESET_BUILDDIR)/secondary/aquarium_storage \
-		$(TILESETGFXDIR)/secondary/aquarium_storage $(TILESETGFXDIR)/primary/aquarium include/constants/metatile_behaviors.h
+$(eval $(call PORYMAP_PRIMARY,gardens))
 
-$(patsubst %,$(TILESET_BUILDDIR)/secondary/aquarium_giftshop/palettes/%.pal,00 01 02 03 04 05 06 07 08 09 10 11 12) \
-                $(TILESET_BUILDDIR)/secondary/aquarium_giftshop/metatile_attributes.bin \
-                $(TILESET_BUILDDIR)/secondary/aquarium_giftshop/metatiles.bin \
-                $(TILESET_BUILDDIR)/secondary/aquarium_giftshop/tiles.png \
-                &: \
-                $(TILESETGFXDIR)/primary/aquarium/top.png \
-                $(TILESETGFXDIR)/primary/aquarium/middle.png \
-                $(TILESETGFXDIR)/primary/aquarium/bottom.png \
-                $(TILESETGFXDIR)/secondary/aquarium_giftshop/top.png \
-                $(TILESETGFXDIR)/secondary/aquarium_giftshop/middle.png \
-                $(TILESETGFXDIR)/secondary/aquarium_giftshop/bottom.png \
-                $(TILESETGFXDIR)/secondary/aquarium_giftshop/attributes.csv
-	porytiles compile-secondary --dual-layer --Wall -o $(TILESET_BUILDDIR)/secondary/aquarium_giftshop \
-		$(TILESETGFXDIR)/secondary/aquarium_giftshop $(TILESETGFXDIR)/primary/aquarium include/constants/metatile_behaviors.h
+$(eval $(call PORYMAP_SECONDARY,aquarium_lobby,aquarium))
 
-$(patsubst %,$(TILESET_BUILDDIR)/secondary/aquarium_window/palettes/%.pal,00 01 02 03 04 05 06 07 08 09 10 11 12) \
-                $(TILESET_BUILDDIR)/secondary/aquarium_window/metatile_attributes.bin \
-                $(TILESET_BUILDDIR)/secondary/aquarium_window/metatiles.bin \
-                $(TILESET_BUILDDIR)/secondary/aquarium_window/tiles.png \
-                $(subst $(TILESETGFXDIR),$(TILESET_BUILDDIR),$(wildcard $(TILESETGFXDIR)/secondary/aquarium_window/anim/*/*)) \
-                &: \
-                $(wildcard $(TILESETGFXDIR)/primary/aquarium/*.png) \
-                $(wildcard $(TILESETGFXDIR)/secondary/aquarium_window/*.*) \
-                $(wildcard $(TILESETGFXDIR)/secondary/aquarium_window/anim/*/*.*)
-	porytiles compile-secondary --dual-layer --Wall -o $(TILESET_BUILDDIR)/secondary/aquarium_window \
-		$(TILESETGFXDIR)/secondary/aquarium_window $(TILESETGFXDIR)/primary/aquarium include/constants/metatile_behaviors.h
+$(eval $(call PORYMAP_SECONDARY,aquarium_storage,aquarium))
 
-$(patsubst %,$(TILESET_BUILDDIR)/secondary/aquarium_bioluminescence/palettes/%.pal,00 01 02 03 04 05 06 07 08 09 10 11 12) \
-                $(TILESET_BUILDDIR)/secondary/aquarium_bioluminescence/metatile_attributes.bin \
-                $(TILESET_BUILDDIR)/secondary/aquarium_bioluminescence/metatiles.bin \
-                $(TILESET_BUILDDIR)/secondary/aquarium_bioluminescence/tiles.png \
-                &: \
-                $(TILESETGFXDIR)/primary/aquarium/top.png \
-                $(TILESETGFXDIR)/primary/aquarium/middle.png \
-                $(TILESETGFXDIR)/primary/aquarium/bottom.png \
-                $(TILESETGFXDIR)/secondary/aquarium_bioluminescence/top.png \
-                $(TILESETGFXDIR)/secondary/aquarium_bioluminescence/middle.png \
-                $(TILESETGFXDIR)/secondary/aquarium_bioluminescence/bottom.png \
-                $(TILESETGFXDIR)/secondary/aquarium_bioluminescence/attributes.csv
-	porytiles compile-secondary --dual-layer --Wall -o $(TILESET_BUILDDIR)/secondary/aquarium_bioluminescence \
-		$(TILESETGFXDIR)/secondary/aquarium_bioluminescence $(TILESETGFXDIR)/primary/aquarium include/constants/metatile_behaviors.h
+$(eval $(call PORYMAP_SECONDARY,aquarium_giftshop,aquarium))
 
-$(patsubst %,$(TILESET_BUILDDIR)/secondary/aquarium_classroom/palettes/%.pal,00 01 02 03 04 05 06 07 08 09 10 11 12) \
-                $(TILESET_BUILDDIR)/secondary/aquarium_classroom/metatile_attributes.bin \
-                $(TILESET_BUILDDIR)/secondary/aquarium_classroom/metatiles.bin \
-                $(TILESET_BUILDDIR)/secondary/aquarium_classroom/tiles.png \
-                &: \
-                $(TILESETGFXDIR)/primary/aquarium/top.png \
-                $(TILESETGFXDIR)/primary/aquarium/middle.png \
-                $(TILESETGFXDIR)/primary/aquarium/bottom.png \
-                $(TILESETGFXDIR)/secondary/aquarium_classroom/top.png \
-                $(TILESETGFXDIR)/secondary/aquarium_classroom/middle.png \
-                $(TILESETGFXDIR)/secondary/aquarium_classroom/bottom.png \
-                $(TILESETGFXDIR)/secondary/aquarium_classroom/attributes.csv
-	porytiles compile-secondary --dual-layer --Wall -o $(TILESET_BUILDDIR)/secondary/aquarium_classroom \
-		$(TILESETGFXDIR)/secondary/aquarium_classroom $(TILESETGFXDIR)/primary/aquarium include/constants/metatile_behaviors.h
+$(eval $(call PORYMAP_SECONDARY,aquarium_window,aquarium))
+
+$(eval $(call PORYMAP_SECONDARY,aquarium_bioluminescence,aquarium))
+
+$(eval $(call PORYMAP_SECONDARY,aquarium_classroom,aquarium))
 
 $(TILESET_BUILDDIR)/secondary/aquarium_window/anim/cube.4bpp : \
 		$(patsubst %,$(TILESET_BUILDDIR)/secondary/aquarium_window/anim/cube/%.4bpp,0 1 2 3)
