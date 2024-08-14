@@ -86,6 +86,16 @@ script Aquarium_Window_Lass {
 	end
 }
 
+script Aquarium_Window_Refraction {
+	msgbox(
+		format(
+			"The way the light hits the top of the water looks really pretty from below."
+		),
+		MSGBOX_NPC)
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
+	end
+}
+
 script Aquarium_Window_Grunt {
 	lockall
 	faceplayer
