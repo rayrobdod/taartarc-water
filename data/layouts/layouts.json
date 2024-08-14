@@ -4474,8 +4474,8 @@
     {
       "id": "LAYOUT_AQUARIUM_CLASSROOM",
       "name": "Aquarium_Classroom_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 10,
+      "height": 13,
       "primary_tileset": "gTileset_Aquarium",
       "secondary_tileset": "gTileset_Classroom",
       "border_filepath": "data/layouts/Aquarium_Classroom/border.bin",
