@@ -52,6 +52,7 @@ static void ApplyFogBlend(u8 blendCoeff, u16 blendColor);
 static bool8 FadeInScreen_RainShowShade(void);
 static bool8 FadeInScreen_Drought(void);
 static bool8 FadeInScreen_FogHorizontal(void);
+static bool8 FadeInScreen_DarkerShade(void);
 static void FadeInScreenWithWeather(void);
 static void DoNothing(void);
 static void Task_WeatherInit(u8 taskId);
@@ -376,27 +377,21 @@ static void FadeInScreenWithWeather(void)
     case WEATHER_RAIN_THUNDERSTORM:
     case WEATHER_DOWNPOUR:
     case WEATHER_SNOW:
-    case WEATHER_SHADE:
         if (FadeInScreen_RainShowShade() == FALSE)
         {
             gWeatherPtr->colorMapIndex = 3;
             gWeatherPtr->palProcessingState = WEATHER_PAL_STATE_IDLE;
         }
         break;
+    case WEATHER_SHADE:
+        if (FadeInScreen_DarkerShade() == FALSE)
+        {
+            gWeatherPtr->colorMapIndex = 3;
+            gWeatherPtr->palProcessingState = WEATHER_PAL_STATE_IDLE;
+        }
+        break;
     case WEATHER_DROUGHT:
-        if (FadeInScreen_Drought() == FALSE)
-        {
-            gWeatherPtr->colorMapIndex = -6;
-            gWeatherPtr->palProcessingState = WEATHER_PAL_STATE_IDLE;
-        }
-        break;
     case WEATHER_FOG_HORIZONTAL:
-        if (FadeInScreen_FogHorizontal() == FALSE)
-        {
-            gWeatherPtr->colorMapIndex = 0;
-            gWeatherPtr->palProcessingState = WEATHER_PAL_STATE_IDLE;
-        }
-        break;
     case WEATHER_VOLCANIC_ASH:
     case WEATHER_SANDSTORM:
     case WEATHER_FOG_DIAGONAL:
@@ -410,6 +405,8 @@ static void FadeInScreenWithWeather(void)
         break;
     }
 }
+
+PADDING(".text", 0x44)
 
 static bool8 FadeInScreen_RainShowShade(void)
 {
@@ -451,6 +448,104 @@ static bool8 FadeInScreen_FogHorizontal(void)
     gWeatherPtr->fadeScreenCounter++;
     ApplyFogBlend(16 - gWeatherPtr->fadeScreenCounter, gWeatherPtr->fadeDestColor);
     return TRUE;
+}
+
+__attribute__((section("added")))
+static u16 FadeInScreen_DarkerShade_one(u16 color)
+{
+    struct RGBColor baseColor = *(struct RGBColor *)&color;
+    u8 r = baseColor.r / 2;
+    u8 g = baseColor.g / 8;
+    u8 b = baseColor.b / 8;
+    return RGB2(r, g, b);
+}
+
+__attribute__((section("added")))
+static bool8 FadeInScreen_DarkerShade(void)
+{
+    u32 applyColorMap = ~(
+            // secondary tilesheet palettes
+            (1 << 6) | (1 << 7) | (1 << 8) | (1 << 9) | (1 << 10) | (1 << 11) | (1 << 12) |
+            // interface palettes
+            (1 << 14) | (1 << 15) |
+            // special sprite palette (Chinchou or Lanturn)
+            (1 << 26)
+        );
+
+    u16 palOffset = PLTT_ID(0);
+    u16 curPalIndex = 0;
+    u16 i;
+    u16 c;
+    struct RGBColor color;
+    u8 rBlend;
+    u8 gBlend;
+    u8 bBlend;
+    u8 r;
+    u8 g;
+    u8 b;
+
+    if (++gWeatherPtr->fadeScreenCounter > 16)
+        gWeatherPtr->fadeScreenCounter = 16;
+
+    if (gWeatherPtr->fadeScreenCounter == 16)
+    {
+        for (; curPalIndex < 32; curPalIndex++, applyColorMap >>= 1)
+        {
+            if ((applyColorMap & 1) == 0)
+            {
+                // No change to the colors
+                CpuFastCopy(&gPlttBufferUnfaded[palOffset], &gPlttBufferFaded[palOffset], PLTT_SIZE_4BPP);
+                palOffset += 16;
+            }
+            else
+            {
+                for (i = 0; i < 16; i++)
+                {
+                    c = FadeInScreen_DarkerShade_one(gPlttBufferUnfaded[palOffset]);
+                    gPlttBufferFaded[palOffset++] = c;
+                }
+            }
+        }
+
+        return FALSE;
+    }
+    else
+    {
+        u8 blendCoeff = 16 - gWeatherPtr->fadeScreenCounter;
+        u16 blendColor = gWeatherPtr->fadeDestColor;
+        color = *(struct RGBColor *)&(blendColor);
+        rBlend = color.r;
+        gBlend = color.g;
+        bBlend = color.b;
+
+        for (; curPalIndex < 32; curPalIndex++, applyColorMap >>= 1)
+        {
+            if ((applyColorMap & 1) == 0)
+            {
+                // No color map. Simply blend the colors.
+                BlendPalette(palOffset, 16, blendCoeff, blendColor);
+                palOffset += 16;
+            }
+            else
+            {
+                for (i = 0; i < 16; i++)
+                {
+                    c = FadeInScreen_DarkerShade_one(gPlttBufferUnfaded[palOffset]);
+                    color = *(struct RGBColor *)&c;
+                    r = color.r;
+                    g = color.g;
+                    b = color.b;
+
+                    // Apply color map and target blend color to the original color.
+                    r += ((rBlend - r) * blendCoeff) >> 4;
+                    g += ((gBlend - g) * blendCoeff) >> 4;
+                    b += ((bBlend - b) * blendCoeff) >> 4;
+                    gPlttBufferFaded[palOffset++] = RGB2(r, g, b);
+                }
+            }
+        }
+        return TRUE;
+    }
 }
 
 static void DoNothing(void)
