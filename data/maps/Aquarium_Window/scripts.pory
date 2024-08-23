@@ -1,3 +1,5 @@
+const LOCALID_SEEL_COPYER = 3
+const LOCALID_SEEL_COPYEE = 4
 const LOCALID_GRUNT = 8
 
 mapscripts Aquarium_Window_MapScripts {}
@@ -6,22 +8,24 @@ script Aquarium_Window_SeelCopyee {
 	lockall
 	specialvar(VAR_RESULT, GetPlayerFacingDirection)
 	if (var(VAR_RESULT) == DIR_EAST) {
-		applymovement(3, Aquarium_Window_SeelCopyee_SeelRight)
-		applymovement(4, Aquarium_Window_SeelCopyee_HumanRight)
+		applymovement(LOCALID_SEEL_COPYER, Aquarium_Window_SeelCopyee_SeelRight)
+		applymovement(LOCALID_SEEL_COPYEE, Aquarium_Window_SeelCopyee_HumanRight)
 		waitmovement(0)
-		applymovement(3, Aquarium_Window_SeelCopyee_SeelLeft)
-		applymovement(4, Aquarium_Window_SeelCopyee_HumanLeft)
+		applymovement(LOCALID_SEEL_COPYER, Aquarium_Window_SeelCopyee_SeelLeft)
+		applymovement(LOCALID_SEEL_COPYEE, Aquarium_Window_SeelCopyee_HumanLeft)
 	} else {
-		applymovement(3, Aquarium_Window_SeelCopyee_SeelLeft)
-		applymovement(4, Aquarium_Window_SeelCopyee_HumanLeft)
+		applymovement(LOCALID_SEEL_COPYER, Aquarium_Window_SeelCopyee_SeelLeft)
+		applymovement(LOCALID_SEEL_COPYEE, Aquarium_Window_SeelCopyee_HumanLeft)
 		waitmovement(0)
-		applymovement(3, Aquarium_Window_SeelCopyee_SeelRight)
-		applymovement(4, Aquarium_Window_SeelCopyee_HumanRight)
+		applymovement(LOCALID_SEEL_COPYER, Aquarium_Window_SeelCopyee_SeelRight)
+		applymovement(LOCALID_SEEL_COPYEE, Aquarium_Window_SeelCopyee_HumanRight)
 	}
 	waitmovement(0)
-	delay_16
+	applymovement(LOCALID_SEEL_COPYEE, Aquarium_Window_SeelCopyee_FacePlayerDelayed)
+	waitmovement(0)
 	msgbox(format("I didn't think Seel were\nknown for mimicry."), MSGBOX_NPC)
-	applymovement(4, Common_Movement_FaceUp)
+	waitmovement(0)
+	applymovement(LOCALID_SEEL_COPYEE, Common_Movement_FaceOriginalDirection)
 	waitmovement(0)
 	releaseall
 	end
@@ -55,6 +59,11 @@ movement Aquarium_Window_SeelCopyee_HumanRight {
 	delay_16
 	step_end
 }
+movement Aquarium_Window_SeelCopyee_FacePlayerDelayed {
+	delay_16
+	face_player
+	step_end
+}
 
 script Aquarium_Window_RunningCirclesBoy {
 	msgbox(
@@ -71,7 +80,7 @@ script Aquarium_Window_Maniac {
 			"I will send a strongly worded letter about this."
 		),
 		MSGBOX_NPC)
-	applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
 	end
 }
 
@@ -82,7 +91,7 @@ script Aquarium_Window_Lass {
 			"Do you think we'd know if someone were watching us?"
 		),
 		MSGBOX_NPC)
-	applymovement(VAR_LAST_TALKED, Common_Movement_FaceDown)
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
 	end
 }
 
@@ -92,7 +101,7 @@ script Aquarium_Window_Refraction {
 			"The way the light hits the top of the water looks really pretty from below."
 		),
 		MSGBOX_NPC)
-	applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
 	end
 }
 

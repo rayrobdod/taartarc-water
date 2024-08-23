@@ -31,7 +31,7 @@ script Aquarium_Gardens_Relaxing {
 		format("I come here most days just to watch the Lotad."
 			"I find it very relaxing."),
 		MSGBOX_NPC)
-	applymovement(4, Common_Movement_FaceRight)
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
 	end
 }
 
