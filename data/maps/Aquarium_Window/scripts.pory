@@ -105,6 +105,11 @@ script Aquarium_Window_Refraction {
 	end
 }
 
+script Aquarium_Window_DoNotTouch {
+	msgbox(format("Do not touch the glass."), MSGBOX_SIGN)
+	end
+}
+
 script Aquarium_Window_Grunt {
 	lockall
 	faceplayer

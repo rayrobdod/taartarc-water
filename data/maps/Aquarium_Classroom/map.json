@@ -2,7 +2,7 @@
   "id": "MAP_AQUARIUM_CLASSROOM",
   "name": "Aquarium_Classroom",
   "layout": "LAYOUT_AQUARIUM_CLASSROOM",
-  "music": "MUS_DUMMY",
+  "music": "MUS_OCEANIC_MUSEUM",
   "region_map_section": "MAPSEC_CLASSROOM",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

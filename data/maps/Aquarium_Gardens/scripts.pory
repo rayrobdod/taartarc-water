@@ -43,3 +43,15 @@ script Aquarium_Gardens_Looking {
 	release
 	end
 }
+
+script Aquarium_Gardens_DoSomething {
+	lock
+	msgbox(
+		format("Zoo animals are boring.\NThey're always either sleeping or just laying down."),
+		MSGBOX_NPC)
+	applymovement(VAR_LAST_TALKED, Common_Movement_WalkInPlaceFasterUp)
+	waitmovement(0)
+	msgbox(format("Do Something!"), MSGBOX_DEFAULT)
+	release
+	end
+}

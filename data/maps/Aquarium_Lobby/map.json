@@ -2,7 +2,7 @@
   "id": "MAP_AQUARIUM_LOBBY",
   "name": "Aquarium_Lobby",
   "layout": "LAYOUT_AQUARIUM_LOBBY",
-  "music": "MUS_LILYCOVE_MUSEUM",
+  "music": "MUS_OCEANIC_MUSEUM",
   "region_map_section": "MAPSEC_LOBBY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

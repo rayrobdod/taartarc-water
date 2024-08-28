@@ -2,7 +2,7 @@
   "id": "MAP_AQUARIUM_STORAGE_ROOM",
   "name": "Aquarium_StorageRoom",
   "layout": "LAYOUT_AQUARIUM_STORAGE_ROOM",
-  "music": "MUS_DUMMY",
+  "music": "MUS_OCEANIC_MUSEUM",
   "region_map_section": "MAPSEC_STORAGE_ROOM",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

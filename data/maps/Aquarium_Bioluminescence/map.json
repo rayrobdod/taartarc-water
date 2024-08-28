@@ -2,7 +2,7 @@
   "id": "MAP_AQUARIUM_BIOLUMINESCENCE",
   "name": "Aquarium_Bioluminescence",
   "layout": "LAYOUT_AQUARIUM_BIOLUMINESCENCE",
-  "music": "MUS_DUMMY",
+  "music": "MUS_OCEANIC_MUSEUM",
   "region_map_section": "MAPSEC_EXHIBIT_2",
   "requires_flash": false,
   "weather": "WEATHER_SHADE",
@@ -18,15 +18,15 @@
   ],
   "warp_events": [
     {
-      "x": 10,
-      "y": 14,
+      "x": 8,
+      "y": 11,
       "elevation": 0,
       "dest_map": "MAP_AQUARIUM_LOBBY",
       "dest_warp_id": "8"
     },
     {
-      "x": 11,
-      "y": 14,
+      "x": 9,
+      "y": 11,
       "elevation": 0,
       "dest_map": "MAP_AQUARIUM_LOBBY",
       "dest_warp_id": "9"
