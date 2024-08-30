@@ -1170,8 +1170,9 @@ static void MainMenu_FormatSavegameText(void)
     MainMenu_FormatSavegamePlayer();
     MainMenu_FormatSavegamePokedex();
     MainMenu_FormatSavegameTime();
-    MainMenu_FormatSavegameBadges();
 }
+
+PADDING("text2", 4)
 
 __attribute__((section("text2")))
 static void MainMenu_FormatSavegamePlayer(void)
