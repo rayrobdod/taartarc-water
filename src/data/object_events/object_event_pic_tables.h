@@ -2065,16 +2065,16 @@ static const struct SpriteFrameImage sPicTable_LotadSwimming[] = {
     overworld_frame(gObjectEventPic_LotadSwimming, 4, 4, 0),
 };
 
-static const struct SpriteFrameImage sPicTable_Spenser[] = {
-    overworld_frame(gObjectEventPic_Spenser, 2, 4, 0),
-    overworld_frame(gObjectEventPic_Spenser, 2, 4, 1),
-    overworld_frame(gObjectEventPic_Spenser, 2, 4, 2),
-    overworld_frame(gObjectEventPic_Spenser, 2, 4, 3),
-    overworld_frame(gObjectEventPic_Spenser, 2, 4, 4),
-    overworld_frame(gObjectEventPic_Spenser, 2, 4, 5),
-    overworld_frame(gObjectEventPic_Spenser, 2, 4, 6),
-    overworld_frame(gObjectEventPic_Spenser, 2, 4, 7),
-    overworld_frame(gObjectEventPic_Spenser, 2, 4, 8),
+static const struct SpriteFrameImage sPicTable_Chinchou[] = {
+    overworld_frame(gObjectEventPic_Chinchou, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Chinchou, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Chinchou, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Chinchou, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Chinchou, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Chinchou, 4, 4, 5),
+    overworld_frame(gObjectEventPic_Chinchou, 4, 4, 6),
+    overworld_frame(gObjectEventPic_Chinchou, 4, 4, 7),
+    overworld_frame(gObjectEventPic_Chinchou, 4, 4, 0),
 };
 
 static const struct SpriteFrameImage sPicTable_Seel[] = {
@@ -2089,16 +2089,16 @@ static const struct SpriteFrameImage sPicTable_Seel[] = {
     overworld_frame(gObjectEventPic_Seel, 4, 4, 0),
 };
 
-static const struct SpriteFrameImage sPicTable_Noland[] = {
-    overworld_frame(gObjectEventPic_Noland, 2, 4, 0),
-    overworld_frame(gObjectEventPic_Noland, 2, 4, 1),
-    overworld_frame(gObjectEventPic_Noland, 2, 4, 2),
-    overworld_frame(gObjectEventPic_Noland, 2, 4, 3),
-    overworld_frame(gObjectEventPic_Noland, 2, 4, 4),
-    overworld_frame(gObjectEventPic_Noland, 2, 4, 5),
-    overworld_frame(gObjectEventPic_Noland, 2, 4, 6),
-    overworld_frame(gObjectEventPic_Noland, 2, 4, 7),
-    overworld_frame(gObjectEventPic_Noland, 2, 4, 8),
+static const struct SpriteFrameImage sPicTable_Volbeat[] = {
+    overworld_frame(gObjectEventPic_Volbeat, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Volbeat, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Volbeat, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Volbeat, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Volbeat, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Volbeat, 4, 4, 5),
+    overworld_frame(gObjectEventPic_Volbeat, 4, 4, 6),
+    overworld_frame(gObjectEventPic_Volbeat, 4, 4, 7),
+    overworld_frame(gObjectEventPic_Volbeat, 4, 4, 0),
 };
 
 static const struct SpriteFrameImage sPicTable_Lucy[] = {

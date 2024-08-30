@@ -468,8 +468,8 @@ static bool8 FadeInScreen_DarkerShade(void)
             (1 << 6) | (1 << 7) | (1 << 8) | (1 << 9) | (1 << 10) | (1 << 11) | (1 << 12) |
             // interface palettes
             (1 << 14) | (1 << 15) |
-            // special sprite palette (Chinchou or Lanturn)
-            (1 << 26)
+            // special sprite palette (Chinchou and Volbeat)
+            (1 << 26) | (1 << 27)
         );
 
     u16 palOffset = PLTT_ID(0);

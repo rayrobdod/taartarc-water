@@ -71,8 +71,8 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Bard;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lotad;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LotadSwimming;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Seel;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Spenser;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Noland;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Chinchou;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Volbeat;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lucy;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SeelDoll;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnusedMagnemiteDoll;
@@ -317,8 +317,6 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_REPORTER_M] =               &gObjectEventGraphicsInfo_ReporterM,
     [OBJ_EVENT_GFX_REPORTER_F] =               &gObjectEventGraphicsInfo_ReporterF,
     [OBJ_EVENT_GFX_BARD] =                     &gObjectEventGraphicsInfo_Bard,
-    [OBJ_EVENT_GFX_SPENSER] =                  &gObjectEventGraphicsInfo_Bard,
-    [OBJ_EVENT_GFX_NOLAND] =                   &gObjectEventGraphicsInfo_Bard,
     [OBJ_EVENT_GFX_LUCY] =                     &gObjectEventGraphicsInfo_Bard,
     [OBJ_EVENT_GFX_UNUSED_MAGNEMITE_DOLL] =    &gObjectEventGraphicsInfo_UnusedMagnemiteDoll,
     [OBJ_EVENT_GFX_UNUSED_SQUIRTLE_DOLL] =     &gObjectEventGraphicsInfo_UnusedSquirtleDoll,
@@ -486,6 +484,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_LOTAD_SWIMMING] =           &gObjectEventGraphicsInfo_LotadSwimming,
     [OBJ_EVENT_GFX_SEEL_DOLL] =                    &gObjectEventGraphicsInfo_SeelDoll,
     [OBJ_EVENT_GFX_SEEL] =                         &gObjectEventGraphicsInfo_Seel,
+    [OBJ_EVENT_GFX_CHINCHOU] =                 &gObjectEventGraphicsInfo_Chinchou,
+    [OBJ_EVENT_GFX_VOLBEAT] =                  &gObjectEventGraphicsInfo_Volbeat,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

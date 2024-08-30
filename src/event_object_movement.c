@@ -460,6 +460,8 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_LOTAD                   0x1124
 #define OBJ_EVENT_PAL_TAG_LOTAD_REFLECTION        0x1125
 #define OBJ_EVENT_PAL_TAG_SEEL                    0x1126
+#define OBJ_EVENT_PAL_TAG_CHINCHOU                0x1127
+#define OBJ_EVENT_PAL_TAG_VOLBEAT                 0x1128
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -512,6 +514,8 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Lotad,                 OBJ_EVENT_PAL_TAG_LOTAD},
     {gObjectEventPal_LotadReflection,       OBJ_EVENT_PAL_TAG_LOTAD_REFLECTION},
     {gObjectEventPal_Seel,                  OBJ_EVENT_PAL_TAG_SEEL},
+    {gObjectEventPal_Chinchou,              OBJ_EVENT_PAL_TAG_CHINCHOU},
+    {gObjectEventPal_Volbeat,               OBJ_EVENT_PAL_TAG_VOLBEAT},
     {NULL,                                  OBJ_EVENT_PAL_TAG_NONE},
     {}, // BUG: FindObjectEventPaletteIndexByTag looks for OBJ_EVENT_PAL_TAG_NONE and not 0x0.
         // If it's looking for a tag that isn't in this table, the game locks in an infinite loop.
@@ -629,8 +633,15 @@ static const u16 sReflectionPaletteTags_Lotad[] = {
     OBJ_EVENT_PAL_TAG_LOTAD_REFLECTION,
 };
 
+static const u16 sReflectionPaletteTags_ChinchouVolbeat[] = {
+    OBJ_EVENT_PAL_TAG_VOLBEAT,
+    OBJ_EVENT_PAL_TAG_VOLBEAT,
+    OBJ_EVENT_PAL_TAG_VOLBEAT,
+    OBJ_EVENT_PAL_TAG_VOLBEAT,
+};
 
-PADDING(".rodata", 0x68)
+
+PADDING(".rodata", 0x60)
 
 __attribute__((section("added_rodata")))
 static const struct PairedPalettes sSpecialObjectReflectionPaletteSets[] = {
@@ -648,6 +659,7 @@ static const struct PairedPalettes sSpecialObjectReflectionPaletteSets[] = {
     {OBJ_EVENT_PAL_TAG_SUBMARINE_SHADOW, sReflectionPaletteTags_SubmarineShadow},
     {OBJ_EVENT_PAL_TAG_RED_LEAF,         sReflectionPaletteTags_RedLeaf},
     {OBJ_EVENT_PAL_TAG_LOTAD,            sReflectionPaletteTags_Lotad},
+    {OBJ_EVENT_PAL_TAG_CHINCHOU,         sReflectionPaletteTags_ChinchouVolbeat},
     {OBJ_EVENT_PAL_TAG_NONE,             NULL},
 };
 
