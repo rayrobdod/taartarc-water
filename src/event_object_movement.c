@@ -634,10 +634,10 @@ static const u16 sReflectionPaletteTags_Lotad[] = {
 };
 
 static const u16 sReflectionPaletteTags_ChinchouVolbeat[] = {
-    OBJ_EVENT_PAL_TAG_VOLBEAT,
-    OBJ_EVENT_PAL_TAG_VOLBEAT,
-    OBJ_EVENT_PAL_TAG_VOLBEAT,
-    OBJ_EVENT_PAL_TAG_VOLBEAT,
+    OBJ_EVENT_PAL_TAG_CHINCHOU,
+    OBJ_EVENT_PAL_TAG_CHINCHOU,
+    OBJ_EVENT_PAL_TAG_CHINCHOU,
+    OBJ_EVENT_PAL_TAG_CHINCHOU,
 };
 
 
@@ -659,7 +659,7 @@ static const struct PairedPalettes sSpecialObjectReflectionPaletteSets[] = {
     {OBJ_EVENT_PAL_TAG_SUBMARINE_SHADOW, sReflectionPaletteTags_SubmarineShadow},
     {OBJ_EVENT_PAL_TAG_RED_LEAF,         sReflectionPaletteTags_RedLeaf},
     {OBJ_EVENT_PAL_TAG_LOTAD,            sReflectionPaletteTags_Lotad},
-    {OBJ_EVENT_PAL_TAG_CHINCHOU,         sReflectionPaletteTags_ChinchouVolbeat},
+    {OBJ_EVENT_PAL_TAG_VOLBEAT,          sReflectionPaletteTags_ChinchouVolbeat},
     {OBJ_EVENT_PAL_TAG_NONE,             NULL},
 };
 
