@@ -1,1 +1,129 @@
+const LOCALID_GRUNT = 4
+
 mapscripts Aquarium_Bioluminescence_MapScripts {}
+
+
+
+script Aquarium_Bioluminescence_Hypnotized {
+	applymovement(VAR_LAST_TALKED, Common_Movement_Delay32)
+	waitmovement(0)
+	msgbox(
+		format("This person seems hypnotized by the Chinchou's lights."),
+		MSGBOX_SIGN)
+	end
+}
+
+script Aquarium_Bioluminescence_QuestioningVolbeat {
+	msgbox(
+		format(
+			"That Volbeat somewhat fits the exhibit, but I feel like it should not be here."
+		),
+		MSGBOX_NPC)
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+	end
+}
+
+
+script Aquarium_Bioluminescence_Volbeat {
+	lockall
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	switch (var(VAR_RESULT)) {
+		case DIR_NORTH:
+			applymovement(VAR_LAST_TALKED, Aquarium_Bioluminescence_Volbeat_North)
+		case DIR_EAST:
+			applymovement(VAR_LAST_TALKED, Aquarium_Bioluminescence_Volbeat_East)
+		case DIR_WEST:
+			applymovement(VAR_LAST_TALKED, Aquarium_Bioluminescence_Volbeat_West)
+		default:
+			applymovement(VAR_LAST_TALKED, Aquarium_Bioluminescence_Volbeat_South)
+	}
+	waitmovement(0)
+	releaseall
+	end
+}
+
+movement Aquarium_Bioluminescence_Volbeat_North {
+	walk_in_place_down
+	delay_8
+	jump_in_place_up
+	walk_in_place_up * 4
+	walk_in_place_down
+}
+movement Aquarium_Bioluminescence_Volbeat_South {
+	walk_in_place_up
+	delay_8
+	jump_in_place_down
+	walk_in_place_down * 4
+	walk_in_place_up
+}
+movement Aquarium_Bioluminescence_Volbeat_East {
+	walk_in_place_left
+	delay_8
+	jump_in_place_right
+	walk_in_place_right * 4
+	walk_in_place_left
+}
+movement Aquarium_Bioluminescence_Volbeat_West {
+	walk_in_place_right
+	delay_8
+	jump_in_place_left
+	walk_in_place_left * 4
+	walk_in_place_right
+}
+
+script Aquarium_Bioluminescence_Grunt {
+	lockall
+	faceplayer
+	msgbox(
+		format("Huh? Did you want somethi-"),
+		MSGBOX_DEFAULT)
+	applymovement(LOCALID_GRUNT, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	msgbox(
+		format("You!"),
+		MSGBOX_DEFAULT)
+	trainerbattle_no_intro(
+		TRAINER_GRUNT_BIOLUM,
+		"Not fair! I was caught off guard.",
+	)
+	if (flag(FLAG_HIDE_WINDOW_GRUNT))
+	{
+		msgbox(
+			format(
+				"You want the key to the room that the boss has locked himself in?\p"
+				"Fine. Take it."),
+			MSGBOX_DEFAULT)
+		giveitem(ITEM_ROOM_1_KEY)
+	} else {
+		msgbox(
+			format(
+				"You want the key to the room that the boss has locked himself in?\p"
+				"The other grunt has it. Not me."),
+			MSGBOX_DEFAULT)
+	}
+	closemessage
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	if (var(VAR_RESULT) == DIR_NORTH) {
+		applymovement(LOCALID_GRUNT, Aquarium_Bioluminescence_Grunt_Flee_North)
+	} else {
+		applymovement(LOCALID_GRUNT, Aquarium_Bioluminescence_Grunt_Flee_Other)
+	}
+	waitmovement(0)
+	removeobject(LOCALID_GRUNT)
+	setflag(FLAG_HIDE_BIOLUM_GRUNT)
+	playse(SE_DOOR)
+	releaseall
+	end
+}
+
+movement Aquarium_Bioluminescence_Grunt_Flee_North {
+	walk_right
+	walk_down * 2
+	walk_right * 5
+	walk_down * 6
+}
+movement Aquarium_Bioluminescence_Grunt_Flee_Other {
+	walk_down * 2
+	walk_right * 6
+	walk_down * 6
+}

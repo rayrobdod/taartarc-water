@@ -136,6 +136,7 @@ script Aquarium_Window_Grunt {
 			MSGBOX_DEFAULT)
 	}
 	closemessage
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
 	if (var(VAR_RESULT) == DIR_NORTH) {
 		applymovement(LOCALID_GRUNT, Aquarium_Window_Grunt_Flee_North)
 	} else {

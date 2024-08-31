@@ -4465,7 +4465,7 @@
       "id": "LAYOUT_AQUARIUM_BIOLUMINESCENCE",
       "name": "Aquarium_Bioluminescence_Layout",
       "width": 12,
-      "height": 12,
+      "height": 11,
       "primary_tileset": "gTileset_Aquarium",
       "secondary_tileset": "gTileset_Bioluminescence",
       "border_filepath": "data/layouts/Aquarium_Bioluminescence/border.bin",
