@@ -4414,8 +4414,8 @@
     {
       "id": "LAYOUT_AQUARIUM_LOBBY",
       "name": "Aquarium_Lobby_Layout",
-      "width": 20,
-      "height": 13,
+      "width": 16,
+      "height": 12,
       "primary_tileset": "gTileset_Aquarium",
       "secondary_tileset": "gTileset_Lobby",
       "border_filepath": "data/layouts/Aquarium_Lobby/border.bin",

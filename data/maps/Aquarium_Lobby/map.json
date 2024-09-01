@@ -16,8 +16,8 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_TEALA",
-      "x": 15,
-      "y": 10,
+      "x": 12,
+      "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_LEFT",
       "movement_range_x": 0,
@@ -30,70 +30,70 @@
   ],
   "warp_events": [
     {
-      "x": 11,
-      "y": 12,
+      "x": 9,
+      "y": 11,
       "elevation": 0,
       "dest_map": "MAP_AQUARIUM_GARDENS",
       "dest_warp_id": "0"
     },
     {
-      "x": 12,
-      "y": 12,
+      "x": 10,
+      "y": 11,
       "elevation": 0,
       "dest_map": "MAP_AQUARIUM_GARDENS",
       "dest_warp_id": "1"
     },
     {
-      "x": 19,
+      "x": 15,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_AQUARIUM_STORAGE_ROOM",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 15,
       "y": 10,
       "elevation": 0,
       "dest_map": "MAP_AQUARIUM_STORAGE_ROOM",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 19,
-      "y": 11,
-      "elevation": 0,
-      "dest_map": "MAP_AQUARIUM_STORAGE_ROOM",
       "dest_warp_id": "1"
     },
     {
-      "x": 19,
+      "x": 15,
       "y": 4,
       "elevation": 0,
       "dest_map": "MAP_AQUARIUM_GIFT_SHOP",
       "dest_warp_id": "0"
     },
     {
-      "x": 19,
+      "x": 15,
       "y": 5,
       "elevation": 0,
       "dest_map": "MAP_AQUARIUM_GIFT_SHOP",
       "dest_warp_id": "1"
     },
     {
-      "x": 14,
+      "x": 10,
       "y": 2,
       "elevation": 0,
       "dest_map": "MAP_AQUARIUM_WINDOW",
       "dest_warp_id": "0"
     },
     {
-      "x": 15,
+      "x": 11,
       "y": 2,
       "elevation": 0,
       "dest_map": "MAP_AQUARIUM_WINDOW",
       "dest_warp_id": "1"
     },
     {
-      "x": 6,
+      "x": 4,
       "y": 2,
       "elevation": 0,
       "dest_map": "MAP_AQUARIUM_BIOLUMINESCENCE",
       "dest_warp_id": "0"
     },
     {
-      "x": 7,
+      "x": 5,
       "y": 2,
       "elevation": 0,
       "dest_map": "MAP_AQUARIUM_BIOLUMINESCENCE",
@@ -117,26 +117,8 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 10,
-      "y": 10,
-      "elevation": 0,
-      "var": "VAR_LOBBY_STATE",
-      "var_value": "0",
-      "script": "Aquarium_Lobby_Briefing_FarLeft"
-    },
-    {
-      "type": "trigger",
-      "x": 11,
-      "y": 10,
-      "elevation": 0,
-      "var": "VAR_LOBBY_STATE",
-      "var_value": "0",
-      "script": "Aquarium_Lobby_Briefing_Left"
-    },
-    {
-      "type": "trigger",
-      "x": 12,
-      "y": 10,
+      "x": 9,
+      "y": 9,
       "elevation": 0,
       "var": "VAR_LOBBY_STATE",
       "var_value": "0",
@@ -144,8 +126,8 @@
     },
     {
       "type": "trigger",
-      "x": 13,
-      "y": 10,
+      "x": 10,
+      "y": 9,
       "elevation": 0,
       "var": "VAR_LOBBY_STATE",
       "var_value": "0",
