@@ -167,7 +167,7 @@ static EWRAM_DATA struct PokemonSummaryScreenData
         u8 OTName[17]; // 0x36
         u32 OTID; // 0x48
     } summary;
-    u16 bgTilemapBuffers[PSS_PAGE_COUNT][2][0x400];
+    u16 bgTilemapBuffers[PSS_PAGE_COUNT + 1][2][0x400]; // `+ 1` to allocate space for PSS_PAGE_CONTEST_MOVES, because even if I'm not allowing flipping to the page, it is still rendered, and the below will be written to VRAM without this space
     u8 mode;
     bool8 isBoxMon;
     u8 curMonIndex;
@@ -1087,10 +1087,7 @@ void ShowPokemonSummaryScreen(u8 mode, void *mons, u8 monIndex, u8 maxMonIndex, 
     sMonSummaryScreen->maxMonIndex = maxMonIndex;
     sMonSummaryScreen->callback = callback;
 
-    if (mode == SUMMARY_MODE_BOX)
-        sMonSummaryScreen->isBoxMon = TRUE;
-    else
-        sMonSummaryScreen->isBoxMon = FALSE;
+    sMonSummaryScreen->isBoxMon = (mode == SUMMARY_MODE_BOX ? TRUE : FALSE);
 
     switch (mode)
     {
@@ -1119,6 +1116,8 @@ void ShowPokemonSummaryScreen(u8 mode, void *mons, u8 monIndex, u8 maxMonIndex, 
 
     SetMainCallback2(CB2_InitSummaryScreen);
 }
+
+PADDING(".text", 16)
 
 void ShowSelectMovePokemonSummaryScreen(struct Pokemon *mons, u8 monIndex, u8 maxMonIndex, void (*callback)(void), u16 newMove)
 {
@@ -1765,8 +1764,6 @@ static void ChangePage(u8 taskId, s8 delta)
     HidePageSpecificSprites();
 }
 
-PADDING(".text", 4)
-
 static void PssScrollRight(u8 taskId) // Scroll right
 {
     s16 *data = gTasks[taskId].data;
@@ -1858,8 +1855,6 @@ static void PssScrollLeftEnd(u8 taskId) // display left
     TryDrawExperienceProgressBar();
     SwitchTaskToFollowupFunc(taskId);
 }
-
-PADDING(".text", 4)
 
 static void TryDrawExperienceProgressBar(void)
 {
@@ -2287,7 +2282,6 @@ static void Task_HandleInputCantForgetHMsMoves(u8 taskId)
                 gTasks[taskId].func = Task_HandleReplaceMoveInput;
                 ChangePage(taskId, -1);
                 HandlePowerAccTilemap(9, -2);
-                HandleAppealJamTilemap(9, -2, move);
             }
         }
         else if (JOY_NEW(DPAD_RIGHT) || GetLRKeysPressed() == MENU_R_PRESSED)
@@ -2301,7 +2295,6 @@ static void Task_HandleInputCantForgetHMsMoves(u8 taskId)
                 gTasks[taskId].func = Task_HandleReplaceMoveInput;
                 ChangePage(taskId, 1);
                 HandlePowerAccTilemap(9, -2);
-                HandleAppealJamTilemap(9, -2, move);
             }
         }
         else if (JOY_NEW(A_BUTTON | B_BUTTON))
@@ -2313,13 +2306,12 @@ static void Task_HandleInputCantForgetHMsMoves(u8 taskId)
             PrintMoveDetails(move);
             ScheduleBgCopyTilemapToVram(0);
             HandlePowerAccTilemap(9, -3);
-            HandleAppealJamTilemap(9, -3, move);
             gTasks[taskId].func = Task_HandleReplaceMoveInput;
         }
     }
 }
 
-PADDING(".text", 4)
+PADDING(".text", 0x3c)
 
 u8 GetMoveSlotToReplace(void)
 {
@@ -2392,8 +2384,6 @@ static void DrawPagination(void) // Updates the pagination dots at the top of th
     ScheduleBgCopyTilemapToVram(3);
     Free(tilemap);
 }
-
-PADDING(".text", 4)
 
 static void ChangeTilemap(const struct TilemapCtrl *unkStruct, u16 *dest, u8 c, bool8 d)
 {
@@ -2526,8 +2516,6 @@ static void Task_ShowAppealJamWindow(u8 taskId)
     ScheduleBgCopyTilemapToVram(1);
     ScheduleBgCopyTilemapToVram(2);
 }
-
-PADDING(".text", 4)
 
 static void HandleStatusTilemap(u16 a, s16 b)
 {
@@ -3692,8 +3680,6 @@ static void PrintNewMoveDetailsOrCancelText(void)
     }
 }
 
-PADDING(".text", 4)
-
 static void AddAndFillMoveNamesWindow(void)
 {
     u8 windowId = AddWindowFromTemplateList(sPageMovesTemplate, PSS_DATA_WINDOW_MOVE_NAMES);
@@ -3774,8 +3760,6 @@ static void SetTypeIcons(void)
         break;
     }
 }
-
-PADDING(".text", 4)
 
 static void CreateMoveTypeIcons(void)
 {
