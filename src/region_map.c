@@ -38,7 +38,7 @@
  *
  */
 
-#define MAP_WIDTH 28
+#define MAP_WIDTH 14
 #define MAP_HEIGHT 15
 #define MAPCURSOR_X_MIN 1
 #define MAPCURSOR_Y_MIN 2
@@ -126,6 +126,9 @@ static const u16 sRegionMapPlayerIcon_MayPal[] = INCBIN_U16("graphics/pokenav/re
 static const u8 sRegionMapPlayerIcon_MayGfx[] = INCBIN_U8("graphics/pokenav/region_map/may_icon.4bpp");
 
 #include "data/region_map/region_map_layout.h"
+// old MAP_WIDTH * MAP_HEIGHT - new MAP_WIDTH * MAP_HEIGHT
+// not using constants directly since that makes the size a "bad or irreducible absolute expression"
+PADDING(".rodata", (28 * 15) - (14 * 15));
 #include "data/region_map/region_map_entries.h"
 
 static const u16 sRegionMap_SpecialPlaceLocations[][2] =
