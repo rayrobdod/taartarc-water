@@ -1,1 +1,12 @@
 mapscripts Aquarium_Classroom_MapScripts {}
+
+script Aquarium_Classroom_Leader {
+	lockall
+	faceplayer
+	trainerbattle_no_intro(
+		TRAINER_LEADER,
+		"Foiled again.",
+	)
+	releaseall
+	end
+}

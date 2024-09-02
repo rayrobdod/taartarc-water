@@ -293,8 +293,9 @@ static void GivePlayerStartingMon(
 __attribute__((section("added")))
 static void GivePlayerStartingParty(void)
 {
+    int slot = 0;
     GivePlayerStartingMon(
-        0,
+        slot++,
         SPECIES_DRAGONITE,
         50,
         MAPSEC_DRAGONS_DEN,
@@ -303,11 +304,12 @@ static void GivePlayerStartingParty(void)
         MOVE_OUTRAGE,
         MOVE_DRAGON_DANCE,
         MOVE_BARRIER,
-        MOVE_THUNDER_PUNCH
+        MOVE_HYPER_BEAM
     );
 
+    /*
     GivePlayerStartingMon(
-        1,
+        slot++,
         SPECIES_AERODACTYL,
         48,
         MAPSEC_CINNABAR_ISLAND,
@@ -318,9 +320,10 @@ static void GivePlayerStartingParty(void)
         MOVE_STEEL_WING, // MOVE_IRON_HEAD,
         MOVE_HYPER_BEAM // MOVE_GIGA_IMPACT,
     );
+    */
 
     GivePlayerStartingMon(
-        2,
+        slot++,
         SPECIES_CHARIZARD,
         48,
         MAPSEC_CHARICIFIC_VALLEY,
@@ -333,7 +336,7 @@ static void GivePlayerStartingParty(void)
     );
 
     GivePlayerStartingMon(
-        3,
+        slot++,
         SPECIES_GYARADOS,
         48,
         MAPSEC_LAKE_OF_RAGE,
