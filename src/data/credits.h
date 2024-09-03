@@ -1,7 +1,12 @@
 enum
 {
+    BUGFIXES_TITLE,
+    BUGFIXES_OBJECT_EVENT_PALETTE,
+    BUGFIXES_SEED_RTC,
+    RESOURCES_TITLE,
     RESOURCES_CUBE_AQUARIUM,
     RESOURCES_OVERWORLD_LOTAD,
+    RESOURCES_OVERWORLD_CHINCHOU,
     PAGE_TITLE,
     PAGE_DIRECTOR,
     PAGE_ART_DIRECTOR,
@@ -61,13 +66,6 @@ enum
     PAGE_EXECUTIVE_PRODUCERS_2,
     PAGE_COUNT
 };
-
-// TODO: Add to credits: pret bugfixes included:
-
-// 1: FindObjectEventPaletteIndexByTag looks for OBJ_EVENT_PAL_TAG_NONE and not 0x0.
-// If it's looking for a tag that isn't in this table, the game locks in an infinite loop.
-
-// 2: static void SeedRngWithRtc(void);
 
 #define ENTRIES_PER_PAGE 5
 
@@ -395,29 +393,74 @@ static const struct CreditsEntry sCreditsEntry_ErikJohnson                      
 static const struct CreditsEntry sCreditsEntry_Resources = { 0, TRUE, COMPOUND_STRING("Resources")};
 static const struct CreditsEntry sCreditsEntry_LotadOverworldSprite = { 0, TRUE, COMPOUND_STRING("Overworld Lotad Sprite")};
 static const struct CreditsEntry sCreditsEntry_SeelOverworldSprite = { 0, TRUE, COMPOUND_STRING("Overworld Seel Sprite")};
+static const struct CreditsEntry sCreditsEntry_VolbeatOverworldSprite = { 0, TRUE, COMPOUND_STRING("Overworld Volbeat Sprite")};
+static const struct CreditsEntry sCreditsEntry_ChinchouOverworldSprite = { 0, TRUE, COMPOUND_STRING("Overworld Chinchou Sprite")};
 static const struct CreditsEntry sCreditsEntry_FromHeartGoldSoulSilver = { 0, FALSE, COMPOUND_STRING("From HeartGold/SoulSilver")};
-static const struct CreditsEntry sCreditsEntry_CubeAquariumTiles = { 0, TRUE, COMPOUND_STRING("Cube Aquarium Tiles")};
+static const struct CreditsEntry sCreditsEntry_CubeAquariumTiles = { 0, TRUE, COMPOUND_STRING("“aquarium.png”")};
 static const struct CreditsEntry sCreditsEntry_Oomer = { 0, FALSE, COMPOUND_STRING("Oomer")};
-static const struct CreditsEntry sCreditsEntry_taar = { 0, FALSE, COMPOUND_STRING("From Team Aqua's Asset Repository")};
+static const struct CreditsEntry sCreditsEntry_taar1 = { 0, FALSE, COMPOUND_STRING("Retrieved From Team")};
+static const struct CreditsEntry sCreditsEntry_taar2 = { 0, FALSE, COMPOUND_STRING("Aqua's Asset Repository")};
 
+static const struct CreditsEntry sCreditsEntry_PretBugfixes = { 0, TRUE, COMPOUND_STRING("Pret Bugfixes")};
+static const struct CreditsEntry sCreditsEntry_FindObjectEventPaletteIndexByTag_bugfix = { 0, TRUE, COMPOUND_STRING("FindObjectEventPaletteIndexByTag bugfix")};
+static const struct CreditsEntry sCreditsEntry_SeedRngWithRtc_bugfix = { 0, TRUE, COMPOUND_STRING("SeedRngWithRtc bugfix")};
+static const struct CreditsEntry sCreditsEntry_tustin2121 = { 0, FALSE, COMPOUND_STRING("tustin2121")};
+static const struct CreditsEntry sCreditsEntry_GriffinR = { 0, FALSE, COMPOUND_STRING("GriffinRichards")};
+static const struct CreditsEntry sCreditsEntry_ProjectRevoTPP = { 0, FALSE, COMPOUND_STRING("projectrevotpp")};
 
+static const struct CreditsEntry sCreditsEntry_Yoshord = { 0, FALSE, COMPOUND_STRING("yoshord")};
 
 #define _ &sCreditsEntry_EmptyString
 
 __attribute__((section("added_rodata")))
 static const struct CreditsEntry *const sCreditsEntryPointerTable[PAGE_COUNT][ENTRIES_PER_PAGE] =
 {
-    [RESOURCES_CUBE_AQUARIUM] = {
+    [BUGFIXES_TITLE] = {
         _,
+        &sCreditsEntry_PretBugfixes,
+        _,
+        _,
+        _,
+    },
+    [BUGFIXES_OBJECT_EVENT_PALETTE] = {
+        _,
+        &sCreditsEntry_FindObjectEventPaletteIndexByTag_bugfix,
+        &sCreditsEntry_tustin2121,
+        _,
+        _,
+    },
+    [BUGFIXES_SEED_RTC] = {
+        _,
+        &sCreditsEntry_SeedRngWithRtc_bugfix,
+        &sCreditsEntry_ProjectRevoTPP,
+        &sCreditsEntry_GriffinR,
+        _,
+    },
+    [RESOURCES_TITLE] = {
+        _,
+        &sCreditsEntry_Resources,
+        _,
+        _,
+        _,
+    },
+    [RESOURCES_CUBE_AQUARIUM] = {
         &sCreditsEntry_CubeAquariumTiles,
         &sCreditsEntry_Oomer,
-        &sCreditsEntry_taar,
+        &sCreditsEntry_taar1,
+        &sCreditsEntry_taar2,
         _,
     },
     [RESOURCES_OVERWORLD_LOTAD] = {
         _,
         &sCreditsEntry_LotadOverworldSprite,
         &sCreditsEntry_SeelOverworldSprite,
+        &sCreditsEntry_FromHeartGoldSoulSilver,
+        _,
+    },
+    [RESOURCES_OVERWORLD_CHINCHOU] = {
+        _,
+        &sCreditsEntry_ChinchouOverworldSprite,
+        &sCreditsEntry_VolbeatOverworldSprite,
         &sCreditsEntry_FromHeartGoldSoulSilver,
         _,
     },

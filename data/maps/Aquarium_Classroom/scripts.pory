@@ -10,3 +10,12 @@ script Aquarium_Classroom_Leader {
 	releaseall
 	end
 }
+
+script Aquarium_Classroom_DEBUG_PlayCredits {
+	setrespawn(HEAL_LOCATION_STORAGE_ROOM)
+	fadescreenspeed(FADE_TO_BLACK, 24)
+	special(GameClear)
+	waitstate
+	releaseall
+	end
+}

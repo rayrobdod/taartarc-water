@@ -81,7 +81,7 @@ int GameClear(void)
         }
     }
 
-    SetMainCallback2(CB2_DoHallOfFameScreen);
+    SetMainCallback2(CB2_StartCreditsSequence);
     return 0;
 }
 
