@@ -5,6 +5,7 @@ enum
     BUGFIXES_SEED_RTC,
     RESOURCES_TITLE,
     RESOURCES_CUBE_AQUARIUM,
+    RESOURCES_OUTDOOR_TILES,
     RESOURCES_OVERWORLD_LOTAD,
     RESOURCES_OVERWORLD_CHINCHOU,
     PAGE_TITLE,
@@ -400,6 +401,11 @@ static const struct CreditsEntry sCreditsEntry_CubeAquariumTiles = { 0, TRUE, CO
 static const struct CreditsEntry sCreditsEntry_Oomer = { 0, FALSE, COMPOUND_STRING("Oomer")};
 static const struct CreditsEntry sCreditsEntry_taar1 = { 0, FALSE, COMPOUND_STRING("Retrieved From Team")};
 static const struct CreditsEntry sCreditsEntry_taar2 = { 0, FALSE, COMPOUND_STRING("Aqua's Asset Repository")};
+static const struct CreditsEntry sCreditsEntry_OrthographicOutdoorTiles = { 0, TRUE, COMPOUND_STRING("“Orthographic outdoor tiles”")};
+static const struct CreditsEntry sCreditsEntry_OrthographicOutdoorTiles_URL1 = { 0, FALSE, COMPOUND_STRING("<https://opengameart.org/content/")};
+static const struct CreditsEntry sCreditsEntry_OrthographicOutdoorTiles_URL2 = { 0, FALSE, COMPOUND_STRING("orthographic-outdoor-tiles>")};
+static const struct CreditsEntry sCreditsEntry_Buch = { 0, FALSE, COMPOUND_STRING("Buch")};
+
 
 static const struct CreditsEntry sCreditsEntry_PretBugfixes = { 0, TRUE, COMPOUND_STRING("Pret Bugfixes")};
 static const struct CreditsEntry sCreditsEntry_FindObjectEventPaletteIndexByTag_bugfix = { 0, TRUE, COMPOUND_STRING("FindObjectEventPaletteIndexByTag bugfix")};
@@ -448,6 +454,13 @@ static const struct CreditsEntry *const sCreditsEntryPointerTable[PAGE_COUNT][EN
         &sCreditsEntry_Oomer,
         &sCreditsEntry_taar1,
         &sCreditsEntry_taar2,
+        _,
+    },
+    [RESOURCES_OUTDOOR_TILES] = {
+        &sCreditsEntry_OrthographicOutdoorTiles,
+        &sCreditsEntry_Buch,
+        &sCreditsEntry_OrthographicOutdoorTiles_URL1,
+        &sCreditsEntry_OrthographicOutdoorTiles_URL2,
         _,
     },
     [RESOURCES_OVERWORLD_LOTAD] = {

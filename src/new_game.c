@@ -136,7 +136,7 @@ PADDING(".text", 30)
 
 __attribute__((section("newGameInitData"))) static void WarpToAquariumEntrance(void)
 {
-    SetWarpDestination(MAP_GROUP(AQUARIUM_GARDENS), MAP_NUM(AQUARIUM_GARDENS), WARP_ID_NONE, 8, 14);
+    SetWarpDestination(MAP_GROUP(AQUARIUM_GARDENS), MAP_NUM(AQUARIUM_GARDENS), WARP_ID_NONE, 15, 16);
     WarpIntoMap();
 }
 

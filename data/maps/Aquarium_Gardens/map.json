@@ -16,8 +16,8 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_LOTAD_SWIMMING",
-      "x": 15,
-      "y": 6,
+      "x": 22,
+      "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -29,7 +29,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LOTAD",
-      "x": 17,
+      "x": 24,
       "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -42,8 +42,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LOTAD_SWIMMING",
-      "x": 14,
-      "y": 7,
+      "x": 21,
+      "y": 8,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -55,8 +55,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
-      "x": 10,
-      "y": 6,
+      "x": 17,
+      "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -68,8 +68,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GIRL_2",
-      "x": 15,
-      "y": 10,
+      "x": 22,
+      "y": 11,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -82,15 +82,15 @@
   ],
   "warp_events": [
     {
-      "x": 7,
-      "y": 4,
+      "x": 14,
+      "y": 5,
       "elevation": 0,
       "dest_map": "MAP_AQUARIUM_LOBBY",
       "dest_warp_id": "0"
     },
     {
-      "x": 8,
-      "y": 4,
+      "x": 15,
+      "y": 5,
       "elevation": 0,
       "dest_map": "MAP_AQUARIUM_LOBBY",
       "dest_warp_id": "1"
@@ -99,8 +99,8 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 7,
-      "y": 14,
+      "x": 14,
+      "y": 15,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -108,8 +108,8 @@
     },
     {
       "type": "trigger",
-      "x": 8,
-      "y": 14,
+      "x": 15,
+      "y": 15,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
