@@ -74,7 +74,7 @@ $$(patsubst %,$$(TILESET_BUILDDIR)/primary/$(1)/palettes/%.pal,00 01 02 03 04 05
                 &: \
                 $$(filter-out %/assign.cfg,$$(wildcard $$(TILESETGFXDIR)/primary/$(1)/*.*)) \
                 $$(wildcard $$(TILESETGFXDIR)/primary/$(1)/anim/*/*.*)
-	porytiles compile-primary --dual-layer --Wall \
+	porytiles compile-primary --dual-layer --Wall -Wno-color-precision-loss \
 		-o $$(TILESET_BUILDDIR)/primary/$(1) \
 		$$(TILESETGFXDIR)/primary/$(1) \
 		include/constants/metatile_behaviors.h
@@ -90,7 +90,7 @@ $$(patsubst %,$$(TILESET_BUILDDIR)/secondary/$(1)/palettes/%.pal,00 01 02 03 04 
                 $$(wildcard $$(TILESETGFXDIR)/primary/$(2)/*.png) \
                 $$(filter-out %/assign.cfg,$$(wildcard $$(TILESETGFXDIR)/secondary/$(1)/*.*)) \
                 $$(wildcard $$(TILESETGFXDIR)/secondary/$(1)/anim/*/*.*)
-	porytiles compile-secondary --dual-layer --Wall \
+	porytiles compile-secondary --dual-layer --Wall -Wno-color-precision-loss \
 		-o $$(TILESET_BUILDDIR)/secondary/$(1) \
 		$$(TILESETGFXDIR)/secondary/$(1) \
 		$$(TILESETGFXDIR)/primary/$(2) \
