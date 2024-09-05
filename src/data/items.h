@@ -3417,7 +3417,7 @@ const struct Item gItems[] =
 
     [ITEM_ROOM_1_KEY] =
     {
-        .name = _("CLASSROOM KEY"),
+        .name = _("COMMUNITY KEY"),
         .itemId = ITEM_ROOM_1_KEY,
         .price = 0,
         .description = sRoom1KeyDesc,

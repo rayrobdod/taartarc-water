@@ -5,12 +5,48 @@ const OBJ_ID_ATTENDANT = 1
 
 
 mapscripts Aquarium_Lobby_MapScripts {
+	MAP_SCRIPT_ON_LOAD {
+		if (! (flag(FLAG_HIDE_WINDOW_GRUNT) && flag(FLAG_HIDE_BIOLUM_GRUNT))) {
+			// if you don't have the community key yet, 'lock' the room by replacing the
+			// warp tiles with tiles that look the same but don't have the warp behavior
+			setmetatile(0, 6, 0x13, FALSE)
+			setmetatile(0, 7, 0x1B, FALSE)
+		}
+	}
+}
+
+script Aquarium_Lobby_ItsLocked {
+	if (! (flag(FLAG_HIDE_WINDOW_GRUNT) && flag(FLAG_HIDE_BIOLUM_GRUNT))) {
+		msgbox("It's locked.", MSGBOX_SIGN)
+	}
+	end
 }
 
 script Aquarium_Lobby_Attendant {
-	msgbox(
-		format("???"),
-		MSGBOX_NPC)
+	if (! flag(FLAG_HIDE_WINDOW_GRUNT) && ! flag(FLAG_HIDE_BIOLUM_GRUNT)) {
+		msgbox(
+			format(
+				"You'll want to start by getting the community room key back from the grunts.\N"
+				"I know they haven't left yet, so they must still be in here somewhere."
+			),
+			MSGBOX_NPC)
+	}
+	elif (! flag(FLAG_HIDE_WINDOW_GRUNT) || ! flag(FLAG_HIDE_BIOLUM_GRUNT)) {
+		msgbox(
+			format(
+				"There were only two grunts; if one didn't have the key, the other must have it."
+			),
+			MSGBOX_NPC)
+	}
+	else {
+		msgbox(
+			format(
+				"You have the community room key? Great!\N"
+				"Use the machine in the storage room to heal if you need it, "
+				"then go in the community room and kick out the team leader."
+			),
+			MSGBOX_NPC)
+	}
 	end
 }
 
@@ -38,22 +74,38 @@ script Aquarium_Lobby_Briefing_FarRight {
 script(local) Aquarium_Lobby_Briefing_BeforePlayerMove {
 	lockall
 	applymovement(OBJ_ID_ATTENDANT, Common_Movement_FaceLeft)
-	msgbox(format("Hello. Welcome to the Cerulean Aquarium."), MSGBOX_DEFAULT)
+	msgbox(format("Hello."), MSGBOX_DEFAULT)
 	applymovement(OBJ_ID_ATTENDANT, Common_Movement_FaceUp)
 	return
 }
 
 script(local) Aquarium_Lobby_Briefing_AfterPlayerMove {
 	waitmovement(0)
-	msgbox(format("Some of our exhibits are closed due to technical difficulties, however."), MSGBOX_DEFAULT)
+	msgbox(format("Welcome to the Cerulean Aquarium."), MSGBOX_DEFAULT)
 	applymovement(OBJ_ID_ATTENDANT, Common_Movement_FaceLeft)
 	msgbox(
-		format("Oh! Champion Lance! Thank you for coming!\p"
-			"Correct, the 'technical difficulties' are Team Torpedo.\p"
-			"INSERT EXPOSITION HERE\p"
-			"Oh, and take one of these maps."),
+		format("Oh! Champion Lance!\NThank you for coming!\p"
+			"I'm not sure how much you were already told so…\p"
+			"The Team Torpedo leader from the wanted posters showed up "
+			"and demanded to speak to the director.\p"
+			"The leader took the director into the community room at the far side of the lobby "
+			"and the grunts locked them in \N“so they won’t be disturbed”"
+			"and then explicitly told us to not call for help.\p"
+			"The grunts haven't left and should still have the key.\p"
+			"So, get the key back and then save the director."),
+		MSGBOX_DEFAULT)
+	applymovement(OBJ_ID_ATTENDANT, Common_Movement_WalkInPlaceRight)
+	msgbox(
+		format("We do have a healing machine this storage room back here if you need it,"),
+		MSGBOX_DEFAULT)
+	applymovement(OBJ_ID_ATTENDANT, Common_Movement_WalkInPlaceLeft)
+	msgbox(
+		format("and here's a map of the Aquarium."),
 		MSGBOX_DEFAULT)
 	giveitem(ITEM_TOWN_MAP)
+	msgbox(
+		format("Thank you in advance."),
+		MSGBOX_DEFAULT)
 	releaseall
 	setvar(VAR_LOBBY_STATE, 1)
 	end

@@ -1079,7 +1079,7 @@ static const u8 sMeteoriteDesc[] = _(
 static const u8 sRoom1KeyDesc[0x33] = _(
     "A key that opens the\n"
     "door to the\n"
-    "Classroom.");
+    "Community Room.");
 
 static const u8 sRoom2KeyDesc[] = _(
     "A key that opens a\n"
