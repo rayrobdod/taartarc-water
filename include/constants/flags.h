@@ -94,6 +94,7 @@
 // Scripts
 #define FLAG_HIDE_WINDOW_GRUNT              0x68
 #define FLAG_HIDE_BIOLUM_GRUNT              0x2D9
+#define FLAG_HIDE_CLASSROOM_LEADER          0x54
 
 
 #define FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL  0x50
@@ -101,7 +102,6 @@
 #define FLAG_RESCUED_BIRCH                       0x52
 #define FLAG_LEGENDARIES_IN_SOOTOPOLIS           0x53
 
-#define FLAG_UNUSED_0x054                    0x54  // Unused Flag
 #define FLAG_UNUSED_0x055                    0x55  // Unused Flag
 
 #define FLAG_HIDE_CONTEST_POKE_BALL          0x56  // Always set after new game, object it hides is added directly
