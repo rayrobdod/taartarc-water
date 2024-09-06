@@ -151,15 +151,14 @@ script Aquarium_Window_Grunt {
 }
 
 movement Aquarium_Window_Grunt_Flee_North {
-	walk_right
-	walk_down * 5
-	walk_right
+	walk_left
 	walk_down
+	walk_left * 2
+	walk_down * 6
 }
 movement Aquarium_Window_Grunt_Flee_Other {
-	walk_down * 2
-	walk_right
-	walk_down * 3
-	walk_right
 	walk_down
+	walk_left
+	walk_left * 2
+	walk_down * 6
 }

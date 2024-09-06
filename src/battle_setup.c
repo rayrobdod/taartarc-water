@@ -839,11 +839,6 @@ static u8 GetTrainerBattleTransition(void)
         || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_MAGMA_ADMIN)
         return B_TRANSITION_MAGMA;
 
-    if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_TEAM_AQUA
-        || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_AQUA_LEADER
-        || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_AQUA_ADMIN)
-        return B_TRANSITION_AQUA;
-
     if (gTrainers[gTrainerBattleOpponent_A].doubleBattle == TRUE)
         minPartyCount = 2; // double battles always at least have 2 Pokémon.
     else
@@ -858,6 +853,8 @@ static u8 GetTrainerBattleTransition(void)
     else
         return sBattleTransitionTable_Trainer[transitionType][1];
 }
+
+PADDING(".text", 16)
 
 #define RANDOM_TRANSITION(table)(table[Random() % ARRAY_COUNT(table)])
 u8 GetSpecialBattleTransition(s32 id)
