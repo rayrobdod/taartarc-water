@@ -1,6 +1,10 @@
 #ifndef GUARD_METATILE_LABELS_H
 #define GUARD_METATILE_LABELS_H
 
+// gTileset_Gardens
+#define METATILE_Gardens_Door_Left   0x79
+#define METATILE_Gardens_Door_Right  0x6B
+
 // gTileset_BattleArena
 #define METATILE_BattleArena_Door  0x21B
 
