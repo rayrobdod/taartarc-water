@@ -55,3 +55,23 @@ script Aquarium_Gardens_DoSomething {
 	release
 	end
 }
+
+script Aquarium_Gardens_AromaLady {
+	msgbox(
+		format(
+			"Animals are nice, but I do prefer plants."
+		),
+		MSGBOX_NPC)
+	end
+}
+
+script Aquarium_Gardens_Names {
+	msgbox(
+		format(
+			"The last time I was here, a zookeeper showed us some markings differentiating the Lotad.\N"
+			"I can't really see any of the differences from this far away though."
+		),
+		MSGBOX_NPC)
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+	end
+}

@@ -30,7 +30,10 @@ script Aquarium_GiftShop_MarillDoll {
 script Aquarium_GiftShop_LotadDoll {
 	lock
 	msgbox(
-		format(""),
+		format(
+			"The leaf is the same fuzzy material as the body. "
+			"Real Lotad aren't like that, but it makes sense for a doll."
+		),
 		MSGBOX_DEFAULT)
 	release
 	end
@@ -83,8 +86,8 @@ script Aquarium_GiftShop_Clerk {
 	lock
 	msgbox(
 		format(
-			"Do you you wish to buy some useless plastic "
-			"that will end up in a landfill in a year or two?"
+			"Have you selected which useless plastic you would like to purchase "
+			"and then never think about again?"
 		),
 		MSGBOX_NPC)
 	release

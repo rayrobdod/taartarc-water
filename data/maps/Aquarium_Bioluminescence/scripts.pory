@@ -16,17 +16,29 @@ script Aquarium_Bioluminescence_Hypnotized {
 script Aquarium_Bioluminescence_QuestioningVolbeat {
 	msgbox(
 		format(
-			"That Volbeat somewhat fits the exhibit, but I feel like it should not be here."
+			"Volbeat does glow, but I'm not sure whether it is supposed to be here."
 		),
 		MSGBOX_NPC)
 	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
 	end
 }
 
+script Aquarium_Bioluminescence_RedLight {
+	msgbox(
+		format(
+			"Water absorbs red light, making water look blue normally, right?\N"
+			"So, if this room only has red light, does that make inside the water pitch-black?"
+		),
+		MSGBOX_NPC)
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+	end
+}
 
 script Aquarium_Bioluminescence_Volbeat {
 	lockall
 	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	waitse
+	playmoncry(SPECIES_VOLBEAT, CRY_MODE_NORMAL)
 	switch (var(VAR_RESULT)) {
 		case DIR_NORTH:
 			applymovement(VAR_LAST_TALKED, Aquarium_Bioluminescence_Volbeat_North)
