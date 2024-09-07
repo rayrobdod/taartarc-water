@@ -1,9 +1,9 @@
 enum
 {
-    BUGFIXES_TITLE,
+    TAARTARC_TITLE,
+    RESOURCES_TITLE,
     BUGFIXES_OBJECT_EVENT_PALETTE,
     BUGFIXES_SEED_RTC,
-    RESOURCES_TITLE,
     RESOURCES_CUBE_AQUARIUM,
     RESOURCES_OUTDOOR_TILES,
     RESOURCES_OVERWORLD_LOTAD,
@@ -412,8 +412,9 @@ static const struct CreditsEntry sCreditsEntry_FindObjectEventPaletteIndexByTag_
 static const struct CreditsEntry sCreditsEntry_SeedRngWithRtc_bugfix = { 0, TRUE, COMPOUND_STRING("SeedRngWithRtc bugfix")};
 static const struct CreditsEntry sCreditsEntry_tustin2121 = { 0, FALSE, COMPOUND_STRING("tustin2121")};
 static const struct CreditsEntry sCreditsEntry_GriffinR = { 0, FALSE, COMPOUND_STRING("GriffinRichards")};
-static const struct CreditsEntry sCreditsEntry_ProjectRevoTPP = { 0, FALSE, COMPOUND_STRING("projectrevotpp")};
+static const struct CreditsEntry sCreditsEntry_ProjectRevoTPP = { 0, FALSE, COMPOUND_STRING("Revo")};
 
+static const struct CreditsEntry sCreditsEntry_TaartarcVersion = { 0, TRUE, COMPOUND_STRING("AQUARIUM")};
 static const struct CreditsEntry sCreditsEntry_Yoshord = { 0, FALSE, COMPOUND_STRING("yoshord")};
 
 #define _ &sCreditsEntry_EmptyString
@@ -421,9 +422,16 @@ static const struct CreditsEntry sCreditsEntry_Yoshord = { 0, FALSE, COMPOUND_ST
 __attribute__((section("added_rodata")))
 static const struct CreditsEntry *const sCreditsEntryPointerTable[PAGE_COUNT][ENTRIES_PER_PAGE] =
 {
-    [BUGFIXES_TITLE] = {
+    [TAARTARC_TITLE] = {
         _,
-        &sCreditsEntry_PretBugfixes,
+        &sCreditsEntry_TaartarcVersion,
+        _,
+        &sCreditsEntry_Yoshord,
+        _,
+    },
+    [RESOURCES_TITLE] = {
+        _,
+        &sCreditsEntry_Resources,
         _,
         _,
         _,
@@ -440,13 +448,6 @@ static const struct CreditsEntry *const sCreditsEntryPointerTable[PAGE_COUNT][EN
         &sCreditsEntry_SeedRngWithRtc_bugfix,
         &sCreditsEntry_ProjectRevoTPP,
         &sCreditsEntry_GriffinR,
-        _,
-    },
-    [RESOURCES_TITLE] = {
-        _,
-        &sCreditsEntry_Resources,
-        _,
-        _,
         _,
     },
     [RESOURCES_CUBE_AQUARIUM] = {
