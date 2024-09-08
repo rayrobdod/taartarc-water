@@ -6,6 +6,7 @@ enum
     BUGFIXES_SEED_RTC,
     RESOURCES_CUBE_AQUARIUM,
     RESOURCES_OUTDOOR_TILES,
+    RESOURCES_VEGUR,
     RESOURCES_OVERWORLD_LOTAD,
     RESOURCES_OVERWORLD_CHINCHOU,
     PAGE_TITLE,
@@ -405,6 +406,9 @@ static const struct CreditsEntry sCreditsEntry_OrthographicOutdoorTiles = { 0, T
 static const struct CreditsEntry sCreditsEntry_OrthographicOutdoorTiles_URL1 = { 0, FALSE, COMPOUND_STRING("<https://opengameart.org/content/")};
 static const struct CreditsEntry sCreditsEntry_OrthographicOutdoorTiles_URL2 = { 0, FALSE, COMPOUND_STRING("orthographic-outdoor-tiles>")};
 static const struct CreditsEntry sCreditsEntry_Buch = { 0, FALSE, COMPOUND_STRING("Buch")};
+static const struct CreditsEntry sCreditsEntry_Vegur = { 0, TRUE, COMPOUND_STRING("“Vegur”")};
+static const struct CreditsEntry sCreditsEntry_SoraSagano = { 0, FALSE, COMPOUND_STRING("Sora Sagano")};
+static const struct CreditsEntry sCreditsEntry_Vegur_URL = { 0, FALSE, COMPOUND_STRING("<https://dotcolon.net/font/vegur/>")};
 
 
 static const struct CreditsEntry sCreditsEntry_PretBugfixes = { 0, TRUE, COMPOUND_STRING("Pret Bugfixes")};
@@ -462,6 +466,13 @@ static const struct CreditsEntry *const sCreditsEntryPointerTable[PAGE_COUNT][EN
         &sCreditsEntry_Buch,
         &sCreditsEntry_OrthographicOutdoorTiles_URL1,
         &sCreditsEntry_OrthographicOutdoorTiles_URL2,
+        _,
+    },
+    [RESOURCES_VEGUR] = {
+        &sCreditsEntry_Vegur,
+        &sCreditsEntry_SoraSagano,
+        &sCreditsEntry_Vegur_URL,
+        _,
         _,
     },
     [RESOURCES_OVERWORLD_LOTAD] = {

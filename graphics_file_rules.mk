@@ -538,6 +538,19 @@ graphics/birch_speech/unused_beauty.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/pics/pokemon/lotad_reflection.gbapal: $(OBJEVENTGFXDIR)/pics/pokemon/lotad.gbapal
 	./tools/reflection_palette/reflection_palette <$< >$@
 
+AUTO_GEN_TARGETS += graphics/title_screen/cerulean.bin
+
+graphics/title_screen/cerulean.4bpp graphics/title_screen/cerulean.bin graphics/title_screen/cerulean.gbapal: graphics/title_screen/cerulean.png
+	superfamiconv \
+		--mode gba \
+		--color-zero ff00ff \
+		--palette-base-offset 14 \
+		--in-image $< \
+		--out-palette graphics/title_screen/cerulean.gbapal \
+		--out-tiles graphics/title_screen/cerulean.4bpp \
+		--out-map graphics/title_screen/cerulean.bin
+
+
 
 ### Pokémon Storage System ###
 

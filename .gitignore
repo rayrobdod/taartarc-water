@@ -43,3 +43,4 @@ assign.cfg
 *.vcdiff
 
 data/maps/Aquarium_*/scripts.inc
+graphics/title_screen/cerulean.bin

@@ -65,6 +65,14 @@ static const u32 sTitleScreenRayquazaTilemap[] = INCBIN_U32("graphics/title_scre
 static const u32 sTitleScreenLogoShineGfx[] = INCBIN_U32("graphics/title_screen/logo_shine.4bpp.lz");
 static const u32 sTitleScreenCloudsGfx[] = INCBIN_U32("graphics/title_screen/clouds.4bpp.lz");
 
+__attribute__((section("added_rodata")))
+static const u32 sTitleScreenBackgroundPal[] = INCBIN_U32("graphics/title_screen/cerulean.gbapal");
+__attribute__((section("added_rodata")))
+static const u32 sTitleScreenBackgroundGfx[] = INCBIN_U32("graphics/title_screen/cerulean.4bpp.lz");
+__attribute__((section("added_rodata")))
+static const u32 sTitleScreenBackgroundTilemap[] = INCBIN_U32("graphics/title_screen/cerulean.bin.lz");
+
+
 
 
 // Used to blend "Emerald Version" as it passes over over the Pokémon banner.
@@ -600,8 +608,8 @@ void CB2_InitTitleScreen(void)
         LZ77UnCompVram(gTitleScreenPokemonLogoTilemap, (void *)(BG_SCREEN_ADDR(9)));
         LoadPalette(gTitleScreenBgPalettes, BG_PLTT_ID(0), 15 * PLTT_SIZE_4BPP);
         // bg3
-        LZ77UnCompVram(sTitleScreenRayquazaGfx, (void *)(BG_CHAR_ADDR(2)));
-        LZ77UnCompVram(sTitleScreenRayquazaTilemap, (void *)(BG_SCREEN_ADDR(26)));
+        LZ77UnCompVram(sTitleScreenBackgroundGfx, (void *)(BG_CHAR_ADDR(2)));
+        LZ77UnCompVram(sTitleScreenBackgroundTilemap, (void *)(BG_SCREEN_ADDR(26)));
         // bg1
         LZ77UnCompVram(sTitleScreenCloudsGfx, (void *)(BG_CHAR_ADDR(3)));
         LZ77UnCompVram(gTitleScreenCloudsTilemap, (void *)(BG_SCREEN_ADDR(27)));
