@@ -68,6 +68,19 @@ jobs:
           ./install.sh ../
         working-directory: agbcc
 
+      - name: Checkout superfamiconv
+        uses: actions/checkout@v4
+        with:
+          repository: 'Optiroc/SuperFamiconv'
+          ref: 'd56c29263e9c1cffaf81458f7a3531abbcab8471'
+          path: 'superfamiconv'
+
+      - name: Install superfamiconv
+        run: |
+          make
+          echo $(pwd)/build/release >> $GITHUB_PATH
+        working-directory: superfamiconv
+
       - name: Install poryscript
         run: |
           url="https://github.com/huderlem/poryscript/releases/download/3.3.0/poryscript-linux.zip"
