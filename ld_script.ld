@@ -91,6 +91,7 @@ SECTIONS {
         src/main_menu.o(.text);
         src/*.o(added);
         data/*.o(added);
+        src/battle_transition/vertical_folds.o(.text);
     } > ROM =0
 
     text2 0x08031e18 :
