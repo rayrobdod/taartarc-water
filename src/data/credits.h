@@ -1,7 +1,9 @@
 enum
 {
     TAARTARC_TITLE,
+    TAARTARC_YOSHORD,
     RESOURCES_TITLE,
+    RESOURCES_PRET,
     BUGFIXES_OBJECT_EVENT_PALETTE,
     BUGFIXES_SEED_RTC,
     RESOURCES_CUBE_AQUARIUM,
@@ -411,14 +413,15 @@ static const struct CreditsEntry sCreditsEntry_SoraSagano = { 0, FALSE, COMPOUND
 static const struct CreditsEntry sCreditsEntry_Vegur_URL = { 0, FALSE, COMPOUND_STRING("<https://dotcolon.net/font/vegur/>")};
 
 
-static const struct CreditsEntry sCreditsEntry_PretBugfixes = { 0, TRUE, COMPOUND_STRING("Pret Bugfixes")};
+static const struct CreditsEntry sCreditsEntry_Decomp = { 0, TRUE, COMPOUND_STRING("Pokémon Emerald Decompilation")};
+static const struct CreditsEntry sCreditsEntry_Pret = { 0, FALSE, COMPOUND_STRING("Pokémon Reverse-Engineering Team")};
 static const struct CreditsEntry sCreditsEntry_FindObjectEventPaletteIndexByTag_bugfix = { 0, TRUE, COMPOUND_STRING("FindObjectEventPaletteIndexByTag bugfix")};
 static const struct CreditsEntry sCreditsEntry_SeedRngWithRtc_bugfix = { 0, TRUE, COMPOUND_STRING("SeedRngWithRtc bugfix")};
 static const struct CreditsEntry sCreditsEntry_tustin2121 = { 0, FALSE, COMPOUND_STRING("tustin2121")};
 static const struct CreditsEntry sCreditsEntry_GriffinR = { 0, FALSE, COMPOUND_STRING("GriffinRichards")};
 static const struct CreditsEntry sCreditsEntry_ProjectRevoTPP = { 0, FALSE, COMPOUND_STRING("Revo")};
 
-static const struct CreditsEntry sCreditsEntry_TaartarcVersion = { 0, TRUE, COMPOUND_STRING("AQUARIUM")};
+static const struct CreditsEntry sCreditsEntry_TaartarcVersion = { 0, TRUE, COMPOUND_STRING("CERULEAN AQUARIUM")};
 static const struct CreditsEntry sCreditsEntry_Yoshord = { 0, FALSE, COMPOUND_STRING("yoshord")};
 
 #define _ &sCreditsEntry_EmptyString
@@ -429,14 +432,28 @@ static const struct CreditsEntry *const sCreditsEntryPointerTable[PAGE_COUNT][EN
     [TAARTARC_TITLE] = {
         _,
         &sCreditsEntry_TaartarcVersion,
+        &sCreditsEntry_Credits,
+        _,
+        _,
+    },
+    [TAARTARC_YOSHORD] = {
+        _,
         _,
         &sCreditsEntry_Yoshord,
+        _,
         _,
     },
     [RESOURCES_TITLE] = {
         _,
         &sCreditsEntry_Resources,
         _,
+        _,
+        _,
+    },
+    [RESOURCES_PRET] = {
+        _,
+        &sCreditsEntry_Decomp,
+        &sCreditsEntry_Pret,
         _,
         _,
     },

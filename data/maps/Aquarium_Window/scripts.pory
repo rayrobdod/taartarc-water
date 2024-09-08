@@ -118,7 +118,7 @@ script Aquarium_Window_Grunt {
 		MSGBOX_DEFAULT)
 	trainerbattle_no_intro(
 		TRAINER_GRUNT_WINDOW,
-		"Overwhelming",
+		"Overwhelming.",
 	)
 	if (flag(FLAG_HIDE_BIOLUM_GRUNT))
 	{
@@ -153,12 +153,12 @@ script Aquarium_Window_Grunt {
 movement Aquarium_Window_Grunt_Flee_North {
 	walk_left
 	walk_down
-	walk_left * 2
+	walk_left * 3
 	walk_down * 6
 }
 movement Aquarium_Window_Grunt_Flee_Other {
 	walk_down
 	walk_left
-	walk_left * 2
+	walk_left * 3
 	walk_down * 6
 }
