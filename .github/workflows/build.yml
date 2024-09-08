@@ -104,6 +104,12 @@ jobs:
           COMPARE: 0
         run: make -j${nproc} all syms patch
 
+      - name: checksums
+        run: |
+          md5sum taartarcyoshord.gba >> $GITHUB_STEP_SUMMARY || true
+          sha1sum taartarcyoshord.gba >> $GITHUB_STEP_SUMMARY || true
+          sha256sum taartarcyoshord.gba >> $GITHUB_STEP_SUMMARY || true
+
       - name: deltas
         run: |
           diff --unified pokeemerald.sym taartarcyoshord.sym >syms.diff || true
