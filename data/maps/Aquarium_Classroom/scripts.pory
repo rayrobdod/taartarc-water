@@ -55,7 +55,7 @@ script(local) Aquarium_Classroom_FightLeader_AfterPlayerMove {
 		"I was hoping to avoid your attention with a covert operation, "
 		"but I'm not going to back down just because you showed up."))
 	trainerbattle_no_intro(TRAINER_LEADER, "Foiled again.")
-	msgbox(format("Whatever. The Aqueous Orb wasn't that important anyway."))
+	msgbox(format("Fine. We're going. Keep your Aqueous Orb. We can figure out how to advance our plans without that orb."))
 	closemessage
 	applymovement(OBJ_ID_LEADER, Aquarium_Classroom_FightLeader_LeaderFlee)
 	waitmovement(0)
