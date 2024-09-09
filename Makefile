@@ -441,5 +441,5 @@ patch: $(PATCH)
 
 $(PATCH): $(ROM) pokeemerald.gba
 	sha1sum -c pokeemerald.sha1
-	xdelta3 encode -f -s pokeemerald.gba $(ROM) $(PATCH)
+	xdelta3 encode -f -S none -s pokeemerald.gba $(ROM) $(PATCH)
 	ls -l $(PATCH)
