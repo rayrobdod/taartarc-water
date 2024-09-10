@@ -1,5 +1,9 @@
 # Yoshord's Taartarc entry
 
+An evil team has invaded an Aquarium.
+They haven't been too disruptive, aside from taking the director for "a little chat",
+so the aquarium is still operating, but still.
+Go in to the aquarium and kick out the evil team.
 
 ## Resources used
 
