@@ -361,7 +361,14 @@ AUTO_GEN_TARGETS += $(PKNAVREGIONGFXDIR)/map.bin
 AUTO_GEN_TARGETS += $(PKNAVREGIONGFXDIR)/map.tileset.png
 
 $(PKNAVREGIONGFXDIR)/map.8bpp $(PKNAVREGIONGFXDIR)/map.bin $(PKNAVREGIONGFXDIR)/map.tileset.png: $(PKNAVREGIONGFXDIR)/map.png
-	$(IMGTILE) $< -tilemap $(PKNAVREGIONGFXDIR)/map.bin -tileset $(PKNAVREGIONGFXDIR)/map.8bpp -tileset_png $(PKNAVREGIONGFXDIR)/map.tileset.png -affine
+	$(SUPERFAMICONV) \
+		--mode gba_affine \
+		--no-remap \
+		--in-image $< \
+		--out-tiles $(PKNAVREGIONGFXDIR)/map.8bpp \
+		--out-tiles-image $(PKNAVREGIONGFXDIR)/map.tileset.png \
+		--out-map $(PKNAVREGIONGFXDIR)/map.bin
+
 
 $(PKNAVREGIONGFXDIR)/map.gbapal: $(PKNAVREGIONGFXDIR)/map.png
 	$(GFX) $< $@
@@ -541,7 +548,7 @@ $(OBJEVENTGFXDIR)/pics/pokemon/lotad_reflection.gbapal: $(OBJEVENTGFXDIR)/pics/p
 AUTO_GEN_TARGETS += graphics/title_screen/cerulean.bin
 
 graphics/title_screen/cerulean.4bpp graphics/title_screen/cerulean.bin graphics/title_screen/cerulean.gbapal: graphics/title_screen/cerulean.png
-	superfamiconv \
+	$(SUPERFAMICONV) \
 		--mode gba \
 		--color-zero ff00ff \
 		--palette-base-offset 14 \
