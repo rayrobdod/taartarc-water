@@ -5,21 +5,6 @@ const OBJ_ID_ATTENDANT = 1
 
 
 mapscripts Aquarium_Lobby_MapScripts {
-	MAP_SCRIPT_ON_LOAD {
-		if (! (flag(FLAG_HIDE_WINDOW_GRUNT) && flag(FLAG_HIDE_BIOLUM_GRUNT))) {
-			// if you don't have the community key yet, 'lock' the room by replacing the
-			// warp tiles with tiles that look the same but don't have the warp behavior
-			setmetatile(0, 6, 0x13, FALSE)
-			setmetatile(0, 7, 0x1B, FALSE)
-		}
-	}
-}
-
-script Aquarium_Lobby_ItsLocked {
-	if (! (flag(FLAG_HIDE_WINDOW_GRUNT) && flag(FLAG_HIDE_BIOLUM_GRUNT))) {
-		msgbox("It's locked.", MSGBOX_SIGN)
-	}
-	end
 }
 
 script Aquarium_Lobby_Attendant {

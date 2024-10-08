@@ -16,7 +16,7 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_TEALA",
-      "x": 12,
+      "x": 14,
       "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_LEFT",
@@ -30,31 +30,17 @@
   ],
   "warp_events": [
     {
-      "x": 9,
+      "x": 11,
       "y": 11,
       "elevation": 0,
       "dest_map": "MAP_AQUARIUM_GARDENS",
       "dest_warp_id": "0"
     },
     {
-      "x": 10,
+      "x": 12,
       "y": 11,
       "elevation": 0,
       "dest_map": "MAP_AQUARIUM_GARDENS",
-      "dest_warp_id": "1"
-    },
-    {
-      "x": 15,
-      "y": 9,
-      "elevation": 0,
-      "dest_map": "MAP_AQUARIUM_STORAGE_ROOM",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 15,
-      "y": 10,
-      "elevation": 0,
-      "dest_map": "MAP_AQUARIUM_STORAGE_ROOM",
       "dest_warp_id": "1"
     },
     {
@@ -117,39 +103,24 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 9,
-      "y": 9,
-      "elevation": 0,
-      "var": "VAR_LOBBY_STATE",
-      "var_value": "0",
-      "script": "Aquarium_Lobby_Briefing_Right"
-    },
-    {
-      "type": "trigger",
-      "x": 10,
+      "x": 12,
       "y": 9,
       "elevation": 0,
       "var": "VAR_LOBBY_STATE",
       "var_value": "0",
       "script": "Aquarium_Lobby_Briefing_FarRight"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_LOBBY_STATE",
+      "var_value": "0",
+      "script": "Aquarium_Lobby_Briefing_Right"
     }
   ],
   "bg_events": [
-    {
-      "type": "sign",
-      "x": -1,
-      "y": 6,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Aquarium_Lobby_ItsLocked"
-    },
-    {
-      "type": "sign",
-      "x": -1,
-      "y": 7,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Aquarium_Lobby_ItsLocked"
-    }
+
   ]
 }

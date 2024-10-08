@@ -51,7 +51,7 @@ EverGrandeCity_HallOfFame_EventScript_EnterHallOfFame::
 	end
 
 EverGrandeCity_HallOfFame_EventScript_GameClearMale::
-	setrespawn HEAL_LOCATION_STORAGE_ROOM
+	setrespawn HEAL_LOCATION_GARDENS
 	fadescreenspeed FADE_TO_BLACK, 24
 	special GameClear
 	waitstate

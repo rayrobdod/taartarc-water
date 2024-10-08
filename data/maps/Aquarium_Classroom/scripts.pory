@@ -66,7 +66,7 @@ script(local) Aquarium_Classroom_FightLeader_AfterPlayerMove {
 	applymovement(OBJ_ID_DIRECTOR, Aquarium_Classroom_FightLeader_Director_WalkUp)
 	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown)
 	msgbox(format("Thank you for saving us."))
-	setrespawn(HEAL_LOCATION_STORAGE_ROOM)
+	setrespawn(HEAL_LOCATION_GARDENS)
 	fadescreenspeed(FADE_TO_BLACK, 12)
 	special(GameClear)
 	waitstate

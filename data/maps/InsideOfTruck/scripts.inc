@@ -22,7 +22,7 @@ InsideOfTruck_EventScript_SetIntroFlags::
 	end
 
 InsideOfTruck_EventScript_SetIntroFlagsMale::
-	setrespawn HEAL_LOCATION_STORAGE_ROOM
+	setrespawn HEAL_LOCATION_GARDENS
 	setvar VAR_LITTLEROOT_INTRO_STATE, 1
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_MOM
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_TRUCK
