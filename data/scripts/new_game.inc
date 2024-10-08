@@ -113,19 +113,10 @@ EventScript_ResetAllBerries::
 	return
 
 EventScript_ResetAllMapFlags::
-	setflag FLAG_SYS_MAP_GET
 	setflag FLAG_SYS_B_DASH
-	setflag FLAG_BADGE01_GET
-	setflag FLAG_BADGE02_GET
-	setflag FLAG_BADGE03_GET
-	setflag FLAG_BADGE04_GET
-	setflag FLAG_BADGE05_GET
-	setflag FLAG_BADGE06_GET
-	setflag FLAG_BADGE07_GET
-	setflag FLAG_BADGE08_GET
 	call EventScript_ResetAllBerries
 	end
 
-	.rept 447
+	.rept 3 * 158
 	.byte 0
 	.endr

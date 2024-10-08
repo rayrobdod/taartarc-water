@@ -236,13 +236,6 @@ static const struct WindowTemplate sSaveInfoWindowTemplate = {
 // Local functions
 static void BuildStartMenuActions(void);
 static void AddStartMenuAction(u8 action);
-static void BuildNormalStartMenu(void);
-static void BuildSafariZoneStartMenu(void);
-static void BuildLinkModeStartMenu(void);
-static void BuildUnionRoomStartMenu(void);
-static void BuildBattlePikeStartMenu(void);
-static void BuildBattlePyramidStartMenu(void);
-static void BuildMultiPartnerRoomStartMenu(void);
 static void ShowSafariBallsWindow(void);
 static void ShowPyramidFloorWindow(void);
 static void RemoveExtraStartMenuWindows(void);
@@ -266,10 +259,11 @@ static void ShowSaveInfoWindow(void);
 static void RemoveSaveInfoWindow(void);
 static void HideStartMenuWindow(void);
 
-void SetDexPokemonPokenavFlags(void) // unused
+UNUSED
+void SetDexPokemonPokenavFlags(void)
 {
     FlagSet(FLAG_SYS_POKEDEX_GET);
-    FlagSet(FLAG_SYS_POKEMON_GET);
+    FlagSet(FLAG_SYS_CARD_GET);
     FlagSet(FLAG_SYS_MAP_GET);
 }
 
@@ -277,48 +271,36 @@ static void BuildStartMenuActions(void)
 {
     sNumStartMenuActions = 0;
 
-    if (IsOverworldLinkActive() == TRUE)
+    if (FlagGet(FLAG_SYS_CARD_GET) == TRUE)
     {
-        BuildLinkModeStartMenu();
+        AddStartMenuAction(MENU_ACTION_PLAYER);
     }
-    else if (InUnionRoom() == TRUE)
+
+    if (FlagGet(FLAG_SYS_MAP_GET) == TRUE)
     {
-        BuildUnionRoomStartMenu();
+        AddStartMenuAction(MENU_ACTION_MAP);
     }
-    else if (GetSafariZoneFlag() == TRUE)
-    {
-        BuildSafariZoneStartMenu();
-    }
-    else if (InBattlePike())
-    {
-        BuildBattlePikeStartMenu();
-    }
-    else if (InBattlePyramid())
-    {
-        BuildBattlePyramidStartMenu();
-    }
-    else if (InMultiPartnerRoom())
-    {
-        BuildMultiPartnerRoomStartMenu();
-    }
-    else
-    {
-        BuildNormalStartMenu();
-    }
+
+    AddStartMenuAction(MENU_ACTION_SAVE);
+    AddStartMenuAction(MENU_ACTION_OPTION);
+    AddStartMenuAction(MENU_ACTION_EXIT);
 }
+
+PADDING(".text", 32)
 
 static void AddStartMenuAction(u8 action)
 {
     AppendToList(sCurrentStartMenuActions, &sNumStartMenuActions, action);
 }
 
+UNUSED
 static void BuildNormalStartMenu(void)
 {
     if (FlagGet(FLAG_SYS_POKEDEX_GET) == TRUE)
     {
         AddStartMenuAction(MENU_ACTION_POKEDEX);
     }
-    if (FlagGet(FLAG_SYS_POKEMON_GET) == TRUE)
+    if (FlagGet(FLAG_SYS_CARD_GET) == TRUE)
     {
         AddStartMenuAction(MENU_ACTION_POKEMON);
     }
@@ -336,6 +318,7 @@ static void BuildNormalStartMenu(void)
     AddStartMenuAction(MENU_ACTION_EXIT);
 }
 
+UNUSED
 static void BuildSafariZoneStartMenu(void)
 {
     AddStartMenuAction(MENU_ACTION_RETIRE_SAFARI);
@@ -347,6 +330,7 @@ static void BuildSafariZoneStartMenu(void)
     AddStartMenuAction(MENU_ACTION_EXIT);
 }
 
+UNUSED
 static void BuildLinkModeStartMenu(void)
 {
     AddStartMenuAction(MENU_ACTION_POKEMON);
@@ -362,6 +346,7 @@ static void BuildLinkModeStartMenu(void)
     AddStartMenuAction(MENU_ACTION_EXIT);
 }
 
+UNUSED
 static void BuildUnionRoomStartMenu(void)
 {
     AddStartMenuAction(MENU_ACTION_POKEMON);
@@ -377,6 +362,7 @@ static void BuildUnionRoomStartMenu(void)
     AddStartMenuAction(MENU_ACTION_EXIT);
 }
 
+UNUSED
 static void BuildBattlePikeStartMenu(void)
 {
     AddStartMenuAction(MENU_ACTION_POKEDEX);
@@ -386,6 +372,7 @@ static void BuildBattlePikeStartMenu(void)
     AddStartMenuAction(MENU_ACTION_EXIT);
 }
 
+UNUSED
 static void BuildBattlePyramidStartMenu(void)
 {
     AddStartMenuAction(MENU_ACTION_POKEMON);
@@ -397,6 +384,7 @@ static void BuildBattlePyramidStartMenu(void)
     AddStartMenuAction(MENU_ACTION_EXIT);
 }
 
+UNUSED
 static void BuildMultiPartnerRoomStartMenu(void)
 {
     AddStartMenuAction(MENU_ACTION_POKEMON);
