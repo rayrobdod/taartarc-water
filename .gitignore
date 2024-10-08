@@ -19,6 +19,8 @@
 *.fwjpnfont
 sound/**/*.bin
 sound/songs/midi/*.s
+data/maps/Aquarium_*/scripts.inc
+graphics/title_screen/cerulean.bin
 tools/agbcc
 tools/poryscript
 *.map
@@ -41,6 +43,5 @@ assign.cfg
 *.sym
 *.js
 *.vcdiff
-
-data/maps/Aquarium_*/scripts.inc
-graphics/title_screen/cerulean.bin
+/pokeemerald-*.png
+/pokeemerald_modern-*.png
