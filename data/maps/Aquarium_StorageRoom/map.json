@@ -36,21 +36,6 @@
 
   ],
   "bg_events": [
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 2,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "EventScript_StorageRoom_Heal_Left"
-    },
-    {
-      "type": "sign",
-      "x": 2,
-      "y": 2,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "EventScript_StorageRoom_Heal_Right"
-    }
+
   ]
 }

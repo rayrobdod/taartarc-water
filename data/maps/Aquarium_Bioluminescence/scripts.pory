@@ -1,5 +1,3 @@
-const LOCALID_GRUNT = 4
-
 mapscripts Aquarium_Bioluminescence_MapScripts {}
 
 

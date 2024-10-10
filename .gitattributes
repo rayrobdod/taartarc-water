@@ -24,3 +24,6 @@ Makefile text eol=lf
 
 *.h linguist-language=C
 *.inc linguist-language=Assembly
+
+data/maps/map_groups.json filter=mapgroups_retain_connection_order
+# clean = "jq 'setpath([\"connections_include_order\"]; [\"LittlerootTown\", ...])'"

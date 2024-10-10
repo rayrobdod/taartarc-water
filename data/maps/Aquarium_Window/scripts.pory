@@ -1,6 +1,5 @@
 const LOCALID_SEEL_COPYER = 3
 const LOCALID_SEEL_COPYEE = 4
-const LOCALID_GRUNT = 8
 
 mapscripts Aquarium_Window_MapScripts {}
 
