@@ -26,16 +26,13 @@
 #define MAPSEC_UNUSED_78                    0x78
 #define MAPSEC_UNUSED_79                    0x79
 #define MAPSEC_UNUSED_7A                    0x7A
+#define MAPSEC_UNUSED_7B                    0x7B
+#define MAPSEC_UNUSED_7C                    0x7C
+#define MAPSEC_UNUSED_7D                    0x7D
 
 #define AQUARIUM_MAPSEC_START               MAPSEC_LOBBY
 #define AQUARIUM_MAPSEC_END                 MAPSEC_STORAGE_ROOM
 #define AQUARIUM_MAPSEC_COUNT               (AQUARIUM_MAPSEC_END - AQUARIUM_MAPSEC_START + 1)
-
-// met location of starter pokemon
-#define MAPSEC_DRAGONS_DEN                  0x7B
-#define MAPSEC_CHARICIFIC_VALLEY            0x7C
-#define MAPSEC_LAKE_OF_RAGE                 0x7D
-#define MAPSEC_CINNABAR_ISLAND              0x60
 
 // unused hoenn or kanto
 #define MAPSEC_LITTLEROOT_TOWN              0x00
@@ -134,6 +131,7 @@
 #define MAPSEC_VERMILION_CITY               0x5D
 #define MAPSEC_CELADON_CITY                 0x5E
 #define MAPSEC_FUCHSIA_CITY                 0x5F
+#define MAPSEC_CINNABAR_ISLAND              0x60
 #define MAPSEC_INDIGO_PLATEAU               0x61
 #define MAPSEC_SAFFRON_CITY                 0x62
 #define MAPSEC_VIRIDIAN_FOREST              0x7E
