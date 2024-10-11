@@ -91,18 +91,14 @@ SECTIONS {
         data/*.o(added);
         src/battle_transition/vertical_folds.o(.text);
         src/stamp_card.o(.text);
-    } > ROM =0
 
-    text2 0x08031e18 :
-    ALIGN(4)
-    {
+        . = 0x31e18;
+
         src/main_menu.o(text2);
         src/new_game.o(newGameInitData);
-    } > ROM =0
 
-    text3 0x08032654 :
-    ALIGN(4)
-    {
+        . = 0x32654;
+
         src/battle_controllers.o(.text);
         src/decompress.o(.text);
         src/digit_obj_util.o(.text);
@@ -457,6 +453,8 @@ SECTIONS {
     .rodata :
     ALIGN(4)
     {
+        START_RODATA = ABSOLUTE(.);
+
         src/rom_header.o(.rodata);
         src/rom_header_gf.o(.rodata);
         src/main.o(.rodata);
@@ -643,11 +641,9 @@ SECTIONS {
         src/battle_anim_throw.o(.rodata);
         src/hall_of_fame.o(.rodata);
         src/credits.o(.rodata);
-    } > ROM =0
 
-    rodata2 0x85e6f68 :
-    ALIGN(4)
-    {
+        . = 0x85e6f68 - START_RODATA;
+
         src/credits.o(rodata2);
         src/lottery_corner.o(.rodata);
         src/diploma.o(.rodata);
