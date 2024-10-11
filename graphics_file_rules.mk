@@ -23,6 +23,7 @@ POKEDEXGFXDIR := graphics/pokedex
 STARTERGFXDIR := graphics/starter_choose
 NAMINGGFXDIR := graphics/naming_screen
 SPINDAGFXDIR := graphics/pokemon/spinda/spots
+STAMPCARDGFXDIR := graphics/stamp_card
 
 types := normal fight flying poison ground rock bug ghost steel mystery fire water grass electric psychic ice dragon dark
 contest_types := cool beauty cute smart tough
@@ -557,6 +558,62 @@ graphics/title_screen/cerulean.4bpp graphics/title_screen/cerulean.bin graphics/
 		--out-tiles graphics/title_screen/cerulean.4bpp \
 		--out-map graphics/title_screen/cerulean.bin
 
+
+### Stamp Card ###
+
+AUTO_GEN_TARGETS += $(STAMPCARDGFXDIR)/_1.png
+AUTO_GEN_TARGETS += $(patsubst %.png,%.tilemap,$(shell find $(STAMPCARDGFXDIR) -type f -name '*.png'))
+
+$(STAMPCARDGFXDIR)/%.gbapal: $(STAMPCARDGFXDIR)/%.png
+	$(SUPERFAMICONV) palette \
+		--mode gba \
+		--color-zero ff80ff \
+		--in-image $< \
+		--out-data $@
+
+$(STAMPCARDGFXDIR)/_.gbapal: \
+		$(STAMPCARDGFXDIR)/front.gbapal \
+		$(STAMPCARDGFXDIR)/back.gbapal \
+		$(STAMPCARDGFXDIR)/background.gbapal
+	@cat $^ >$@
+
+$(STAMPCARDGFXDIR)/blank.4bpp:
+	dd if=/dev/zero of=$@ bs=32 count=1 status=none
+
+$(STAMPCARDGFXDIR)/%.4bpp: $(STAMPCARDGFXDIR)/%.png $(STAMPCARDGFXDIR)/_.gbapal
+	$(SUPERFAMICONV) tiles \
+		--mode gba \
+		--in-image $< \
+		--in-palette $(STAMPCARDGFXDIR)/_.gbapal \
+		--out-data $@
+
+$(STAMPCARDGFXDIR)/_1.4bpp: \
+		$(STAMPCARDGFXDIR)/blank.4bpp \
+		$(STAMPCARDGFXDIR)/front.4bpp \
+		$(STAMPCARDGFXDIR)/back.4bpp \
+		$(STAMPCARDGFXDIR)/background.4bpp
+	@cat $^ >$@
+
+$(STAMPCARDGFXDIR)/_1.png: $(STAMPCARDGFXDIR)/_1.4bpp
+	$(SUPERFAMICONV) tiles \
+		--mode gba \
+		--in-data $< \
+		--out-image $@
+
+$(STAMPCARDGFXDIR)/_.4bpp: $(STAMPCARDGFXDIR)/_1.png
+	$(SUPERFAMICONV) tiles \
+		--mode gba \
+		--no-remap \
+		--in-image $< \
+		--out-data $@
+
+$(STAMPCARDGFXDIR)/%.tilemap: $(STAMPCARDGFXDIR)/%.png $(STAMPCARDGFXDIR)/_.gbapal $(STAMPCARDGFXDIR)/_.4bpp
+	$(SUPERFAMICONV) map \
+		--mode gba \
+		--in-image $< \
+		--in-palette $(STAMPCARDGFXDIR)/_.gbapal \
+		--in-tiles $(STAMPCARDGFXDIR)/_.4bpp \
+		--out-data $@
 
 
 ### Pokémon Storage System ###

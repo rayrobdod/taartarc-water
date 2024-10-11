@@ -34,6 +34,7 @@
 #include "scanline_effect.h"
 #include "script.h"
 #include "sound.h"
+#include "stamp_card.h"
 #include "start_menu.h"
 #include "strings.h"
 #include "string_util.h"
@@ -54,7 +55,7 @@ enum
     MENU_ACTION_POKEMON,
     MENU_ACTION_BAG,
     MENU_ACTION_MAP,
-    MENU_ACTION_PLAYER,
+    MENU_ACTION_STAMPS,
     MENU_ACTION_SAVE,
     MENU_ACTION_OPTION,
     MENU_ACTION_EXIT,
@@ -95,7 +96,7 @@ static bool8 StartMenuPokedexCallback(void);
 static bool8 StartMenuPokemonCallback(void);
 static bool8 StartMenuBagCallback(void);
 static bool8 StartMenuMapCallback(void);
-static bool8 StartMenuPlayerNameCallback(void);
+static bool8 StartMenuStampsCallback(void);
 static bool8 StartMenuSaveCallback(void);
 static bool8 StartMenuOptionCallback(void);
 static bool8 StartMenuExitCallback(void);
@@ -179,13 +180,16 @@ static const struct WindowTemplate sWindowTemplate_PyramidPeak = {
     .baseBlock = 0x8
 };
 
+__attribute__((section("added_rodata")))
+const u8 sText_MenuStamps[] = _("STAMPS");
+
 static const struct MenuAction sStartMenuItems[] =
 {
     [MENU_ACTION_POKEDEX]         = {gText_MenuPokedex, {.u8_void = StartMenuPokedexCallback}},
     [MENU_ACTION_POKEMON]         = {gText_MenuPokemon, {.u8_void = StartMenuPokemonCallback}},
     [MENU_ACTION_BAG]             = {gText_MenuBag,     {.u8_void = StartMenuBagCallback}},
     [MENU_ACTION_MAP]             = {gText_MenuMap,     {.u8_void = StartMenuMapCallback}},
-    [MENU_ACTION_PLAYER]          = {gText_MenuPlayer,  {.u8_void = StartMenuPlayerNameCallback}},
+    [MENU_ACTION_STAMPS]          = {sText_MenuStamps,  {.u8_void = StartMenuStampsCallback}},
     [MENU_ACTION_SAVE]            = {gText_MenuSave,    {.u8_void = StartMenuSaveCallback}},
     [MENU_ACTION_OPTION]          = {gText_MenuOption,  {.u8_void = StartMenuOptionCallback}},
     [MENU_ACTION_EXIT]            = {gText_MenuExit,    {.u8_void = StartMenuExitCallback}},
@@ -273,7 +277,7 @@ static void BuildStartMenuActions(void)
 
     if (FlagGet(FLAG_SYS_CARD_GET) == TRUE)
     {
-        AddStartMenuAction(MENU_ACTION_PLAYER);
+        AddStartMenuAction(MENU_ACTION_STAMPS);
     }
 
     if (FlagGet(FLAG_SYS_MAP_GET) == TRUE)
@@ -293,105 +297,7 @@ static void AddStartMenuAction(u8 action)
     AppendToList(sCurrentStartMenuActions, &sNumStartMenuActions, action);
 }
 
-UNUSED
-static void BuildNormalStartMenu(void)
-{
-    if (FlagGet(FLAG_SYS_POKEDEX_GET) == TRUE)
-    {
-        AddStartMenuAction(MENU_ACTION_POKEDEX);
-    }
-    if (FlagGet(FLAG_SYS_CARD_GET) == TRUE)
-    {
-        AddStartMenuAction(MENU_ACTION_POKEMON);
-    }
-
-    AddStartMenuAction(MENU_ACTION_BAG);
-
-    if (FlagGet(FLAG_SYS_MAP_GET) == TRUE)
-    {
-        AddStartMenuAction(MENU_ACTION_MAP);
-    }
-
-    AddStartMenuAction(MENU_ACTION_PLAYER);
-    AddStartMenuAction(MENU_ACTION_SAVE);
-    AddStartMenuAction(MENU_ACTION_OPTION);
-    AddStartMenuAction(MENU_ACTION_EXIT);
-}
-
-UNUSED
-static void BuildSafariZoneStartMenu(void)
-{
-    AddStartMenuAction(MENU_ACTION_RETIRE_SAFARI);
-    AddStartMenuAction(MENU_ACTION_POKEDEX);
-    AddStartMenuAction(MENU_ACTION_POKEMON);
-    AddStartMenuAction(MENU_ACTION_BAG);
-    AddStartMenuAction(MENU_ACTION_PLAYER);
-    AddStartMenuAction(MENU_ACTION_OPTION);
-    AddStartMenuAction(MENU_ACTION_EXIT);
-}
-
-UNUSED
-static void BuildLinkModeStartMenu(void)
-{
-    AddStartMenuAction(MENU_ACTION_POKEMON);
-    AddStartMenuAction(MENU_ACTION_BAG);
-
-    if (FlagGet(FLAG_SYS_MAP_GET) == TRUE)
-    {
-        AddStartMenuAction(MENU_ACTION_MAP);
-    }
-
-    AddStartMenuAction(MENU_ACTION_PLAYER_LINK);
-    AddStartMenuAction(MENU_ACTION_OPTION);
-    AddStartMenuAction(MENU_ACTION_EXIT);
-}
-
-UNUSED
-static void BuildUnionRoomStartMenu(void)
-{
-    AddStartMenuAction(MENU_ACTION_POKEMON);
-    AddStartMenuAction(MENU_ACTION_BAG);
-
-    if (FlagGet(FLAG_SYS_MAP_GET) == TRUE)
-    {
-        AddStartMenuAction(MENU_ACTION_MAP);
-    }
-
-    AddStartMenuAction(MENU_ACTION_PLAYER);
-    AddStartMenuAction(MENU_ACTION_OPTION);
-    AddStartMenuAction(MENU_ACTION_EXIT);
-}
-
-UNUSED
-static void BuildBattlePikeStartMenu(void)
-{
-    AddStartMenuAction(MENU_ACTION_POKEDEX);
-    AddStartMenuAction(MENU_ACTION_POKEMON);
-    AddStartMenuAction(MENU_ACTION_PLAYER);
-    AddStartMenuAction(MENU_ACTION_OPTION);
-    AddStartMenuAction(MENU_ACTION_EXIT);
-}
-
-UNUSED
-static void BuildBattlePyramidStartMenu(void)
-{
-    AddStartMenuAction(MENU_ACTION_POKEMON);
-    AddStartMenuAction(MENU_ACTION_PYRAMID_BAG);
-    AddStartMenuAction(MENU_ACTION_PLAYER);
-    AddStartMenuAction(MENU_ACTION_REST_FRONTIER);
-    AddStartMenuAction(MENU_ACTION_RETIRE_FRONTIER);
-    AddStartMenuAction(MENU_ACTION_OPTION);
-    AddStartMenuAction(MENU_ACTION_EXIT);
-}
-
-UNUSED
-static void BuildMultiPartnerRoomStartMenu(void)
-{
-    AddStartMenuAction(MENU_ACTION_POKEMON);
-    AddStartMenuAction(MENU_ACTION_PLAYER);
-    AddStartMenuAction(MENU_ACTION_OPTION);
-    AddStartMenuAction(MENU_ACTION_EXIT);
-}
+PADDING(".text", 0x809f654 - 0x809f4cc)
 
 static void ShowSafariBallsWindow(void)
 {
@@ -440,15 +346,8 @@ static bool32 PrintStartMenuActions(s8 *pIndex, u32 count)
 
     do
     {
-        if (sStartMenuItems[sCurrentStartMenuActions[index]].func.u8_void == StartMenuPlayerNameCallback)
-        {
-            PrintPlayerNameOnWindow(GetStartMenuWindowId(), sStartMenuItems[sCurrentStartMenuActions[index]].text, 8, (index << 4) + 9);
-        }
-        else
-        {
-            StringExpandPlaceholders(gStringVar4, sStartMenuItems[sCurrentStartMenuActions[index]].text);
-            AddTextPrinterParameterized(GetStartMenuWindowId(), FONT_NORMAL, gStringVar4, 8, (index << 4) + 9, TEXT_SKIP_DRAW, NULL);
-        }
+        StringExpandPlaceholders(gStringVar4, sStartMenuItems[sCurrentStartMenuActions[index]].text);
+        AddTextPrinterParameterized(GetStartMenuWindowId(), FONT_NORMAL, gStringVar4, 8, (index << 4) + 9, TEXT_SKIP_DRAW, NULL);
 
         index++;
         if (index >= sNumStartMenuActions)
@@ -464,6 +363,8 @@ static bool32 PrintStartMenuActions(s8 *pIndex, u32 count)
     *pIndex = index;
     return FALSE;
 }
+
+PADDING(".text", 0x48);
 
 static bool32 InitStartMenuStep(void)
 {
@@ -685,7 +586,7 @@ static bool8 StartMenuMapCallback(void)
     return FALSE;
 }
 
-static bool8 StartMenuPlayerNameCallback(void)
+static bool8 StartMenuStampsCallback(void)
 {
     if (!gPaletteFade.active)
     {
@@ -693,18 +594,15 @@ static bool8 StartMenuPlayerNameCallback(void)
         RemoveExtraStartMenuWindows();
         CleanupOverworldWindowsAndTilemaps();
 
-        if (IsOverworldLinkActive() || InUnionRoom())
-            ShowPlayerTrainerCard(CB2_ReturnToFieldWithOpenMenu); // Display trainer card
-        else if (FlagGet(FLAG_SYS_FRONTIER_PASS))
-            ShowFrontierPass(CB2_ReturnToFieldWithOpenMenu); // Display frontier pass
-        else
-            ShowPlayerTrainerCard(CB2_ReturnToFieldWithOpenMenu); // Display trainer card
+        ShowStampCard(CB2_ReturnToFieldWithOpenMenu);
 
         return TRUE;
     }
 
     return FALSE;
 }
+
+PADDING(".text", 0x3c);
 
 static bool8 StartMenuSaveCallback(void)
 {
