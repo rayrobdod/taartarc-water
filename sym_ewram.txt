@@ -61,7 +61,9 @@
 	.include "src/option_menu.o"
 	.include "src/pokedex.o"
 	.include "src/trainer_card.o"
-	.include "src/frontier_pass.o"
+	.include "src/stamp_card.o"
+	.space 0x10
+
 	.include "src/pokemon_storage_system.o"
 	.include "src/script_movement.o"
 	.include "src/fldeff_cut.o"

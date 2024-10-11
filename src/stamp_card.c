@@ -9,7 +9,6 @@
 #include "link.h"
 #include "bg.h"
 #include "sound.h"
-#include "frontier_pass.h"
 #include "overworld.h"
 #include "menu.h"
 #include "text.h"

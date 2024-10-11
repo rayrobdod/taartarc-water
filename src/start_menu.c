@@ -13,7 +13,6 @@
 #include "field_specials.h"
 #include "field_weather.h"
 #include "field_screen_effect.h"
-#include "frontier_pass.h"
 #include "frontier_util.h"
 #include "gpu_regs.h"
 #include "international_string_util.h"

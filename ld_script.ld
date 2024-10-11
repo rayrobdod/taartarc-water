@@ -90,7 +90,6 @@ SECTIONS {
         src/*.o(added);
         data/*.o(added);
         src/battle_transition/vertical_folds.o(.text);
-        src/stamp_card.o(.text);
 
         . = 0x31e18;
 
@@ -166,7 +165,10 @@ SECTIONS {
         src/option_menu.o(.text);
         src/pokedex.o(.text);
         src/trainer_card.o(.text);
-        src/frontier_pass.o(.text);
+        src/stamp_card.o(.text);
+
+        . = 0xc6d80;
+
         src/pokemon_storage_system.o(.text);
         src/pokemon_icon.o(.text);
         src/script_movement.o(.text);
@@ -548,7 +550,9 @@ SECTIONS {
         src/option_menu.o(.rodata);
         src/pokedex.o(.rodata);
         src/trainer_card.o(.rodata);
-        src/frontier_pass.o(.rodata);
+
+        . = 0x85716c0 - START_RODATA;
+
         src/pokemon_storage_system.o(.rodata);
         src/pokemon_icon.o(.rodata);
         src/fldeff_cut.o(.rodata);
