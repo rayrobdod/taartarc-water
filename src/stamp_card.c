@@ -1,28 +1,20 @@
 #include "global.h"
 #include "stamp_card.h"
-#include "scanline_effect.h"
-#include "palette.h"
-#include "task.h"
-#include "main.h"
-#include "window.h"
-#include "malloc.h"
-#include "link.h"
+
 #include "bg.h"
-#include "sound.h"
-#include "overworld.h"
-#include "menu.h"
-#include "text.h"
-#include "event_data.h"
-#include "easy_chat.h"
-#include "money.h"
-#include "strings.h"
-#include "string_util.h"
 #include "gpu_regs.h"
-#include "graphics.h"
+#include "link.h"
+#include "main.h"
+#include "malloc.h"
+#include "menu.h"
+#include "palette.h"
+#include "scanline_effect.h"
+#include "sound.h"
+#include "task.h"
+#include "overworld.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
-// DECL
 enum MainState {
     MAINSTATE_IDLE_FRONT,
     MAINSTATE_WAIT_FLIP_TO_BACK,
@@ -68,10 +60,9 @@ static bool8 Task_PlayCardFlippingSe(struct Task *task);
 static bool8 Task_AnimateCardFlipUp(struct Task *task);
 static bool8 Task_EndCardFlip(struct Task *task);
 
-// EWRAM
+
 EWRAM_DATA static struct StampCardData *sData = NULL;
 
-// RODATA
 
 static const u32 sStampCard_Gfx[] = INCBIN_U32("graphics/stamp_card/_.4bpp.lz");
 static const u16 sStampCard_Pal[] = INCBIN_U16("graphics/stamp_card/_.gbapal");
@@ -142,8 +133,6 @@ static bool8 (*const sTrainerCardFlipTasks[])(struct Task *) =
     Task_EndCardFlip,
 };
 
-
-// TEXT
 
 void ShowStampCard(void (*callback)(void))
 {
