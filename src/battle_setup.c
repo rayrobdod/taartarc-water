@@ -28,7 +28,6 @@
 #include "overworld.h"
 #include "field_weather.h"
 #include "battle_tower.h"
-#include "gym_leader_rematch.h"
 #include "battle_pike.h"
 #include "battle_pyramid.h"
 #include "fldeff.h"
@@ -951,15 +950,15 @@ static void CB2_EndFirstBattle(void)
 
 static void TryUpdateGymLeaderRematchFromWild(void)
 {
-    if (GetGameStat(GAME_STAT_WILD_BATTLES) % 60 == 0)
-        UpdateGymLeaderRematch();
 }
+
+PADDING(".text", 0x18)
 
 static void TryUpdateGymLeaderRematchFromTrainer(void)
 {
-    if (GetGameStat(GAME_STAT_TRAINER_BATTLES) % 20 == 0)
-        UpdateGymLeaderRematch();
 }
+
+PADDING(".text", 0x18)
 
 // why not just use the macros? maybe its because they didnt want to uncast const every time?
 static u32 TrainerBattleLoadArg32(const u8 *ptr)

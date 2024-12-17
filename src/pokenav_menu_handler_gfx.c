@@ -10,7 +10,6 @@
 #include "pokenav.h"
 #include "graphics.h"
 #include "sound.h"
-#include "gym_leader_rematch.h"
 #include "window.h"
 #include "strings.h"
 #include "scanline_effect.h"

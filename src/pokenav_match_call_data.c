@@ -4,7 +4,6 @@
 #include "event_data.h"
 #include "string_util.h"
 #include "battle.h"
-#include "gym_leader_rematch.h"
 #include "match_call.h"
 #include "pokenav.h"
 #include "strings.h"

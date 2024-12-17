@@ -13,7 +13,6 @@
 #include "strings.h"
 #include "recorded_battle.h"
 #include "easy_chat.h"
-#include "gym_leader_rematch.h"
 #include "battle_transition.h"
 #include "trainer_see.h"
 #include "new_game.h"
@@ -1971,8 +1970,6 @@ static void HandleSpecialTrainerBattleEnd(void)
         if (gSaveBlock2Ptr->frontier.battlesCount < 0xFFFFFF)
         {
             gSaveBlock2Ptr->frontier.battlesCount++;
-            if (gSaveBlock2Ptr->frontier.battlesCount % 20 == 0)
-                UpdateGymLeaderRematch();
         }
         else
         {
@@ -1993,6 +1990,8 @@ static void HandleSpecialTrainerBattleEnd(void)
 
     SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
 }
+
+PADDING(".text", 12)
 
 static void Task_StartBattleAfterTransition(u8 taskId)
 {

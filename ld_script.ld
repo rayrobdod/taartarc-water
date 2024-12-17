@@ -350,7 +350,9 @@ SECTIONS {
         src/rayquaza_scene.o(.text);
         src/walda_phrase.o(.text);
         src/contest_link_util.o(.text);
-        src/gym_leader_rematch.o(.text);
+
+        . = 0x1da700;
+
         src/battle_transition/frontier_circles.o(.text);
         src/international_string_util.o(.text);
     } > ROM =0
@@ -714,7 +716,9 @@ SECTIONS {
         src/trainer_hill.o(.rodata);
         src/rayquaza_scene.o(.rodata);
         src/walda_phrase.o(.rodata);
-        src/gym_leader_rematch.o(.rodata);
+
+        . = 0x862ad52 - START_RODATA;
+
         src/battle_transition/frontier_circles.o(.rodata);
         src/text_input_strings.o(.rodata);
         src/fonts.o(.rodata);
